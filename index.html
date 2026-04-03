@@ -175,6 +175,16 @@
       }
   }
 
+  function resumeAudio() {
+      listener.context.resume().then(() => {
+          contextResumed = true;
+          if (ambianceReady && !sound.isPlaying) sound.play();
+      });
+  }
+
+  document.addEventListener('click', resumeAudio, { once: true });
+  document.addEventListener('touchstart', resumeAudio, { once: true });
+
   // ---------- PARTICLES ----------
   const particles = [];
 
