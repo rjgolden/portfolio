@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Cube</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #000; }
+    @font-face { 
+      font-family: 'Retro'; 
+      src: url('retro.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    button { font-family: 'Press Start 2P', 'Retro'; }
+  </style>
+</head>
+
+<body>
+<div style="width:100vw;height:100vh;position:relative;background:#000;overflow:hidden;">
+  <canvas id="c" style="width:100%;height:100%;display:block;"></canvas>
+
+  <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;">
+    <button onclick="setColor('#FFB000'); playBeep();" style="background:#FFB00022;border:1px solid #FFB00088;color:#FFB000;padding:6px 14px;border-radius:20px;">Amber</button>
+    <button onclick="setColor('#33FF33'); playBeep();" style="background:#33FF3322;border:1px solid #33FF3388;color:#33FF33;padding:6px 14px;border-radius:20px;">Green</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  let currentColor = new THREE.Color('#FFB000');
+  let targetColor = new THREE.Color('#FFB000');
+
+  const canvas = document.getElementById('c');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const parent = canvas.parentElement;
+  renderer.setSize(parent.clientWidth, parent.clientHeight);
+  renderer.setClearColor(0x000000, 1);
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(50, parent.clientWidth / parent.clientHeight, 0.1, 100);
+  camera.position.set(2.5, 1.8, 2.5);
+  camera.lookAt(0, 0, 0);
+
+  // ---------- FACE SETUP ----------
+  const labels = ["Home", "About", "Projects", "Contact", "GitHub", "Resume"];
+
+  const faceCanvases = labels.map(label => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 512;
+    canvas.height = 512;
+
+    return {
+      label,
+      canvas,
+      ctx: canvas.getContext("2d"),
+      texture: new THREE.CanvasTexture(canvas)
+    };
+  });
+
+  const materials = faceCanvases.map(f =>
+    new THREE.MeshBasicMaterial({
+      map: f.texture,
+      transparent: true,
+      depthWrite: false
+    })
+  );
+
+  // ---------- DRAW FUNCTION ----------
+  function drawFace(face, color, isActive) {
+    const { canvas, ctx, label, texture } = face;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // background
+    ctx.fillStyle = "rgba(0,0,0,0.65)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    if (isActive) {
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 60;
+
+      // extra glow pass (this is the trick)
+      ctx.fillStyle = color;
+      ctx.globalAlpha = 0.25;
+      ctx.fillText(label, canvas.width / 2, canvas.height / 2);
+      ctx.globalAlpha = 1;
+    } 
+    else {
+      ctx.shadowBlur = 0;
+    }
+
+    ctx.fillStyle = isActive ? color : "#222";
+    ctx.font = "bold 60px 'Press Start 2P'";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    ctx.fillText(label, canvas.width / 2, canvas.height / 2);
+
+    texture.needsUpdate = true;
+  }
+
+  // initial draw
+  faceCanvases.forEach(f => drawFace(f, "#ffaa00", false));
+
+  // ---------- CUBE ----------
+  const geo = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+  const cube = new THREE.Mesh(geo, materials);
+  scene.add(cube);
+
+  // ---------- EDGES ----------
+  const edges = new THREE.LineSegments(
+    new THREE.EdgesGeometry(geo),
+    new THREE.LineBasicMaterial({
+      color: currentColor,
+      depthTest: false
+    })
+  );
+  edges.scale.set(1.001, 1.001, 1.001);
+  scene.add(edges);
+
+  // ---------- LIGHTS ----------
+  const glowLight = new THREE.PointLight(currentColor, 3, 8);
+  glowLight.position.set(1.5, 1.5, 1.5);
+  scene.add(glowLight);
+
+  const glowLight2 = new THREE.PointLight(currentColor, 2, 8);
+  glowLight2.position.set(-1.5, -1.5, -1.5);
+  scene.add(glowLight2);
+
+  // ---------- MUSIC ----------
+  const listener = new THREE.AudioListener();
+  camera.add(listener);
+  const sound = new THREE.Audio(listener);
+  const sound2 = new THREE.Audio(listener);
+  const sound3 = new THREE.Audio(listener);
+  const audioLoader = new THREE.AudioLoader();
+
+  let contextResumed = false;
+  let ambianceReady = false;
+
+  audioLoader.load('ambiance.ogg', function(buffer) {
+      sound.setBuffer(buffer);
+      sound.setLoop(true);
+      sound.setVolume(0.01);
+      ambianceReady = true;
+      if (contextResumed && !sound.isPlaying) sound.play();
+  });
+
+  audioLoader.load('switch.ogg', function(buffer) {
+      sound2.setBuffer(buffer);
+      sound2.setVolume(0.01);
+  });
+
+  audioLoader.load('beep.ogg', function(buffer) {
+      sound3.setBuffer(buffer);
+      sound3.setVolume(0.01);
+  });
+
+  document.addEventListener('click', () => {
+      listener.context.resume().then(() => {
+          contextResumed = true;
+          if (ambianceReady && !sound.isPlaying) sound.play();
+      });
+  }, { once: true });
+
+  function playBeep() {
+      if (sound3.buffer && contextResumed) {
+          if (sound3.isPlaying) sound3.stop();
+          sound3.play();
+      }
+  }
+
+  // ---------- PARTICLES ----------
+  const particles = [];
+
+  for (let i = 0; i < 300; i++) {
+    const size = Math.random() * 0.02 + 0.004;
+    const particleGeo = new THREE.SphereGeometry(size, 3, 3);
+    const mat = new THREE.MeshBasicMaterial({
+      color: currentColor * Math.random(),
+      transparent: true,
+      opacity: Math.random() * 0.5 + 0.05
+    });
+
+    const p = new THREE.Mesh(particleGeo, mat);
+
+    const r = 2.5 + Math.random() * 6;  // much wider spread
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+
+    p.userData = {
+      r,
+      theta,
+      phi,
+      speed: (Math.random() - 0.5) * 0.0008,  // slower drift
+      baseOpacity: Math.random() * 0.4 + 0.05,
+      pulseOffset: Math.random() * Math.PI * 2  // unique pulse per particle
+    };
+
+    scene.add(p);
+    particles.push(p);
+  }
+
+  // ---------- NORMALS ----------
+  const normals = [
+    new THREE.Vector3(1, 0, 0),
+    new THREE.Vector3(-1, 0, 0),
+    new THREE.Vector3(0, 1, 0),
+    new THREE.Vector3(0, -1, 0),
+    new THREE.Vector3(0, 0, 1),
+    new THREE.Vector3(0, 0, -1)
+  ];
+
+  // ---------- INTERACTION ----------
+  let isDragging = false, prevX = 0, prevY = 0;
+  let cubeQuat = new THREE.Quaternion().setFromEuler(
+    new THREE.Euler(0.4, 0.4, 0)
+  );
+
+  canvas.addEventListener('mousedown', e => {
+    isDragging = true;
+    prevX = e.clientX;
+    prevY = e.clientY;
+  });
+
+  canvas.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+
+    const dx = (e.clientX - prevX) / canvas.clientWidth;
+    const dy = (e.clientY - prevY) / canvas.clientHeight;
+
+    const rotSpeed = 2.5;
+
+    // camera basis
+    const right = new THREE.Vector3();
+    const up = new THREE.Vector3();
+    const forward = new THREE.Vector3();
+
+    camera.getWorldDirection(forward);
+    right.crossVectors(forward, camera.up).normalize();
+    up.copy(camera.up).normalize();
+
+    // rotation quaternions
+    const qx = new THREE.Quaternion().setFromAxisAngle(up, dx * rotSpeed);
+    const qy = new THREE.Quaternion().setFromAxisAngle(right, dy * rotSpeed);
+
+    // apply rotation
+    cubeQuat.premultiply(qx).premultiply(qy);
+
+    prevX = e.clientX;
+    prevY = e.clientY;
+  });
+
+  canvas.addEventListener('mouseup', () => isDragging = false);
+  canvas.addEventListener('mouseleave', () => isDragging = false);
+
+  // ---------- KEYBOARD ----------
+  const keys = {
+    ArrowUp: false,
+    ArrowDown: false,
+    ArrowLeft: false,
+    ArrowRight: false
+  };
+
+  window.addEventListener("keydown", e => {
+    if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
+  });
+
+  window.addEventListener("keyup", e => {
+    if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
+  });
+
+  // ---------- COLOR ----------
+  window.setColor = (hex) => targetColor.set(hex);
+
+  // ---------- ANIMATION ----------
+  let t = 0;
+  let lastActive = -1;
+  const frustum = new THREE.Frustum();
+  const projScreenMatrix = new THREE.Matrix4();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    t += 0.01;
+
+    currentColor.lerp(targetColor, 0.05);
+
+    edges.material.color.copy(currentColor);
+    glowLight.color.copy(currentColor);
+    glowLight2.color.copy(currentColor);
+
+    const keySpeed = 0.03;
+
+    const right = new THREE.Vector3();
+    const up = new THREE.Vector3();
+    const forward = new THREE.Vector3();
+
+    camera.getWorldDirection(forward);
+    right.crossVectors(forward, camera.up).normalize();
+    up.copy(camera.up).normalize();
+
+    if (keys.ArrowLeft) {
+      cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(up, -keySpeed));
+    }
+    if (keys.ArrowRight) {
+      cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(up, keySpeed));
+    }
+    if (keys.ArrowUp) {
+      cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(right, -keySpeed));
+    }
+    if (keys.ArrowDown) {
+      cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(right, keySpeed));
+    }
+
+    if (!isDragging) {
+      const idleQ = new THREE.Quaternion().setFromEuler(new THREE.Euler(0.002, 0.005, 0));
+      cubeQuat.multiply(idleQ);
+    }
+
+    cube.quaternion.copy(cubeQuat);
+    edges.quaternion.copy(cubeQuat);
+
+    // ---------- FACE DETECTION ----------
+    const camDir = new THREE.Vector3();
+    camera.getWorldDirection(camDir);
+    camDir.negate();
+
+    let maxDot = -Infinity;
+    let active = 0;
+
+    normals.forEach((n, i) => {
+      const worldNormal = n.clone().applyQuaternion(cube.quaternion);
+      const d = worldNormal.dot(camDir);
+
+      if (d > maxDot) {
+        maxDot = d;
+        active = i;
+      }
+    });
+
+    // ---------- UPDATE TEXT ONLY WHEN NEEDED ----------
+    const activeHex = "#" + currentColor.getHexString();
+
+    faceCanvases.forEach((face, i) => {
+        drawFace(face, activeHex, i === active);
+    });
+
+    if (active !== lastActive) {
+      lastActive = active;
+      if (sound2.buffer) {
+          if (sound2.isPlaying) sound2.stop();
+          sound2.play();
+      }
+    }
+
+    // ---------- PARTICLES ----------
+    particles.forEach(p => {
+    p.userData.theta += p.userData.speed;
+
+    const { r, theta, phi } = p.userData;
+
+    p.position.set(
+        r * Math.sin(phi) * Math.cos(theta),
+        r * Math.sin(phi) * Math.sin(theta),
+        r * Math.cos(phi)
+    );
+
+    // frustum cull
+    projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+    frustum.setFromProjectionMatrix(projScreenMatrix);
+
+    if (!frustum.containsPoint(p.position)) {
+        // respawn at a new random position within view
+        p.userData.theta = Math.random() * Math.PI * 2;
+        p.userData.phi = Math.acos(2 * Math.random() - 1);
+        p.userData.r = 2.5 + Math.random() * 6;
+        p.visible = false;
+    } else {
+        p.visible = true;
+    }
+
+    p.material.color.copy(currentColor);
+    const depthFade = 1 - (r - 2.5) / 8;
+    p.material.opacity = depthFade * (0.3 + 0.4 * Math.abs(Math.sin(t * 0.3 + r)));
+  });
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // ---------- RESIZE ----------
+  window.addEventListener('resize', () => {
+    const w = parent.clientWidth;
+    const h = parent.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+</script>
+</body>
+</html>
