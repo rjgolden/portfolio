@@ -1,0 +1,11 @@
+body { margin: 0; background: #000; }
+
+button { font-family: 'Press Start 2P', 'Retro';
+         cursor: pointer; }
+
+@font-face { 
+    font-family: 'Retro'; 
+    src: url('retro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
