@@ -104,7 +104,8 @@
         p.visible = true;
     }
 
-    p.material.color.copy(currentColor);
+    const intensity = 0.7 + Math.sin(t * 2 + p.userData.pulseOffset) * 0.4;
+    p.material.color.copy(currentColor).multiplyScalar(intensity);
     const depthFade = 1 - (r - 2.5) / 8;
     p.material.opacity = depthFade * (0.3 + 0.4 * Math.abs(Math.sin(t * 0.3 + r)));
   });

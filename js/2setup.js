@@ -54,7 +54,7 @@ if (isActive) {
     ctx.fillStyle = color;
     ctx.globalAlpha = 0.25;
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
-    ctx.globalAlpha = 1;
+    ctx.globalAlpha = 0.75;
 } 
 else {
     ctx.shadowBlur = 0;
