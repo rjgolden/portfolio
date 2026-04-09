@@ -9,3 +9,10 @@ button { font-family: 'Press Start 2P', 'Retro';
     font-weight: normal;
     font-style: normal;
 }
+
+h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
