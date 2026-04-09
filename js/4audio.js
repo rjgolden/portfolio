@@ -12,7 +12,7 @@ let contextResumed = false;
 let ambianceReady = false;
 
 // Load sounds
-audioLoader.load('/audio/ambiance.ogg', function(buffer) {
+audioLoader.load('audio/ambiance.ogg', function(buffer) {
     sound.setBuffer(buffer);
     sound.setLoop(true);
     sound.setVolume(0.01);
@@ -20,12 +20,12 @@ audioLoader.load('/audio/ambiance.ogg', function(buffer) {
     tryPlayAmbiance();
 });
 
-audioLoader.load('/audio/switch.ogg', function(buffer) {
+audioLoader.load('audio/switch.ogg', function(buffer) {
     sound2.setBuffer(buffer);
     sound2.setVolume(0.01);
 });
 
-audioLoader.load('/audio/beep.ogg', function(buffer) {
+audioLoader.load('audio/beep.ogg', function(buffer) {
     sound3.setBuffer(buffer);
     sound3.setVolume(0.02);
 });
