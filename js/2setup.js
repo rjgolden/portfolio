@@ -1,20 +1,9 @@
 // ---------- FACE SETUP ----------
-const labels = ["Home", "About", "Projects", "Contact", "GitHub", "Resume"];
+const labels = ["About", "Skills", "Projects", "Resume", "Contact", "Extra"];
 
 // Raycaster for clicking
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-
-// Define links for each face (in the same order as your `labels` and `normals`)
-const faceLinks = [
-"https://example.com/home",      // +X  (right)
-"https://example.com/about",     // -X  (left)   ← adjust URLs as needed
-"https://example.com/projects",  // +Y  (top)
-"https://example.com/contact",   // -Y  (bottom)
-"https://github.com/rjgolden", // +Z  (front, depending on rotation)
-"https://example.com/resume"     // -Z  (back)
-];
-
 const faceCanvases = labels.map(label => {
 const canvas = document.createElement("canvas");
 canvas.width = 512;

@@ -3,12 +3,12 @@
 const uiLayer = document.getElementById("ui-layer");
 
 const uiScreenSlots = [
-  "slot-right-middle", // Home
-  "slot-left-middle",  // About
-  "slot-right-top",    // Projects
-  "slot-right-bottom", // Contact
-  "slot-left-top",     // GitHub
-  "slot-left-bottom"   // Resume
+  "slot-left-top",  // About
+  "slot-left-middle", // Skills
+  "slot-left-bottom",    // Projects
+  "slot-right-top", // Resume
+  "slot-right-middle",     // Contact
+  "slot-right-bottom"   // Extra
 ];
 
 const openScreens = new Map();

@@ -1,18 +1,18 @@
 const panelData = [
   {
-    title: "Home",
+    title: "About",
     body: `
       <p>Welcome to my portfolio.</p>
       <p>This is the home panel.</p>
     `,
     links: [
-      { label: "Open Home", url: "https://rjgolden.github.io/portfolio/" }
+      { label: "About", url: "https://rjgolden.github.io/portfolio/" }
     ]
   },
   {
-    title: "About",
+    title: "Skills",
     body: `
-      <p>About me text goes here.</p>
+      <p>Technical kills go here</p>
     `,
     links: []
   },
@@ -22,26 +22,7 @@ const panelData = [
       <p>Project info goes here.</p>
     `,
     links: [
-      { label: "GitHub", url: "https://github.com/rjgolden" },
       { label: "Project Demo", url: "https://example.com/demo" }
-    ]
-  },
-  {
-    title: "Contact",
-    body: `
-      <p>Contact info goes here.</p>
-    `,
-    links: [
-      { label: "Email Me", url: "ryanjgolden00@gmail.com" }
-    ]
-  },
-  {
-    title: "GitHub",
-    body: `
-      <p>My GitHub profile.</p>
-    `,
-    links: [
-      { label: "View GitHub", url: "https://github.com/rjgolden" }
     ]
   },
   {
@@ -52,5 +33,21 @@ const panelData = [
     links: [
       { label: "Open Resume", url: "/resume.pdf" }
     ]
+  },
+  {
+    title: "Contact",
+    body: `
+      <p>Get in touch:</p>
+    `,
+    links: [
+      { label: "View GitHub", url: "https://github.com/rjgolden" }
+    ]
+  },
+  {
+    title: "Extra",
+    body: `
+      <p>Extra face</p>
+    `,
+    links: []
   }
 ];
