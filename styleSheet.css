@@ -16,3 +16,139 @@ h1 {
   height: 1px;
   overflow: hidden;
 }
+
+#ui-screen {
+  position: absolute;
+
+  width: 26vmin;
+  height: 26vmin;
+
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #FFB000;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  color: #FFB000;
+  font-family: 'Press Start 2P', 'Retro';
+  font-size: 14px;
+  text-align: center;
+
+  box-sizing: border-box;
+  z-index: 20;
+  box-shadow: 0 0 20px currentColor;
+
+  transform: translate(-50%, -50%);
+}
+
+#ui-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.ui-screen {
+  position: absolute;
+
+  width: 26vmin;
+  height: 26vmin;
+
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #FFB000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #FFB000;
+  font-family: 'Press Start 2P', 'Retro';
+  font-size: 14px;
+  text-align: center;
+
+  box-sizing: border-box;
+  box-shadow: 0 0 10px currentColor;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+}
+
+.ui-screen-content {
+  padding: 18px;
+  line-height: 1.6;
+}
+
+.ui-screen-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+
+  font-family: 'Press Start 2P', 'Retro';
+  font-size: 8px;
+  line-height: 1;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-screen-close:hover {
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* LEFT SIDE */
+.ui-screen.slot-left-top {
+  left: 24%;
+  top: 30%;
+}
+
+.ui-screen.slot-left-middle {
+  left: 18%;
+  top: 50%;
+}
+
+.ui-screen.slot-left-bottom {
+  left: 24%;
+  top: 70%;
+}
+
+/* RIGHT SIDE */
+.ui-screen.slot-right-top {
+  left: 76%;
+  top: 30%;
+}
+
+.ui-screen.slot-right-middle {
+  left: 82%;
+  top: 50%;
+}
+
+.ui-screen.slot-right-bottom {
+  left: 76%;
+  top: 70%;
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ui-screen {
+    width: 34vmin;
+    height: 34vmin;
+  }
+
+  .ui-screen-close {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    top: 6px;
+    right: 6px;
+  }
+}

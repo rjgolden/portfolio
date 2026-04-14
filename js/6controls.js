@@ -78,12 +78,9 @@
     if (intersects.length > 0) {
       const materialIndex = Math.floor(intersects[0].faceIndex / 2);
 
-      if (materialIndex >= 0 && materialIndex < faceLinks.length) {
-        const url = faceLinks[materialIndex];
-        if (url && url !== "https://example.com/") {
-          window.open(url, '_blank');
-          playBeep();
-        }
+      if (materialIndex >= 0 && materialIndex < labels.length) {
+        showUIScreen(materialIndex);
+        playBeep();
       }
     }
   }

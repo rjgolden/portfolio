@@ -110,6 +110,7 @@
     p.material.opacity = depthFade * (0.3 + 0.4 * Math.abs(Math.sin(t * 0.3 + r)));
   });
 
+    updateUIScreen();
     renderer.render(scene, camera);
   }
 

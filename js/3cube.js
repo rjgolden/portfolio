@@ -1,5 +1,5 @@
 // ---------- CUBE ----------
-const geo = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+const geo = new THREE.BoxGeometry(1.3, 1.3, 1.3);
 const cube = new THREE.Mesh(geo, materials);
 scene.add(cube);
 
