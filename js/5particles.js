@@ -1,7 +1,7 @@
 // ---------- PARTICLES ----------
 const particles = [];
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 1500; i++) {
     const size = Math.random() * 0.018 + 0.005;
     const particleGeo = new THREE.SphereGeometry(size, 8, 6);
     const mat = new THREE.MeshBasicMaterial({
@@ -21,9 +21,10 @@ for (let i = 0; i < 1000; i++) {
         r,
         theta,
         phi,
-        speed: (Math.random() - 0.5) * 0.003,  // slower drift
+        speed: (Math.random() - 0.5) * 0.003,   
         baseOpacity: Math.random() * 0.4 + 0.05,
-        pulseOffset: Math.random() * Math.PI * 2  // unique pulse per particle
+        pulseOffset: Math.random() * Math.PI * 2,    
+        parallaxFactor: 1 / r
     };
     // Add this when creating particles (in the init loop)
     p.userData.shadeFactor = 0.6 + Math.random() * 0.8; // 0.6 = darker, 1.4 = brighter

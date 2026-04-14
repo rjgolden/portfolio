@@ -45,6 +45,7 @@ function createUIScreen(faceIndex) {
 
   closeBtn.addEventListener("click", (e) => {
     e.stopPropagation();
+    playBeep();
     hideUIScreen(faceIndex);
   });
 
@@ -68,6 +69,14 @@ function createUIScreen(faceIndex) {
     <div class="ui-panel-body">${data.body}</div>
     <div class="ui-panel-links">${linksHtml}</div>
   `;
+
+    // Add beep to all links
+    const linkElements = content.querySelectorAll(".ui-panel-link");
+        linkElements.forEach(linkEl => {
+        linkEl.addEventListener("click", () => {
+            playBeep();
+        });
+    });
 
   screen.appendChild(closeBtn);
   screen.appendChild(content);

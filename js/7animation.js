@@ -79,36 +79,34 @@
     }
 
     // ---------- PARTICLES ----------
-    particles.forEach(p => {
-    p.userData.theta += p.userData.speed;
-
-    const { r, theta, phi } = p.userData;
-
-    p.position.set(
-        r * Math.sin(phi) * Math.cos(theta),
-        r * Math.sin(phi) * Math.sin(theta),
-        r * Math.cos(phi)
-    );
-
-    // frustum cull
     projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
     frustum.setFromProjectionMatrix(projScreenMatrix);
+    particles.forEach(p => {
+      p.userData.theta += p.userData.speed;
 
-    if (!frustum.containsPoint(p.position)) {
-        // respawn at a new random position within view
-        p.userData.theta = Math.random() * Math.PI * 2;
-        p.userData.phi = Math.acos(2 * Math.random() - 1);
-        p.userData.r = 2.5 + Math.random() * 6;
-        p.visible = false;
-    } else {
-        p.visible = true;
-    }
+      const { r, theta, phi } = p.userData;
 
-    const intensity = 0.7 + Math.sin(t * 2 + p.userData.pulseOffset) * 0.4;
-    p.material.color.copy(currentColor).multiplyScalar(intensity);
-    const depthFade = 1 - (r - 2.5) / 8;
-    p.material.opacity = depthFade * (0.3 + 0.4 * Math.abs(Math.sin(t * 0.3 + r)));
-  });
+      const baseX = r * Math.sin(phi) * Math.cos(theta);
+      const baseY = r * Math.sin(phi) * Math.sin(theta);
+      const baseZ = r * Math.cos(phi);
+
+      // closer particles shift more, farther ones shift less
+      const parallaxX = -camera.position.x * (1 - p.userData.parallaxFactor);
+      const parallaxY = -camera.position.y * (1 - p.userData.parallaxFactor);
+      const parallaxZ = -camera.position.z * (1 - p.userData.parallaxFactor);
+
+      p.position.set(
+        baseX + parallaxX,
+        baseY + parallaxY,
+        baseZ + parallaxZ
+      );
+      p.visible = frustum.containsPoint(p.position);
+
+      const intensity = 0.7 + Math.sin(t * 2 + p.userData.pulseOffset) * 0.4;
+      p.material.color.copy(currentColor).multiplyScalar(intensity);
+      const depthFade = 1 - (r - 2.5) / 8;
+      p.material.opacity = depthFade * (0.3 + 0.4 * Math.abs(Math.sin(t * 0.3 + r)));
+    });
 
     updateAllUIScreenColors();
     renderer.render(scene, camera);
