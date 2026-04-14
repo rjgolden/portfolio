@@ -136,12 +136,14 @@ h1 {
   top: 70%;
 }
 
-
 /* MOBILE */
 @media (max-width: 768px) {
   .ui-screen {
-    width: 34vmin;
-    height: 34vmin;
+    width: 60vw;
+    height: 60vw;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
   }
 
   .ui-screen-close {
@@ -151,4 +153,34 @@ h1 {
     top: 6px;
     right: 6px;
   }
+}
+
+.ui-panel-title {
+  font-size: 10px;
+  margin: 0 0 12px 0;
+}
+
+.ui-panel-body {
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.ui-panel-links {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ui-panel-link {
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid currentColor;
+  padding: 6px 8px;
+  display: inline-block;
+}
+
+.ui-panel-link:hover {
+  background: currentColor;
+  color: #000;
 }

@@ -1,7 +1,7 @@
 // ---------- PARTICLES ----------
 const particles = [];
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 1000; i++) {
     const size = Math.random() * 0.018 + 0.005;
     const particleGeo = new THREE.SphereGeometry(size, 8, 6);
     const mat = new THREE.MeshBasicMaterial({
@@ -21,7 +21,7 @@ for (let i = 0; i < 500; i++) {
         r,
         theta,
         phi,
-        speed: (Math.random() - 0.5) * 0.0008,  // slower drift
+        speed: (Math.random() - 0.5) * 0.003,  // slower drift
         baseOpacity: Math.random() * 0.4 + 0.05,
         pulseOffset: Math.random() * Math.PI * 2  // unique pulse per particle
     };

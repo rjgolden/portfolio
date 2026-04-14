@@ -27,11 +27,11 @@ function updateSingleUIScreenColor(screen) {
   screen.style.color = color;
 }
 
-function updateAllUIScreenColors() {
+window.updateAllUIScreenColors = function() {
   openScreens.forEach(screen => {
     updateSingleUIScreenColor(screen);
   });
-}
+};
 
 function createUIScreen(faceIndex) {
   const screen = document.createElement("div");
@@ -50,7 +50,24 @@ function createUIScreen(faceIndex) {
 
   const content = document.createElement("div");
   content.className = "ui-screen-content";
-  content.textContent = labels[faceIndex] || "UI PANEL";
+
+  const data = panelData[faceIndex] || {
+    title: labels[faceIndex] || "UI PANEL",
+    body: "<p>No content yet.</p>",
+    links: []
+  };
+
+  const linksHtml = data.links.map(link => `
+    <a class="ui-panel-link" href="${link.url}" target="_blank" rel="noopener noreferrer">
+      ${link.label}
+    </a>
+  `).join("");
+
+  content.innerHTML = `
+    <h2 class="ui-panel-title">${data.title}</h2>
+    <div class="ui-panel-body">${data.body}</div>
+    <div class="ui-panel-links">${linksHtml}</div>
+  `;
 
   screen.appendChild(closeBtn);
   screen.appendChild(content);
@@ -87,8 +104,4 @@ window.hideUIScreen = function(faceIndex) {
 window.hideAllUIScreens = function() {
   openScreens.forEach(screen => screen.remove());
   openScreens.clear();
-};
-
-window.updateUIScreen = function() {
-  updateAllUIScreenColors();
 };
