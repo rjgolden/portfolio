@@ -5,6 +5,7 @@ camera.add(listener);
 const sound = new THREE.Audio(listener);      // ambiance
 const sound2 = new THREE.Audio(listener);     // switch
 const sound3 = new THREE.Audio(listener);     // beep
+const sound4 = new THREE.Audio(listener);     // back
 
 const audioLoader = new THREE.AudioLoader();
 
@@ -28,6 +29,11 @@ audioLoader.load('audio/switch.ogg', function(buffer) {
 audioLoader.load('audio/beep.ogg', function(buffer) {
     sound3.setBuffer(buffer);
     sound3.setVolume(0.02);
+});
+
+audioLoader.load('audio/back.ogg', function(buffer) {
+    sound4.setBuffer(buffer);
+    sound4.setVolume(0.03);
 });
 
 // Better resume functions

@@ -10,6 +10,13 @@
 
     currentColor.lerp(targetColor, 0.05);
 
+    camera.position.lerp(cameraTargetPosition, cameraLerpStrength);
+    camera.quaternion.copy(defaultCameraQuaternion);
+
+    if (typeof updateUIPlanePosition === "function") {
+      updateUIPlanePosition();
+    }
+    
     edges.material.color.copy(currentColor);
     glowLight.color.copy(currentColor);
     glowLight2.color.copy(currentColor);
@@ -90,10 +97,11 @@
       const baseY = r * Math.sin(phi) * Math.sin(theta);
       const baseZ = r * Math.cos(phi);
 
-      // closer particles shift more, farther ones shift less
-      const parallaxX = -camera.position.x * (1 - p.userData.parallaxFactor);
-      const parallaxY = -camera.position.y * (1 - p.userData.parallaxFactor);
-      const parallaxZ = -camera.position.z * (1 - p.userData.parallaxFactor);
+      const relativeCam = camera.position.clone().sub(particleOrigin);
+
+      const parallaxX = -relativeCam.x * (1 - p.userData.parallaxFactor);
+      const parallaxY = -relativeCam.y * (1 - p.userData.parallaxFactor);
+      const parallaxZ = -relativeCam.z * (1 - p.userData.parallaxFactor);
 
       p.position.set(
         baseX + parallaxX,
@@ -108,7 +116,9 @@
       p.material.opacity = depthFade * (0.3 + 0.4 * Math.abs(Math.sin(t * 0.3 + r)));
     });
 
-    updateAllUIScreenColors();
+    if (typeof updateAllUIScreenColors === "function") {
+      updateAllUIScreenColors();
+    }
     renderer.render(scene, camera);
   }
 

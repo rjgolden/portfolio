@@ -79,7 +79,9 @@
       const materialIndex = Math.floor(intersects[0].faceIndex / 2);
 
       if (materialIndex >= 0 && materialIndex < labels.length) {
-        showUIScreen(materialIndex);
+        moveCameraToFace(materialIndex);
+        pendingFaceIndex = materialIndex;
+        particleOrigin.copy(cameraTargetPosition);
         playBeep();
       }
     }

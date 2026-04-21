@@ -1,24 +1,13 @@
-// ---------- UI SCREEN ----------
-
 const uiLayer = document.getElementById("ui-layer");
 
-const uiScreenSlots = [
-  "slot-left-top",  // About
-  "slot-left-middle", // Skills
-  "slot-left-bottom",    // Projects
-  "slot-right-top", // Resume
-  "slot-right-middle",     // Contact
-  "slot-right-bottom"   // Extra
-];
+const uiPlane = document.createElement("div");
+uiPlane.className = "ui-plane";
+uiLayer.appendChild(uiPlane);
 
-const openScreens = new Map();
+const uiScreens = new Map();
 
 function getUIColor() {
   return "#" + currentColor.getHexString();
-}
-
-function makeScreenId(faceIndex) {
-  return `ui-screen-${faceIndex}`;
 }
 
 function updateSingleUIScreenColor(screen) {
@@ -27,31 +16,7 @@ function updateSingleUIScreenColor(screen) {
   screen.style.color = color;
 }
 
-window.updateAllUIScreenColors = function() {
-  openScreens.forEach(screen => {
-    updateSingleUIScreenColor(screen);
-  });
-};
-
-function createUIScreen(faceIndex) {
-  const screen = document.createElement("div");
-  screen.className = `ui-screen ${uiScreenSlots[faceIndex] || "slot-right-middle"}`;
-  screen.id = makeScreenId(faceIndex);
-
-  const closeBtn = document.createElement("button");
-  closeBtn.className = "ui-screen-close";
-  closeBtn.type = "button";
-  closeBtn.textContent = "X";
-
-  closeBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    playBeep();
-    hideUIScreen(faceIndex);
-  });
-
-  const content = document.createElement("div");
-  content.className = "ui-screen-content";
-
+function updateUIScreenContent(screen, faceIndex) {
   const data = panelData[faceIndex] || {
     title: labels[faceIndex] || "UI PANEL",
     body: "<p>No content yet.</p>",
@@ -64,53 +29,78 @@ function createUIScreen(faceIndex) {
     </a>
   `).join("");
 
-  content.innerHTML = `
+  screen.querySelector(".ui-screen-content").innerHTML = `
     <h2 class="ui-panel-title">${data.title}</h2>
     <div class="ui-panel-body">${data.body}</div>
     <div class="ui-panel-links">${linksHtml}</div>
   `;
 
-    // Add beep to all links
-    const linkElements = content.querySelectorAll(".ui-panel-link");
-        linkElements.forEach(linkEl => {
-        linkEl.addEventListener("click", () => {
-            playBeep();
-        });
-    });
+  screen.querySelectorAll(".ui-panel-link").forEach(linkEl => {
+    linkEl.addEventListener("click", () => playBeep());
+  });
+}
+
+function createUIScreen(faceIndex, slotClass) {
+  const screen = document.createElement("div");
+  screen.className = `ui-screen ${slotClass}`;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.className = "ui-screen-close";
+  closeBtn.type = "button";
+  closeBtn.textContent = "X";
+
+  closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sound4.play();
+    resetCameraHome();
+  });
+
+  const content = document.createElement("div");
+  content.className = "ui-screen-content";
 
   screen.appendChild(closeBtn);
   screen.appendChild(content);
 
+  updateUIScreenContent(screen, faceIndex);
   updateSingleUIScreenColor(screen);
 
   return screen;
 }
 
-window.showUIScreen = function(faceIndex) {
-  if (faceIndex < 0 || faceIndex >= labels.length) return;
+// layout matches camera destinations
+const slots = [
+  "slot-upper-left",
+  "slot-lower-left",
+  "slot-above",
+  "slot-below",
+  "slot-upper-right",
+  "slot-lower-right"
+];
 
-  const isMobile = window.innerWidth <= 768;
+for (let i = 0; i < labels.length; i++) {
+  const screen = createUIScreen(i, slots[i]);
+  uiPlane.appendChild(screen);
+  uiScreens.set(i, screen);
+}
 
-  if (isMobile) {
-    hideAllUIScreens();
-  }
-
-  if (openScreens.has(faceIndex)) return;
-
-  const screen = createUIScreen(faceIndex);
-  uiLayer.appendChild(screen);
-  openScreens.set(faceIndex, screen);
+window.updateAllUIScreenColors = function() {
+  uiScreens.forEach(screen => updateSingleUIScreenColor(screen));
 };
 
-window.hideUIScreen = function(faceIndex) {
-  const screen = openScreens.get(faceIndex);
-  if (!screen) return;
+// no popup behavior anymore
+window.showUIScreen = function() {};
+window.hideUIScreen = function() {};
+window.hideAllUIScreens = function() {};
 
-  screen.remove();
-  openScreens.delete(faceIndex);
-};
+// call this every frame from 7animation.js
+window.updateUIPlanePosition = function() {
+  const offset = camera.position.clone().sub(defaultCameraPosition);
 
-window.hideAllUIScreens = function() {
-  openScreens.forEach(screen => screen.remove());
-  openScreens.clear();
+  const x = offset.dot(homeRight);
+  const y = offset.dot(homeUp);
+
+  const pxPerUnitX = window.innerWidth / pageDistance;
+  const pxPerUnitY = window.innerHeight / pageDistance;
+
+  uiPlane.style.transform = `translate(${ -x * pxPerUnitX }px, ${ y * pxPerUnitY }px)`;
 };

@@ -1,13 +1,18 @@
-body { margin: 0; background: #000; }
+body {
+  margin: 0;
+  background: #000;
+}
 
-button { font-family: 'Press Start 2P', 'Retro';
-         cursor: pointer; }
+button {
+  font-family: 'Press Start 2P', 'Retro';
+  cursor: pointer;
+}
 
-@font-face { 
-    font-family: 'Retro'; 
-    src: url('retro.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@font-face {
+  font-family: 'Retro';
+  src: url('retro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1 {
@@ -17,65 +22,52 @@ h1 {
   overflow: hidden;
 }
 
-#ui-screen {
-  position: absolute;
-
-  width: 26vmin;
-  height: 26vmin;
-
-  background: rgba(0, 0, 0, 0.85);
-  border: 2px solid #FFB000;
-
-  display: none;
-  justify-content: center;
-  align-items: center;
-
-  color: #FFB000;
-  font-family: 'Press Start 2P', 'Retro';
-  font-size: 14px;
-  text-align: center;
-
-  box-sizing: border-box;
-  z-index: 20;
-  box-shadow: 0 0 20px currentColor;
-
-  transform: translate(-50%, -50%);
-}
-
 #ui-layer {
   position: absolute;
   inset: 0;
-  z-index: 20;
+  z-index: 30;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.ui-plane {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform: translate(0, 0);
 }
 
 .ui-screen {
   position: absolute;
-
-  width: 26vmin;
-  height: 26vmin;
-
-  background: rgba(0, 0, 0, 0.85);
-  border: 2px solid #FFB000;
+  left: 50%;
+  top: 50%;
+  width: min(60vw, 680px);
+  height: min(60vw, 680px);
+  transform: translate(-50%, -50%);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  background: rgba(0, 0, 0, 0.92);
+  border: 2px solid #FFB000;
+  box-shadow: 0 0 12px currentColor;
+
   color: #FFB000;
   font-family: 'Press Start 2P', 'Retro';
   font-size: 14px;
   text-align: center;
-
   box-sizing: border-box;
-  box-shadow: 0 0 10px currentColor;
-  transform: translate(-50%, -50%);
   pointer-events: auto;
 }
 
 .ui-screen-content {
-  padding: 18px;
-  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: 12px;
+  box-sizing: border-box;
 }
 
 .ui-screen-close {
@@ -85,16 +77,12 @@ h1 {
   width: 18px;
   height: 18px;
   padding: 0;
-
   background: transparent;
   border: 1px solid currentColor;
   color: inherit;
-
   font-family: 'Press Start 2P', 'Retro';
   font-size: 8px;
   line-height: 1;
-  cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,65 +92,29 @@ h1 {
   box-shadow: 0 0 8px currentColor;
 }
 
-/* LEFT SIDE */
-.ui-screen.slot-left-top {
-  left: 24%;
-  top: 30%;
-}
-
-.ui-screen.slot-left-middle {
-  left: 18%;
-  top: 50%;
-}
-
-.ui-screen.slot-left-bottom {
-  left: 24%;
-  top: 70%;
-}
-
-/* RIGHT SIDE */
-.ui-screen.slot-right-top {
-  left: 76%;
-  top: 30%;
-}
-
-.ui-screen.slot-right-middle {
-  left: 82%;
-  top: 50%;
-}
-
-.ui-screen.slot-right-bottom {
-  left: 76%;
-  top: 70%;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .ui-screen {
-    width: 60vw;
-    height: 60vw;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%);
-  }
-
-  .ui-screen-close {
-    width: 24px;
-    height: 24px;
-    font-size: 10px;
-    top: 6px;
-    right: 6px;
-  }
-}
-
 .ui-panel-title {
   font-size: 10px;
   margin: 0 0 12px 0;
 }
 
 .ui-panel-body {
-  font-size: 8px;
-  line-height: 1.6;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.resume-preview {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.resume-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .ui-panel-links {
@@ -182,5 +134,27 @@ h1 {
 
 .ui-panel-link:hover {
   background: currentColor;
-  color: #000;
+  color: #b8acac56;
+}
+
+.slot-upper-left  { margin-left: -70.71vw; margin-top: -70.71vh; }
+.slot-lower-left  { margin-left: -70.71vw; margin-top:  70.71vh; }
+.slot-above       { margin-left:    0;    margin-top: -100vh; }
+.slot-below       { margin-left:    0;    margin-top:  100vh; }
+.slot-upper-right { margin-left:  70.71vw; margin-top: -70.71vh; }
+.slot-lower-right { margin-left:  70.71vw; margin-top:  70.71vh; }
+
+@media (max-width: 768px) {
+  .ui-screen {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .ui-screen-close {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    top: 6px;
+    right: 6px;
+  }
 }

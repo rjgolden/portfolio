@@ -28,10 +28,12 @@ const panelData = [
   {
     title: "Resume",
     body: `
-      <p>Resume and experience info.</p>
+      <div class="resume-preview">
+        <img src="../resources/resume.png" alt="Resume preview">
+      </div>
     `,
     links: [
-      { label: "Open Resume", url: "/resume.pdf" }
+      { label: "Open Resume", url: "../resources/resume.pdf" }
     ]
   },
   {
