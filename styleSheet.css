@@ -144,20 +144,19 @@ h1 {
 .slot-upper-right { margin-left:  70.71vw; margin-top: -70.71vh; }
 .slot-lower-right { margin-left:  70.71vw; margin-top:  70.71vh; }
 
-
-/* MOBILE */
 @media (max-width: 768px) {
   .ui-screen {
-    width: 72vw;
-    height: 72vw;
+    width: 78vw;
+    height: 78vw;
   }
 
-  .slot-upper-left  { margin-left: -85vw; margin-top: -85vh; }
-  .slot-lower-left  { margin-left: -85vw; margin-top:  85vh; }
-  .slot-above       { margin-left:    0;   margin-top: -110vh; }
-  .slot-below       { margin-left:    0;   margin-top:  110vh; }
-  .slot-upper-right { margin-left:  85vw; margin-top: -85vh; }
-  .slot-lower-right { margin-left:  85vw; margin-top:  85vh; }
+  /* push destination panels farther apart on mobile */
+  .slot-upper-left  { margin-left: -82vw;  margin-top: -82vh; }
+  .slot-lower-left  { margin-left: -82vw;  margin-top:  82vh; }
+  .slot-above       { margin-left:   0;    margin-top: -118vh; }
+  .slot-below       { margin-left:   0;    margin-top:  118vh; }
+  .slot-upper-right { margin-left:  82vw;  margin-top: -82vh; }
+  .slot-lower-right { margin-left:  82vw;  margin-top:  82vh; }
 
   .ui-screen-close {
     width: 24px;
