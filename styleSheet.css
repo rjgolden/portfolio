@@ -144,6 +144,8 @@ h1 {
 .slot-upper-right { margin-left:  70.71vw; margin-top: -70.71vh; }
 .slot-lower-right { margin-left:  70.71vw; margin-top:  70.71vh; }
 
+
+/* MOBILE */
 @media (max-width: 768px) {
   .ui-screen {
     width: 72vw;
