@@ -146,9 +146,16 @@ h1 {
 
 @media (max-width: 768px) {
   .ui-screen {
-    width: 60vw;
-    height: 60vw;
+    width: 72vw;
+    height: 72vw;
   }
+
+  .slot-upper-left  { margin-left: -85vw; margin-top: -85vh; }
+  .slot-lower-left  { margin-left: -85vw; margin-top:  85vh; }
+  .slot-above       { margin-left:    0;   margin-top: -110vh; }
+  .slot-below       { margin-left:    0;   margin-top:  110vh; }
+  .slot-upper-right { margin-left:  85vw; margin-top: -85vh; }
+  .slot-lower-right { margin-left:  85vw; margin-top:  85vh; }
 
   .ui-screen-close {
     width: 24px;
