@@ -4,7 +4,7 @@ let pendingFaceIndex = null;
 
 const canvas = document.getElementById('c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.2));
 
 const parent = canvas.parentElement;
 renderer.setSize(parent.clientWidth, parent.clientHeight);
