@@ -146,16 +146,16 @@ h1 {
 
 @media (max-width: 768px) {
   .ui-screen {
-    width: 78vw;
-    height: 78vw;
+    width: 58vw;
+    height: 58vw;
   }
 
-  .ui-screen.slot-upper-left  { margin-left: -92vw !important; margin-top: -92vh !important; }
-  .ui-screen.slot-lower-left  { margin-left: -92vw !important; margin-top:  92vh !important; }
-  .ui-screen.slot-above       { margin-left:   0   !important; margin-top: -112vh !important; }
-  .ui-screen.slot-below       { margin-left:   0   !important; margin-top:  112vh !important; }
-  .ui-screen.slot-upper-right { margin-left:  92vw !important; margin-top: -92vh !important; }
-  .ui-screen.slot-lower-right { margin-left:  92vw !important; margin-top:  92vh !important; }
+  .ui-screen.slot-upper-left  { margin-left: -70.71vw !important; margin-top: -70.71vh !important; }
+  .ui-screen.slot-lower-left  { margin-left: -70.71vw !important; margin-top:  70.71vh !important; }
+  .ui-screen.slot-above       { margin-left:   0      !important; margin-top: -100vh    !important; }
+  .ui-screen.slot-below       { margin-left:   0      !important; margin-top:  100vh    !important; }
+  .ui-screen.slot-upper-right { margin-left:  70.71vw !important; margin-top: -70.71vh !important; }
+  .ui-screen.slot-lower-right { margin-left:  70.71vw !important; margin-top:  70.71vh !important; }
 
   .ui-screen-close {
     width: 24px;
