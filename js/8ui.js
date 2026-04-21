@@ -65,7 +65,6 @@ function initColorMenu() {
   });
 
   customBtn.addEventListener("click", () => {
-    picker.click();
     playBeep();
   });
 

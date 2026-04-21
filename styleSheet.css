@@ -178,6 +178,7 @@ h1 {
     font-size: 8px;
   }
 }
+
 .color-fab-wrap {
   position: absolute;
   right: 14px;
@@ -265,6 +266,8 @@ h1 {
 
 #color-picker {
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  opacity: 0.01;
+  overflow: hidden;
 }
