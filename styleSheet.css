@@ -1,3 +1,5 @@
+
+/* Simple CSS */
 body {
   margin: 0;
   background: #000;
@@ -8,13 +10,6 @@ button {
   cursor: pointer;
 }
 
-@font-face {
-  font-family: 'Retro';
-  src: url('retro.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 h1 {
   position: absolute;
   width: 1px;
@@ -22,6 +17,15 @@ h1 {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: 'Retro';
+  src: url('retro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* UI Screen stuff */
 #ui-layer {
   position: absolute;
   inset: 0;
@@ -44,10 +48,6 @@ h1 {
   width: min(60vw, 680px);
   height: min(60vw, 680px);
   transform: translate(-50%, -50%);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   background: rgba(0, 0, 0, 0.92);
   border: 2px solid #FFB000;
@@ -100,15 +100,14 @@ h1 {
 .ui-panel-body {
   flex: 1;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;    
+  overflow-x: hidden;
   display: flex;
+ 
 }
 
 .resume-preview {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: 100%;
 }
 
 .resume-preview img {
@@ -122,14 +121,18 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 }
 
 .ui-panel-link {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   color: inherit;
   text-decoration: none;
   border: 1px solid currentColor;
-  padding: 6px 8px;
-  display: inline-block;
+  padding: 10px 12px;
+  text-align: center;
 }
 
 .ui-panel-link:hover {
@@ -137,6 +140,7 @@ h1 {
   color: #b8acac56;
 }
 
+/* UI Panel placement */
 .slot-upper-left  { margin-left: -70.71vw; margin-top: -70.71vh; }
 .slot-lower-left  { margin-left: -70.71vw; margin-top:  70.71vh; }
 .slot-above       { margin-left:    0;    margin-top: -100vh; }
@@ -144,41 +148,8 @@ h1 {
 .slot-upper-right { margin-left:  70.71vw; margin-top: -70.71vh; }
 .slot-lower-right { margin-left:  70.71vw; margin-top:  70.71vh; }
 
-@media (max-width: 768px) {
-  .ui-screen {
-    width: min(70vw, 400px);
-    height: min(70vw, 400px);
-    font-size: 11px;
-  }
 
-  .ui-screen-close {
-    width: 24px;
-    height: 24px;
-    font-size: 10px;
-    top: 6px;
-    right: 6px;
-  }
-  .slot-upper-left  { margin-left: -90vw; margin-top: -70.71vh; }
-  .slot-lower-left  { margin-left: -90vw; margin-top:  70.71vh; }
-
-  .slot-upper-right { margin-left:  90vw; margin-top: -70.71vh; }
-  .slot-lower-right { margin-left:  90vw; margin-top:  70.71vh; }
-
-   #color-fab {
-    width: 42px;
-    height: 42px;
-  }
-
-  .color-menu {
-    min-width: 150px;
-    bottom: 52px;
-  }
-
-  .color-btn {
-    font-size: 8px;
-  }
-}
-
+/* Color Dropper */
 .color-fab-wrap {
   position: absolute;
   right: 14px;
@@ -271,4 +242,40 @@ h1 {
   height: 1px;
   opacity: 0.01;
   overflow: hidden;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ui-screen {
+    width: min(70vw, 400px);
+    height: min(70vw, 400px);
+    font-size: 11px;
+  }
+
+  .ui-screen-close {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    top: 6px;
+    right: 6px;
+  }
+  .slot-upper-left  { margin-left: -90vw; margin-top: -70.71vh; }
+  .slot-lower-left  { margin-left: -90vw; margin-top:  70.71vh; }
+
+  .slot-upper-right { margin-left:  90vw; margin-top: -70.71vh; }
+  .slot-lower-right { margin-left:  90vw; margin-top:  70.71vh; }
+
+   #color-fab {
+    width: 42px;
+    height: 42px;
+  }
+
+  .color-menu {
+    min-width: 150px;
+    bottom: 52px;
+  }
+
+  .color-btn {
+    font-size: 8px;
+  }
 }

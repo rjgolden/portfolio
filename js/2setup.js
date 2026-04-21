@@ -39,8 +39,6 @@ function drawFace(face, color, isActive) {
     if (isActive) {
         ctx.shadowColor = color;
         ctx.shadowBlur = 60;
-
-        // extra glow pass (this is the trick)
         ctx.fillStyle = color;
         ctx.globalAlpha = 0.25;
         ctx.fillText(label, canvas.width / 2, canvas.height / 2);

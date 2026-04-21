@@ -90,21 +90,37 @@ function updateUIScreenContent(screen, faceIndex) {
     links: []
   };
 
-  const linksHtml = data.links.map(link => `
-    <a class="ui-panel-link" href="${link.url}" target="_blank" rel="noopener noreferrer">
-      ${link.label}
-    </a>
-  `).join("");
+  // Only display html blocks if not blank
+  const titleHtml = data.title && data.title.trim()
+  ? `<h2 class="ui-panel-title">${data.title}</h2>`
+  : "";
+
+  const bodyHtml = data.body && data.body.trim()
+    ? `<div class="ui-panel-body">${data.body}</div>`
+    : "";
+
+  const linksHtml = Array.isArray(data.links) && data.links.length > 0
+    ? `<div class="ui-panel-links">
+        ${data.links.map(link => `
+          <a class="ui-panel-link" href="${link.url}" target="_blank" rel="noopener noreferrer">
+            ${link.label}
+          </a>
+        `).join("")}
+      </div>`
+    : "";
 
   screen.querySelector(".ui-screen-content").innerHTML = `
-    <h2 class="ui-panel-title">${data.title}</h2>
-    <div class="ui-panel-body">${data.body}</div>
-    <div class="ui-panel-links">${linksHtml}</div>
+    ${titleHtml}
+    ${bodyHtml}
+    ${linksHtml}
   `;
 
-  screen.querySelectorAll(".ui-panel-link").forEach(linkEl => {
-    linkEl.addEventListener("click", () => playBeep());
-  });
+  // Only attach listeners if links exist
+  if (linksHtml) {
+    screen.querySelectorAll(".ui-panel-link").forEach(linkEl => {
+      linkEl.addEventListener("click", () => playBeep());
+    });
+  }
 }
 
 function createUIScreen(faceIndex, slotClass) {

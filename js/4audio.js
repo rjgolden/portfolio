@@ -1,4 +1,4 @@
-// ---------- AUDIO SETUP (Improved) ----------
+// ---------- AUDIO SETUP ----------
 const listener = new THREE.AudioListener();
 camera.add(listener);
 
@@ -42,7 +42,6 @@ audioLoader.load('audio/colorSelect.ogg', function(buffer) {
     sound5.setVolume(0.03);
 });
 
-// Better resume functions
 function resumeAudioContext() {
     if (contextResumed) return;
     
@@ -71,7 +70,7 @@ function tryPlayAmbiance() {
 canvas.addEventListener('touchstart', resumeAudioContext, { once: true, passive: true });
 canvas.addEventListener('click', resumeAudioContext, { once: true });
 
-// Optional: Resume again if user interacts with buttons
+// Resume again if user interacts with buttons
 window.playBeep = function() {
   if (sound3.buffer && contextResumed) {
     if (sound3.isPlaying) sound3.stop();

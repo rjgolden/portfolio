@@ -13,7 +13,7 @@ for (let i = 0; i < 1500; i++) {
 
     const p = new THREE.Mesh(particleGeo, mat);
 
-    const r = 2.5 + Math.random() * 6;  // much wider spread
+    const r = 2.5 + Math.random() * 6;  
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos(2 * Math.random() - 1);
 
@@ -26,7 +26,7 @@ for (let i = 0; i < 1500; i++) {
         pulseOffset: Math.random() * Math.PI * 2,    
         parallaxFactor: 1 / r
     };
-    // Add this when creating particles (in the init loop)
+  
     p.userData.shadeFactor = 0.6 + Math.random() * 0.8; // 0.6 = darker, 1.4 = brighter
 
     scene.add(p);

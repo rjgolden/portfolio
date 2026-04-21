@@ -4,7 +4,7 @@ let pendingFaceIndex = null;
 
 const canvas = document.getElementById('c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.2));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
 
 const parent = canvas.parentElement;
 renderer.setSize(parent.clientWidth, parent.clientHeight);
@@ -23,14 +23,11 @@ let particleOrigin = defaultCameraPosition.clone();
 camera.position.copy(defaultCameraPosition);
 camera.lookAt(defaultLookTarget);
 
-// Lock this orientation forever for flat 2D-style scrolling
 const defaultCameraQuaternion = camera.quaternion.clone();
 
 // ---------- CAMERA MOVEMENT ----------
 const cameraTargetPosition = defaultCameraPosition.clone();
 const cameraLerpStrength = 0.08;
-
-// Build the 2D plane axes from the HOME view
 const homeForward = defaultLookTarget.clone().sub(defaultCameraPosition).normalize();
 const homeRight = new THREE.Vector3(1, 0, 0)
   .applyQuaternion(defaultCameraQuaternion)

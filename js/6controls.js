@@ -24,7 +24,6 @@
     const totalDx = e.clientX - mouseDownPos.x;
     const totalDy = e.clientY - mouseDownPos.y;
 
-    // If moved enough → it's a drag
     if (Math.hypot(totalDx, totalDy) > CLICK_THRESHOLD) {
       isDragging = true;
     }
@@ -53,10 +52,9 @@
     prevY = e.clientY;
   });
 
-  // Mouse Up - This is where we decide if it was a click
   canvas.addEventListener('mouseup', (event) => {
     if (!isDragging) {
-      handleCubeClick(event);   // Treat as click
+      handleCubeClick(event);   
     }
     isDragging = false;
   });
@@ -91,7 +89,6 @@
   let isHovering = false;
 
   canvas.addEventListener('mousemove', (e) => {
-    // Only check hover if we're NOT dragging
     if (isDragging) {
       canvas.style.cursor = 'grabbing';
       return;
@@ -115,7 +112,6 @@
     }
   });
 
-  // Update cursor when drag starts
   canvas.addEventListener('mousedown', (e) => {
     if (isHovering) {
       canvas.style.cursor = 'grabbing';
@@ -139,7 +135,7 @@
     prevX = touch.clientX;
     prevY = touch.clientY;
 
-    // Check if touching the cube (for tap later)
+    // Check if touching the cube
     updateHoverFromTouch(touch);
   }, { passive: false });
 
@@ -183,7 +179,7 @@
 
   canvas.addEventListener('touchend', e => {
     if (!isTouchDragging && e.changedTouches.length > 0) {
-      // It was a tap → treat as click
+      // It was a tap, treat as click
       const touch = e.changedTouches[0];
       handleCubeClick(touch);
     }

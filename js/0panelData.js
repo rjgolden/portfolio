@@ -2,23 +2,70 @@ const panelData = [
   {
     title: "About",
     body: `
-      <p>Welcome to my portfolio.</p>
+      <p>Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      Welcome to my portfolio.<br>
+      </p>
     `,
-    links: [
-      { label: "About", url: "https://rjgolden.github.io/portfolio/" }
-    ]
+    links: []
   },
   {
     title: "Skills",
     body: `
-      <p>Technical kills go here</p>
+      <p>Technical skills go here</p>
     `,
     links: []
   },
   {
     title: "Projects",
     body: `
-      <p>Project info goes here.</p>
+      <p>Projects go here.</p>
     `,
     links: [
       { label: "Project Demo", url: "https://example.com/demo" }
@@ -37,11 +84,11 @@ const panelData = [
   },
   {
     title: "Contact",
-    body: `
-      <p>Get in touch:</p>
-    `,
+    body: '',
     links: [
-      { label: "View GitHub", url: "https://github.com/rjgolden" }
+      { label: "Email", url: "mailto:ryanjgolden00@gmail.com" },
+      { label: "GitHub", url: "https://github.com/rjgolden" },
+      { label: "LinkedIn", url: "https://linkedin.com/in/ryangoldencs" }
     ]
   },
   {
