@@ -92,15 +92,17 @@ window.showUIScreen = function() {};
 window.hideUIScreen = function() {};
 window.hideAllUIScreens = function() {};
 
-// call this every frame from 7animation.js
 window.updateUIPlanePosition = function() {
   const offset = camera.position.clone().sub(defaultCameraPosition);
 
   const x = offset.dot(homeRight);
   const y = offset.dot(homeUp);
 
-  const pxPerUnitX = window.innerWidth / pageDistance;
-  const pxPerUnitY = window.innerHeight / pageDistance;
+  const uiWidth = parent.clientWidth;
+  const uiHeight = parent.clientHeight;
+
+  const pxPerUnitX = uiWidth / pageDistance;
+  const pxPerUnitY = uiHeight / pageDistance;
 
   uiPlane.style.transform = `translate(${ -x * pxPerUnitX }px, ${ y * pxPerUnitY }px)`;
 };

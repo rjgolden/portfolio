@@ -40,17 +40,10 @@ const homeUp = new THREE.Vector3(0, 1, 0)
   .applyQuaternion(defaultCameraQuaternion)
   .normalize();
 
-// Equal movement distance from home.
-// Increase/decrease this until the cube is just barely offscreen.
 const pageDistance = 5.0;
-
-// Because diagonal moves cover both x and y, we scale them so ALL moves
-// have the same total travel distance from center.
 const diag = pageDistance / Math.sqrt(2);
 
-// 6 destinations:
-// upper-left, lower-left, above, below, upper-right, lower-right
-const faceViewportOffsets = {
+const faceViewportOffsetsDesktop = {
   0: { x: -diag, y:  diag }, // upper-left
   1: { x: -diag, y: -diag }, // lower-left
   2: { x:  0,    y:  pageDistance }, // above
@@ -59,8 +52,24 @@ const faceViewportOffsets = {
   5: { x:  diag, y: -diag }  // lower-right
 };
 
+// Mobile (only X increased)
+const faceViewportOffsetsMobile = {
+  0: { x: -4.5, y:  diag }, // upper-left
+  1: { x: -4.5, y: -diag }, // lower-left
+  2: { x:  0,   y:  pageDistance }, // above
+  3: { x:  0,   y: -pageDistance }, // below
+  4: { x:  4.5, y:  diag }, // upper-right
+  5: { x:  4.5, y: -diag }  // lower-right
+};
+
 window.moveCameraToFace = function(faceIndex) {
-  const slot = faceViewportOffsets[faceIndex];
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  const offsets = isMobile
+    ? faceViewportOffsetsMobile
+    : faceViewportOffsetsDesktop;
+
+  const slot = offsets[faceIndex];
   if (!slot) return;
 
   cameraTargetPosition.copy(defaultCameraPosition)

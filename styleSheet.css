@@ -146,8 +146,8 @@ h1 {
 
 @media (max-width: 768px) {
   .ui-screen {
-    width: min(90vw, 420px);
-    height: min(90vw, 420px);
+    width: min(70vw, 400px);
+    height: min(70vw, 400px);
     font-size: 11px;
   }
 
@@ -158,11 +158,9 @@ h1 {
     top: 6px;
     right: 6px;
   }
+  .slot-upper-left  { margin-left: -90vw; margin-top: -70.71vh; }
+  .slot-lower-left  { margin-left: -90vw; margin-top:  70.71vh; }
 
-  .slot-upper-left  { margin-left: -150vw; margin-top:  150vh; }  /* y: +diag → down in CSS */
-  .slot-lower-left  { margin-left: -150vw; margin-top: -150vh; } 
-  .slot-above       { margin-left:    0;   margin-top: -100vh; }
-  .slot-below       { margin-left:    0;   margin-top:  100vh; }
-  .slot-upper-right { margin-left:  150vw; margin-top:  150vh; }
-  .slot-lower-right { margin-left:  150vw; margin-top: -150vh; }
+  .slot-upper-right { margin-left:  90vw; margin-top: -70.71vh; }
+  .slot-lower-right { margin-left:  90vw; margin-top:  70.71vh; }
 }
