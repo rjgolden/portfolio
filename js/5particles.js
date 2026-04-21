@@ -1,17 +1,20 @@
 // ---------- PARTICLES ----------
 const particles = [];
 
+const sharedParticleGeo = new THREE.SphereGeometry(1, 8, 6);
+
 for (let i = 0; i < 1500; i++) {
     const size = Math.random() * 0.018 + 0.005;
-    const particleGeo = new THREE.SphereGeometry(size, 8, 6);
+
     const mat = new THREE.MeshBasicMaterial({
-        color: currentColor * Math.random(),
+        color: currentColor.clone().multiplyScalar(Math.random()),
         transparent: true,
         opacity: Math.random() * 0.5 + 0.05,
-        blending: THREE.AdditiveBlending 
+        blending: THREE.AdditiveBlending
     });
 
-    const p = new THREE.Mesh(particleGeo, mat);
+    const p = new THREE.Mesh(sharedParticleGeo, mat);
+    p.scale.setScalar(size);
 
     const r = 2.5 + Math.random() * 6;  
     const theta = Math.random() * Math.PI * 2;
