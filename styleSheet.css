@@ -146,38 +146,9 @@ h1 {
 
 @media (max-width: 768px) {
   .ui-screen {
-    width: 62vw;
-    height: 62vw;
-  }
-
-  .ui-screen.slot-upper-left  {
-    margin-left: -115vw !important;
-    margin-top: -115vh !important;
-  }
-
-  .ui-screen.slot-lower-left  {
-    margin-left: -115vw !important;
-    margin-top: 115vh !important;
-  }
-
-  .ui-screen.slot-above {
-    margin-left: 0 !important;
-    margin-top: -130vh !important;
-  }
-
-  .ui-screen.slot-below {
-    margin-left: 0 !important;
-    margin-top: 130vh !important;
-  }
-
-  .ui-screen.slot-upper-right {
-    margin-left: 115vw !important;
-    margin-top: -115vh !important;
-  }
-
-  .ui-screen.slot-lower-right {
-    margin-left: 115vw !important;
-    margin-top: 115vh !important;
+    width: min(90vw, 420px);
+    height: min(90vw, 420px);
+    font-size: 11px;
   }
 
   .ui-screen-close {
@@ -187,4 +158,11 @@ h1 {
     top: 6px;
     right: 6px;
   }
+
+  .slot-upper-left  { margin-left: -100vw; margin-top: -100vh; }
+  .slot-lower-left  { margin-left: -100vw; margin-top:  100vh; }
+  .slot-above       { margin-left:    0;   margin-top: -100vh; }
+  .slot-below       { margin-left:    0;   margin-top:  100vh; }
+  .slot-upper-right { margin-left:  100vw; margin-top: -100vh; }
+  .slot-lower-right { margin-left:  100vw; margin-top:  100vh; }
 }
