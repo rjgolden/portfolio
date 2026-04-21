@@ -59,13 +59,13 @@ function initColorMenu() {
       setColor(color);
       picker.value = color;
       menu.classList.remove("open");
-      playBeep();
+      sound5.play();
       updateColorMenuTheme();
     });
   });
 
   customBtn.addEventListener("click", () => {
-    playBeep();
+    sound5.play();
   });
 
   picker.addEventListener("input", () => {

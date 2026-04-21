@@ -247,6 +247,7 @@ h1 {
 
 .color-btn:hover {
   box-shadow: 0 0 8px currentColor;
+  cursor: pointer;
 }
 
 .color-btn.amber {

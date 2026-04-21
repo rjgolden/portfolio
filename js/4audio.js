@@ -6,6 +6,7 @@ const sound = new THREE.Audio(listener);      // ambiance
 const sound2 = new THREE.Audio(listener);     // switch
 const sound3 = new THREE.Audio(listener);     // beep
 const sound4 = new THREE.Audio(listener);     // back
+const sound5 = new THREE.Audio(listener);     // color select
 
 const audioLoader = new THREE.AudioLoader();
 
@@ -34,6 +35,11 @@ audioLoader.load('audio/beep.ogg', function(buffer) {
 audioLoader.load('audio/back.ogg', function(buffer) {
     sound4.setBuffer(buffer);
     sound4.setVolume(0.03);
+});
+
+audioLoader.load('audio/colorSelect.ogg', function(buffer) {
+    sound5.setBuffer(buffer);
+    sound5.setVolume(0.03);
 });
 
 // Better resume functions
@@ -67,10 +73,9 @@ canvas.addEventListener('click', resumeAudioContext, { once: true });
 
 // Optional: Resume again if user interacts with buttons
 window.playBeep = function() {
-    if (sound3.buffer && contextResumed) {
-        if (sound3.isPlaying) sound3.stop();
-        sound3.play();
-    } else {
-        resumeAudioContext(); // try to unlock if still suspended
-    }
+  if (sound3.buffer && contextResumed) {
+    if (sound3.isPlaying) sound3.stop();
+    sound3.setPlaybackRate(0.95 + Math.random() * 0.1);
+    sound3.play();
+  }
 };
