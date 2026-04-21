@@ -6,6 +6,9 @@ uiLayer.appendChild(uiPlane);
 
 const uiScreens = new Map();
 
+const colorFab = document.getElementById("color-fab");
+const colorMenu = document.getElementById("color-menu");
+
 function getUIColor() {
   return "#" + currentColor.getHexString();
 }
@@ -14,6 +17,71 @@ function updateSingleUIScreenColor(screen) {
   const color = getUIColor();
   screen.style.borderColor = color;
   screen.style.color = color;
+}
+
+function updateColorMenuTheme() {
+  const color = getUIColor();
+
+  const fab = document.getElementById("color-fab");
+  const menu = document.getElementById("color-menu");
+  const customBtn = document.getElementById("custom-color-btn");
+
+  if (fab) {
+    fab.style.color = color;
+  }
+
+  if (menu) {
+    menu.style.color = color;
+    menu.style.borderColor = color;
+    menu.style.boxShadow = `0 0 14px ${color}`;
+  }
+}
+
+function initColorMenu() {
+  const fab = document.getElementById("color-fab");
+  const menu = document.getElementById("color-menu");
+  const picker = document.getElementById("color-picker");
+  const customBtn = document.getElementById("custom-color-btn");
+  const presetButtons = document.querySelectorAll(".color-btn[data-color]");
+
+  if (!fab || !menu || !picker || !customBtn) return;
+
+  fab.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+    playBeep();
+  });
+
+  presetButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const color = btn.dataset.color;
+      if (!color) return;
+      setColor(color);
+      picker.value = color;
+      menu.classList.remove("open");
+      playBeep();
+      updateColorMenuTheme();
+    });
+  });
+
+  customBtn.addEventListener("click", () => {
+    picker.click();
+    playBeep();
+  });
+
+  picker.addEventListener("input", () => {
+    setColor(picker.value);
+    updateColorMenuTheme();
+  });
+
+  document.addEventListener("click", (e) => {
+    const clickedInside = fab.contains(e.target) || menu.contains(e.target);
+    if (!clickedInside) {
+      menu.classList.remove("open");
+    }
+  });
+
+  updateColorMenuTheme();
 }
 
 function updateUIScreenContent(screen, faceIndex) {
@@ -67,7 +135,6 @@ function createUIScreen(faceIndex, slotClass) {
   return screen;
 }
 
-// layout matches camera destinations
 const slots = [
   "slot-upper-left",
   "slot-lower-left",
@@ -87,7 +154,6 @@ window.updateAllUIScreenColors = function() {
   uiScreens.forEach(screen => updateSingleUIScreenColor(screen));
 };
 
-// no popup behavior anymore
 window.showUIScreen = function() {};
 window.hideUIScreen = function() {};
 window.hideAllUIScreens = function() {};
@@ -106,3 +172,5 @@ window.updateUIPlanePosition = function() {
 
   uiPlane.style.transform = `translate(${ -x * pxPerUnitX }px, ${ y * pxPerUnitY }px)`;
 };
+
+initColorMenu();

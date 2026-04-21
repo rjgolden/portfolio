@@ -13,10 +13,23 @@
     <h1>Ryan Golden - Software Developer</h1>
     <div style="width:100vw;height:100vh;position:relative;background:#000;overflow:hidden;">
         <canvas id="c" style="width:100%;height:100%;display:block;"></canvas>
-        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;">
-            <button onclick="setColor('#FFB000'); playBeep();" style="background:#FFB00022;border:1px solid #FFB00088;color:#FFB000;padding:6px 14px;border-radius:20px;">Amber</button>
-            <button onclick="setColor('#33FF33'); playBeep();" style="background:#33FF3322;border:1px solid #33FF3388;color:#33FF33;padding:6px 14px;border-radius:20px;">Green</button>
+        
+        <div class="color-fab-wrap">
+            <button id="color-fab" type="button" aria-label="Open color controls">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C9.2 5.2 5 9.3 5 13.4A7 7 0 0 0 19 13.4C19 9.3 14.8 5.2 12 2Z" />
+                <circle cx="9" cy="15" r="1.2" />
+                </svg>
+            </button>
+
+            <div id="color-menu" class="color-menu">
+                <button type="button" class="color-btn amber" data-color="#FFB000">Amber</button>
+                <button type="button" class="color-btn green" data-color="#33FF33">Green</button>
+                <button type="button" class="color-btn custom" id="custom-color-btn">Custom</button>
+                <input id="color-picker" type="color" value="#ffb000" aria-label="Choose custom color" />
+            </div>
         </div>
+
         <div id="ui-layer"></div>
     </div>
 

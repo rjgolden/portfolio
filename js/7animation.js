@@ -119,6 +119,9 @@
     if (typeof updateAllUIScreenColors === "function") {
       updateAllUIScreenColors();
     }
+    if (typeof updateColorMenuTheme === "function") {
+      updateColorMenuTheme();
+    }
     renderer.render(scene, camera);
   }
 
