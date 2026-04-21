@@ -159,10 +159,10 @@ h1 {
     right: 6px;
   }
 
-  .slot-upper-left  { margin-left: -150vw; margin-top: -150vh; }
-  .slot-lower-left  { margin-left: -150vw; margin-top:  150vh; }
+  .slot-upper-left  { margin-left: -150vw; margin-top:  150vh; }  /* y: +diag → down in CSS */
+  .slot-lower-left  { margin-left: -150vw; margin-top: -150vh; } 
   .slot-above       { margin-left:    0;   margin-top: -100vh; }
   .slot-below       { margin-left:    0;   margin-top:  100vh; }
-  .slot-upper-right { margin-left:  150vw; margin-top: -150vh; }
-  .slot-lower-right { margin-left:  150vw; margin-top:  150vh; }
+  .slot-upper-right { margin-left:  150vw; margin-top:  150vh; }
+  .slot-lower-right { margin-left:  150vw; margin-top: -150vh; }
 }
