@@ -3,7 +3,6 @@ const panelData = [
     title: "About",
     body: `
       <p>Welcome to my portfolio.</p>
-      <p>This is the home panel.</p>
     `,
     links: [
       { label: "About", url: "https://rjgolden.github.io/portfolio/" }

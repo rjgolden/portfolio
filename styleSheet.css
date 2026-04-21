@@ -150,13 +150,13 @@ h1 {
     height: 78vw;
   }
 
-  /* push destination panels farther apart on mobile */
-  .slot-upper-left  { margin-left: -82vw;  margin-top: -82vh; }
-  .slot-lower-left  { margin-left: -82vw;  margin-top:  82vh; }
-  .slot-above       { margin-left:   0;    margin-top: -118vh; }
-  .slot-below       { margin-left:   0;    margin-top:  118vh; }
-  .slot-upper-right { margin-left:  82vw;  margin-top: -82vh; }
-  .slot-lower-right { margin-left:  82vw;  margin-top:  82vh; }
+  /* keep panels fully offscreen until reached */
+  .slot-upper-left  { margin-left: -92vw; margin-top: -92vh; }
+  .slot-lower-left  { margin-left: -92vw; margin-top:  92vh; }
+  .slot-above       { margin-left:   0;   margin-top: -112vh; }
+  .slot-below       { margin-left:   0;   margin-top:  112vh; }
+  .slot-upper-right { margin-left:  92vw; margin-top: -92vh; }
+  .slot-lower-right { margin-left:  92vw; margin-top:  92vh; }
 
   .ui-screen-close {
     width: 24px;
