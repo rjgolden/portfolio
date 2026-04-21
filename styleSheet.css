@@ -146,16 +146,39 @@ h1 {
 
 @media (max-width: 768px) {
   .ui-screen {
-    width: 58vw;
-    height: 58vw;
+    width: 62vw;
+    height: 62vw;
   }
 
-  .ui-screen.slot-upper-left  { margin-left: -70.71vw !important; margin-top: -70.71vh !important; }
-  .ui-screen.slot-lower-left  { margin-left: -70.71vw !important; margin-top:  70.71vh !important; }
-  .ui-screen.slot-above       { margin-left:   0      !important; margin-top: -100vh    !important; }
-  .ui-screen.slot-below       { margin-left:   0      !important; margin-top:  100vh    !important; }
-  .ui-screen.slot-upper-right { margin-left:  70.71vw !important; margin-top: -70.71vh !important; }
-  .ui-screen.slot-lower-right { margin-left:  70.71vw !important; margin-top:  70.71vh !important; }
+  .ui-screen.slot-upper-left  {
+    margin-left: -115vw !important;
+    margin-top: -115vh !important;
+  }
+
+  .ui-screen.slot-lower-left  {
+    margin-left: -115vw !important;
+    margin-top: 115vh !important;
+  }
+
+  .ui-screen.slot-above {
+    margin-left: 0 !important;
+    margin-top: -130vh !important;
+  }
+
+  .ui-screen.slot-below {
+    margin-left: 0 !important;
+    margin-top: 130vh !important;
+  }
+
+  .ui-screen.slot-upper-right {
+    margin-left: 115vw !important;
+    margin-top: -115vh !important;
+  }
+
+  .ui-screen.slot-lower-right {
+    margin-left: 115vw !important;
+    margin-top: 115vh !important;
+  }
 
   .ui-screen-close {
     width: 24px;
