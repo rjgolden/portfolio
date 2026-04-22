@@ -1,5 +1,5 @@
 // ---------- FACE SETUP ----------
-const labels = ["About", "Skills", "Projects", "Resume", "Contact", "Extra"];
+const labels = ["About", "Skills", "Projects", "Resume", "Contact", "Blog"];
 
 // Raycaster for clicking
 const raycaster = new THREE.Raycaster();
