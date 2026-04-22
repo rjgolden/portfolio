@@ -58,7 +58,10 @@ const panelData = [
   {
     title: "Skills",
     body: `
-      <p>Technical skills go here</p>
+      <p>•Programming Languages: C, C++, Python, Javascript, Typescript, Lua<br><br>
+      •Frameworks & Libraries: Raylib, Node.js, Three.js, Flutter<br><br>
+      •Database & Technologies: SQLite, MySQL, Oracle APEX, Google Firebase<br><br>
+      •Development & Design Tools: Git, Github, GDB, Aseprite, Tiled, Figma, Pico-8<br></p>
     `,
     links: []
   },
