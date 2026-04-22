@@ -3,7 +3,7 @@ const particles = [];
 
 const sharedParticleGeo = new THREE.SphereGeometry(1, 8, 6);
 
-for (let i = 0; i < 750; i++) {
+for (let i = 0; i < 1000; i++) {
     const size = Math.random() * 0.018 + 0.005;
 
     const mat = new THREE.MeshBasicMaterial({

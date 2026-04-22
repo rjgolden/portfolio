@@ -35,16 +35,16 @@
       tempUp.copy(camera.up).normalize();
 
       if (keys.ArrowLeft) {
-        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(up, -keySpeed));
+        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(tempUp, -keySpeed));
       }
       if (keys.ArrowRight) {
-        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(up, keySpeed));
+        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(tempUp, keySpeed));
       }
       if (keys.ArrowUp) {
-        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(right, -keySpeed));
+        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(tempRight, -keySpeed));
       }
       if (keys.ArrowDown) {
-        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(right, keySpeed));
+        cubeQuat.premultiply(new THREE.Quaternion().setFromAxisAngle(tempRight, keySpeed));
       }
 
       if (!isDragging) {
