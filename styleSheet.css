@@ -247,7 +247,8 @@ h1 {
 @media (max-width: 768px) {
   .ui-screen {
     width: min(76vw, 400px);
-    height: min(60vh, 400px);
+    height: auto;
+    max-height: 80vh;
     font-size: 11px;
   }
 
