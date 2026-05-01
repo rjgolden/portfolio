@@ -127,8 +127,8 @@ function animate() {
     updateColorMenuTheme();
   }
   if (typeof updateAudioMenuTheme === "function") {
-  updateAudioMenuTheme();
-}
+    updateAudioMenuTheme();
+  }
   renderer.render(scene, camera);
 }
 

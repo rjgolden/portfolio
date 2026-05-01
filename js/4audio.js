@@ -120,19 +120,23 @@ window.playBeep = function() {
 };
 
 window.updateAudioMenuTheme = function() {
+  const color = "#" + currentColor.getHexString();
+
   const fab = document.getElementById("audio-fab");
   const menu = document.getElementById("audio-menu");
 
   if (fab) {
-    fab.style.color = currentColor;
+    fab.style.color = color;
+    fab.style.borderColor = color;
+    fab.style.boxShadow = `0 0 10px ${color}`;
   }
 
   if (menu) {
-    menu.style.color = currentColor;
-    menu.style.borderColor = currentColor;
-    menu.style.boxShadow = `0 0 14px ${currentColor}`;
+    menu.style.color = color;
+    menu.style.borderColor = color;
+    menu.style.boxShadow = `0 0 14px ${color}`;
   }
-}
+};
 
 function initAudioMenu() {
   const fab = document.getElementById("audio-fab");
