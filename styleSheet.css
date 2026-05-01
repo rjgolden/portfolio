@@ -315,6 +315,9 @@ h1 {
     height: auto;
     max-height: 80vh;
     font-size: 11px;
+    left: 50dvw;
+    top: 50dvh;
+    transform: translate(-50%, -50%);
   }
 
   .ui-screen-close {
