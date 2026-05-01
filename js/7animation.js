@@ -81,9 +81,12 @@ function animate() {
 
   if (active !== lastActive) {
     lastActive = active;
-    if (sound2.buffer) {
-        if (sound2.isPlaying) sound2.stop();
-        sound2.play();
+
+    const panelOpen = typeof window.isPanelOpen === "function" && window.isPanelOpen();
+
+    if (!panelOpen && sound2.buffer) {
+      if (sound2.isPlaying) sound2.stop();
+      sound2.play();
     }
   }
 
@@ -123,6 +126,9 @@ function animate() {
   if (typeof updateColorMenuTheme === "function") {
     updateColorMenuTheme();
   }
+  if (typeof updateAudioMenuTheme === "function") {
+  updateAudioMenuTheme();
+}
   renderer.render(scene, camera);
 }
 

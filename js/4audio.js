@@ -13,33 +13,73 @@ const audioLoader = new THREE.AudioLoader();
 let contextResumed = false;
 let ambianceReady = false;
 
+let sfxSliderValue = 35;
+let musicSliderValue = 25;
+let masterMuted = false;
+
+const maxVolumes = {
+  music: 0.05,
+  sfx: 0.08
+};
+
+const sfxMix = {
+  switch: 0.33,
+  beep: 0.66,
+  back: 1.0,
+  colorSelect: 1.0
+};
+
+function sliderToVolume(sliderValue, maxVolume) {
+  const normalized = sliderValue / 100;
+
+  // Curved scaling: low slider values stay quiet,
+  // high slider values ramp up more naturally.
+  return Math.pow(normalized, 2) * maxVolume;
+}
+
+function getVol(volume) {
+  return masterMuted ? 0 : volume;
+}
+
+function applyAudioVolumes() {
+  const musicVolume = sliderToVolume(musicSliderValue, maxVolumes.music);
+  const sfxVolume = sliderToVolume(sfxSliderValue, maxVolumes.sfx);
+
+  sound.setVolume(getVol(musicVolume));
+
+  sound2.setVolume(getVol(sfxVolume * sfxMix.switch));
+  sound3.setVolume(getVol(sfxVolume * sfxMix.beep));
+  sound4.setVolume(getVol(sfxVolume * sfxMix.back));
+  sound5.setVolume(getVol(sfxVolume * sfxMix.colorSelect));
+}
+
 // Load sounds
 audioLoader.load('audio/ambiance.ogg', function(buffer) {
     sound.setBuffer(buffer);
     sound.setLoop(true);
-    sound.setVolume(0.01);
+    applyAudioVolumes();
     ambianceReady = true;
     tryPlayAmbiance();
 });
 
 audioLoader.load('audio/switch.ogg', function(buffer) {
     sound2.setBuffer(buffer);
-    sound2.setVolume(0.01);
+    applyAudioVolumes();
 });
 
 audioLoader.load('audio/beep.ogg', function(buffer) {
     sound3.setBuffer(buffer);
-    sound3.setVolume(0.02);
+    applyAudioVolumes();
 });
 
 audioLoader.load('audio/back.ogg', function(buffer) {
     sound4.setBuffer(buffer);
-    sound4.setVolume(0.03);
+    applyAudioVolumes();
 });
 
 audioLoader.load('audio/colorSelect.ogg', function(buffer) {
     sound5.setBuffer(buffer);
-    sound5.setVolume(0.03);
+    applyAudioVolumes();
 });
 
 function resumeAudioContext() {
@@ -78,3 +118,73 @@ window.playBeep = function() {
     sound3.play();
   }
 };
+
+window.updateAudioMenuTheme - function() {
+  const color = "#" + currentColor.getHexString();
+
+  const fab = document.getElementById("audio-fab");
+  const menu = document.getElementById("audio-menu");
+
+  if (fab) {
+    fab.style.color = currentColor;
+  }
+
+  if (menu) {
+    menu.style.color = currentColor;
+    menu.style.borderColor = currentColor;
+    menu.style.boxShadow = `0 0 14px ${currentColor}`;
+  }
+}
+
+function initAudioMenu() {
+  const fab = document.getElementById("audio-fab");
+  const menu = document.getElementById("audio-menu");
+  const sfxSlider = document.getElementById("sfx-volume");
+  const musicSlider = document.getElementById("music-volume");
+  const muteCheckbox = document.getElementById("mute-all-audio");
+
+  if (!fab || !menu || !sfxSlider || !musicSlider || !muteCheckbox) {
+    console.warn("Audio menu elements not found");
+    return;
+  }
+
+  sfxSlider.value = sfxSliderValue;
+  musicSlider.value = musicSliderValue;
+
+  fab.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+
+    if (typeof playBeep === "function") {
+      playBeep();
+    }
+  });
+
+  sfxSlider.addEventListener("input", () => {
+    sfxSliderValue = Number(sfxSlider.value);
+    applyAudioVolumes();
+  });
+
+  musicSlider.addEventListener("input", () => {
+    musicSliderValue = Number(musicSlider.value);
+    applyAudioVolumes();
+  });
+
+  muteCheckbox.addEventListener("change", () => {
+    masterMuted = muteCheckbox.checked;
+    applyAudioVolumes();
+  });
+
+  menu.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener("click", () => {
+    menu.classList.remove("open");
+  });
+
+  updateAudioMenuTheme();
+  applyAudioVolumes();
+}
+
+initAudioMenu();

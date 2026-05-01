@@ -14,6 +14,41 @@
     <div style="width:100vw;height:100vh;position:relative;background:#000;overflow:hidden;">
         <canvas id="c" style="width:100%;height:100%;display:block;"></canvas>
         
+        <div id="cube-instructions">
+            <div class="desktop-instructions">
+                Click + drag cube to navigate,
+                Click face to explore
+            </div>
+
+            <div class="mobile-instructions">
+                Touch + drag cube to navigate,
+                Tap face to explore
+            </div>
+        </div>
+        
+        <div class="audio-fab-wrap">
+            <button id="audio-fab" type="button" aria-label="Open audio controls">
+                <img src="resources/speaker.png" alt="Audio">
+            </button>
+
+            <div id="audio-menu" class="audio-menu">
+                <label class="audio-control">
+                Sounds
+                <input id="sfx-volume" type="range" min="0" max="100" step="1" value="35">
+                </label>
+
+                <label class="audio-control">
+                Music
+                <input id="music-volume" type="range" min="0" max="100" step="1" value="25">
+                </label>
+
+                <label class="audio-mute-row">
+                <input id="mute-all-audio" type="checkbox">
+                Mute All
+                </label>
+            </div>
+        </div>
+
        <div class="color-fab-wrap">
             <button id="color-fab" type="button" aria-label="Open color controls">
                 <svg viewBox="0 0 24 24" aria-hidden="true">

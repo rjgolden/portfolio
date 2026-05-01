@@ -1,3 +1,13 @@
+
+const project1 = `<p>Projects go here.</p>`;
+const project2 = `<p>Second project content goes here. <br>
+                     <img src="/resources/test.png" alt="Resume preview"> <br>
+                     Spooky.  </p>`;
+const project3 = `<p>Third project content goes here.</p>`;
+
+const blog1 = `<p>First blog post content goes here.</p>`;
+const blog2 = `<p>Second blog post content goes here.</p>`;
+    
 const panelData = [
   {
     title: "About Me",
@@ -6,6 +16,17 @@ const panelData = [
       Science in Computer Science. I have a strong passion for game development, which I pursue as a hobby in my free time. I enjoy working with C++ due to its performance and its widespread use 
       in fields that dominate software around the globe. I am particularly interested in systems programming and performance-critical applications. This portfolio is a glimpse at the kind of clean and performant UI/UX I will be focused on for my projects.
       <br> <br>Please feel free to contact me through one of the various sources on the contact page if you are interested in working together or have any questions.
+      <br> about
+      <br> about
+      <br> about
+      <br> about
+      <br> about
+      <br> about
+      <br> about
+      <br> about
+      <br> about
+      <br> about
+      <br> about
       </p>
     `,
     links: []
@@ -22,11 +43,11 @@ const panelData = [
   },
   {
     title: "Projects",
-    body: `
-      <p>Projects go here.</p>
-    `,
+    body: "",
     links: [
-      { label: "Project Demo", url: "https://example.com/demo" }
+      { label: "Project 1", project: project1 },
+      { label: "Project 2", project: project2 },
+      { label: "Project 3", project: project3 }
     ]
   },
   {
@@ -44,18 +65,19 @@ const panelData = [
     title: "Contact",
     body: '',
     links: [
-      { label: "Email", url: "mailto:ryanjgolden00@gmail.com" },
-      { label: "GitHub", url: "https://github.com/rjgolden" },
-      { label: "LinkedIn", url: "https://linkedin.com/in/ryangoldencs" },
-      { label: "LeetCode", url: "https://leetcode.com/ryanjgolden"},
-      { label: "Instagram", url: "https://instagram.com/ryan.golden00"}
-    ]
+      { label: "Email", url: "mailto:ryanjgolden00@gmail.com", popout: true },
+      { label: "GitHub", url: "https://github.com/rjgolden", popout: true },
+      { label: "LinkedIn", url: "https://linkedin.com/in/ryangoldencs", popout: true },
+      { label: "LeetCode", url: "https://leetcode.com/ryanjgolden", popout: true },
+      { label: "Instagram", url: "https://instagram.com/ryan.golden00", popout: true }
+  ]
   },
   {
     title: "Blog",
-    body: `
-      <p>Papers, Pixel Art, Project updates, Lifting PRs, Chess ELO updates, etc. </p>
-    `,
-    links: []
+    body: "",
+    links: [
+      { label: "Blog Post 1", content: blog1 },
+      { label: "Blog Post 2", content: blog2 }
+    ]
   }
 ];

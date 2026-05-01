@@ -99,9 +99,9 @@ h1 {
 .ui-panel-body {
   flex: 1;
   min-height: 0;
-  overflow-y: auto;    
+  overflow-y: scroll;    
   overflow-x: hidden;
-  display: flex;
+  display: block;
   max-height: 50vh;
 }
 
@@ -137,6 +137,67 @@ h1 {
 .ui-panel-link:hover {
   background: currentColor;
   color: #b8acac56;
+}
+
+.ui-panel-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ui-panel-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ui-panel-body::-webkit-scrollbar-thumb {
+  background: currentColor;
+  border-radius: 4px;
+}
+
+.ui-panel-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ui-panel-body iframe {
+  width: 100%;
+  border: none;
+}
+
+.ui-content-link,
+.ui-content-back {
+  font-family: 'Press Start 2P', 'Retro';
+  background: transparent;
+  color: inherit;
+}
+
+.ui-popout-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps text centered */
+}
+
+.ui-popout-link .link-text {
+  pointer-events: none;
+}
+
+.popout-indicator {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popout-indicator img {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.ui-popout-link:hover .popout-indicator {
+  transform: translate(1px, -1px);
 }
 
 /* UI Panel placement */
@@ -277,5 +338,157 @@ h1 {
 
   .color-btn {
     font-size: 8px;
+  }
+}
+
+#cube-instructions {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  z-index: 20;
+  color: rgb(207, 200, 200);
+  font-family: 'Press Start 2P', 'Retro';
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+  pointer-events: none;
+  animation: instructionBlink 3.0s ease-in-out infinite;
+  text-shadow: 0 0 8px white;
+}
+
+.mobile-instructions {
+  display: none;
+}
+
+@keyframes instructionBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#cube-instructions {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+/* fade out */
+#cube-instructions.fade-out {
+  opacity: 0;
+}
+
+/* fully remove after fade */
+#cube-instructions.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #cube-instructions {
+    top: 20%;
+    font-size: 8px;
+    width: 90vw;
+  }
+
+  .desktop-instructions {
+    display: none;
+  }
+
+  .mobile-instructions {
+    display: block;
+  }
+}
+
+/* audio button */
+.audio-fab-wrap {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 40;
+}
+
+#audio-fab {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid currentColor;   /* circle outline */
+  background: rgba(0, 0, 0, 0.9);
+  color: #FFB000;                   /* same as color picker default */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px currentColor;
+  transition: color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#audio-fab img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  pointer-events: none; /* ensures button is clickable */
+}
+
+#audio-fab:hover {
+  box-shadow: 0 0 12px currentColor;
+}
+
+.audio-menu {
+  position: absolute;
+  left: 0;
+  bottom: 48px;
+  min-width: 190px;
+  padding: 12px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.94);
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  color: #FFB000;
+  box-shadow: 0 0 14px currentColor;
+  font-family: 'Press Start 2P', 'Retro';
+  font-size: 8px;
+}
+
+.audio-menu.open {
+  display: flex;
+}
+
+.audio-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.audio-control input[type="range"] {
+  width: 100%;
+  accent-color: currentColor;
+}
+
+.audio-mute-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.audio-mute-row input {
+  accent-color: currentColor;
+}
+
+@media (max-width: 768px) {
+  #audio-fab {
+    width: 42px;
+    height: 42px;
+  }
+
+  .audio-menu {
+    min-width: 180px;
+    bottom: 52px;
   }
 }

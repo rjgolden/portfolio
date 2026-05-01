@@ -9,6 +9,9 @@ const uiScreens = new Map();
 const colorFab = document.getElementById("color-fab");
 const colorMenu = document.getElementById("color-menu");
 
+let isPanelOpen = false;
+window.isPanelOpen = () => isPanelOpen;
+
 function getUIColor() {
   return "#" + currentColor.getHexString();
 }
@@ -83,6 +86,33 @@ function initColorMenu() {
   updateColorMenuTheme();
 }
 
+function renderPanelLink(link) {
+  if (link.project || link.content) {
+    return `
+      <button class="ui-panel-link ui-content-link" type="button">
+        ${link.label}
+      </button>
+    `;
+  }
+
+  const isMailLink = link.url.startsWith("mailto:");
+
+  const externalAttrs = isMailLink
+    ? ""
+    : ' target="_blank" rel="noopener noreferrer"';
+
+  return `
+    <a class="ui-panel-link${link.popout ? " ui-popout-link" : ""}" href="${link.url}"${externalAttrs}>
+      <span class="link-text">${link.label}</span>
+      ${link.popout ? `
+        <span class="popout-indicator">
+          <img src="resources/popout.png" alt="">
+        </span>
+      ` : ""}
+    </a>
+  `;
+}
+
 function updateUIScreenContent(screen, faceIndex) {
   const data = panelData[faceIndex] || {
     title: labels[faceIndex] || "UI PANEL",
@@ -100,14 +130,12 @@ function updateUIScreenContent(screen, faceIndex) {
     : "";
 
   const linksHtml = Array.isArray(data.links) && data.links.length > 0
-    ? `<div class="ui-panel-links">
-        ${data.links.map(link => `
-          <a class="ui-panel-link" href="${link.url}" target="_blank" rel="noopener noreferrer">
-            ${link.label}
-          </a>
-        `).join("")}
-      </div>`
-    : "";
+  ? `
+    <div class="ui-panel-links">
+      ${data.links.map(renderPanelLink).join("")}
+    </div>
+  `
+  : "";
 
   screen.querySelector(".ui-screen-content").innerHTML = `
     ${titleHtml}
@@ -117,10 +145,42 @@ function updateUIScreenContent(screen, faceIndex) {
 
   // Only attach listeners if links exist
   if (linksHtml) {
-    screen.querySelectorAll(".ui-panel-link").forEach(linkEl => {
-      linkEl.addEventListener("click", () => playBeep());
+    screen.querySelectorAll(".ui-panel-link").forEach((linkEl, index) => {
+      const linkData = data.links?.[index];
+
+      linkEl.addEventListener("click", (e) => {
+        playBeep();
+
+        if (linkData && (linkData.project || linkData.content)) {
+          e.preventDefault();
+          showPanelContent(screen, faceIndex, linkData);
+        }
+      });
     });
   }
+}
+
+function showPanelContent(screen, faceIndex, linkData) {
+  const content = linkData.project || linkData.content;
+
+  screen.querySelector(".ui-screen-content").innerHTML = `
+    <h2 class="ui-panel-title">${linkData.label}</h2>
+
+    <div class="ui-panel-body">
+      ${content}
+    </div>
+
+    <div class="ui-panel-links">
+      <button class="ui-panel-link ui-content-back" type="button">
+        Back
+      </button>
+    </div>
+  `;
+
+  screen.querySelector(".ui-content-back").addEventListener("click", () => {
+    playBeep();
+    updateUIScreenContent(screen, faceIndex);
+  });
 }
 
 function createUIScreen(faceIndex, slotClass) {
@@ -136,6 +196,7 @@ function createUIScreen(faceIndex, slotClass) {
     e.stopPropagation();
     sound4.play();
     resetCameraHome();
+    isPanelOpen = false;
   });
 
   const content = document.createElement("div");

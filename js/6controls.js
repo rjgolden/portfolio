@@ -78,11 +78,23 @@
 
       if (materialIndex >= 0 && materialIndex < labels.length) {
         moveCameraToFace(materialIndex);
+        isPanelOpen = true;
         pendingFaceIndex = materialIndex;
         particleOrigin.copy(cameraTargetPosition);
         playBeep();
       }
     }
+  }
+
+ function hideCubeInstructions() {
+    const el = document.getElementById("cube-instructions");
+    if (!el || el.classList.contains("fade-out")) return;
+
+    el.classList.add("fade-out");
+
+    setTimeout(() => {
+      el.classList.add("hidden");
+    }, 600); // match CSS transition duration
   }
 
   // ---------- CURSOR HANDLING ----------
@@ -112,10 +124,14 @@
     }
   });
 
-  canvas.addEventListener('mousedown', (e) => {
-    if (isHovering) {
-      canvas.style.cursor = 'grabbing';
-    }
+  canvas.addEventListener('mousedown', e => {
+    hideCubeInstructions();
+
+    isDragging = false;
+    mouseDownPos.x = e.clientX;
+    mouseDownPos.y = e.clientY;
+    prevX = e.clientX;
+    prevY = e.clientY;
   });
 
   // ---------- MOBILE TOUCH HANDLING ----------
@@ -123,8 +139,9 @@
   let isTouchDragging = false;
 
   canvas.addEventListener('touchstart', e => {
-    if (e.touches.length !== 1) return; // only single finger
+    hideCubeInstructions();
 
+    if (e.touches.length !== 1) return;
     e.preventDefault();
 
     const touch = e.touches[0];
@@ -135,7 +152,6 @@
     prevX = touch.clientX;
     prevY = touch.clientY;
 
-    // Check if touching the cube
     updateHoverFromTouch(touch);
   }, { passive: false });
 
