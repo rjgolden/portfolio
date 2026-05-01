@@ -75,13 +75,13 @@
 .ui-panel-body {
   flex: 1;
   min-height: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   display: block;
   max-height: 50vh;
 
   padding-right: 4px;            
-  scrollbar-gutter: stable;        
+  scrollbar-gutter: stable both-edges;     
   scrollbar-width: thin;           
   scrollbar-color: currentColor transparent;
 }

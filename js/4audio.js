@@ -1,15 +1,19 @@
-// ---------- AUDIO SETUP ----------
+// audio listener
 const listener = new THREE.AudioListener();
 camera.add(listener);
 
-const sound = new THREE.Audio(listener);      // ambiance
-const sound2 = new THREE.Audio(listener);     // switch
-const sound3 = new THREE.Audio(listener);     // beep
-const sound4 = new THREE.Audio(listener);     // back
-const sound5 = new THREE.Audio(listener);     // color select
+
+// audio sources
+const sound = new THREE.Audio(listener);
+const sound2 = new THREE.Audio(listener);
+const sound3 = new THREE.Audio(listener);
+const sound4 = new THREE.Audio(listener);
+const sound5 = new THREE.Audio(listener);
 
 const audioLoader = new THREE.AudioLoader();
 
+
+// audio state
 let contextResumed = false;
 let ambianceReady = false;
 
@@ -17,6 +21,8 @@ let sfxSliderValue = 35;
 let musicSliderValue = 25;
 let masterMuted = false;
 
+
+// volume settings
 const maxVolumes = {
   music: 0.05,
   sfx: 0.08
@@ -29,11 +35,10 @@ const sfxMix = {
   colorSelect: 1.0
 };
 
+
+// volume helpers
 function sliderToVolume(sliderValue, maxVolume) {
   const normalized = sliderValue / 100;
-
-  // Curved scaling: low slider values stay quiet,
-  // high slider values ramp up more naturally.
   return Math.pow(normalized, 2) * maxVolume;
 }
 
@@ -46,79 +51,95 @@ function applyAudioVolumes() {
   const sfxVolume = sliderToVolume(sfxSliderValue, maxVolumes.sfx);
 
   sound.setVolume(getVol(musicVolume));
-
   sound2.setVolume(getVol(sfxVolume * sfxMix.switch));
   sound3.setVolume(getVol(sfxVolume * sfxMix.beep));
   sound4.setVolume(getVol(sfxVolume * sfxMix.back));
   sound5.setVolume(getVol(sfxVolume * sfxMix.colorSelect));
 }
 
-// Load sounds
-audioLoader.load('audio/ambiance.ogg', function(buffer) {
-    sound.setBuffer(buffer);
-    sound.setLoop(true);
-    applyAudioVolumes();
-    ambianceReady = true;
-    tryPlayAmbiance();
+
+// audio loading
+audioLoader.load("audio/ambiance.ogg", buffer => {
+  sound.setBuffer(buffer);
+  sound.setLoop(true);
+  applyAudioVolumes();
+
+  ambianceReady = true;
+  tryPlayAmbiance();
 });
 
-audioLoader.load('audio/switch.ogg', function(buffer) {
-    sound2.setBuffer(buffer);
-    applyAudioVolumes();
+audioLoader.load("audio/switch.ogg", buffer => {
+  sound2.setBuffer(buffer);
+  applyAudioVolumes();
 });
 
-audioLoader.load('audio/beep.ogg', function(buffer) {
-    sound3.setBuffer(buffer);
-    applyAudioVolumes();
+audioLoader.load("audio/beep.ogg", buffer => {
+  sound3.setBuffer(buffer);
+  applyAudioVolumes();
 });
 
-audioLoader.load('audio/back.ogg', function(buffer) {
-    sound4.setBuffer(buffer);
-    applyAudioVolumes();
+audioLoader.load("audio/back.ogg", buffer => {
+  sound4.setBuffer(buffer);
+  applyAudioVolumes();
 });
 
-audioLoader.load('audio/colorSelect.ogg', function(buffer) {
-    sound5.setBuffer(buffer);
-    applyAudioVolumes();
+audioLoader.load("audio/colorSelect.ogg", buffer => {
+  sound5.setBuffer(buffer);
+  applyAudioVolumes();
 });
 
+
+// audio context
 function resumeAudioContext() {
-    if (contextResumed) return;
-    
-    listener.context.resume().then(() => {
-        contextResumed = true;
-        console.log("✅ AudioContext resumed");
-        tryPlayAmbiance();
-    }).catch(err => console.warn("Audio resume failed:", err));
+  if (contextResumed) return;
+
+  listener.context.resume()
+    .then(() => {
+      contextResumed = true;
+      tryPlayAmbiance();
+    })
+    .catch(err => console.warn("Audio resume failed:", err));
 }
 
 function tryPlayAmbiance() {
-    if (contextResumed && ambianceReady && sound.buffer && !sound.isPlaying) {
-        sound.play();
-    }
+  if (contextResumed && ambianceReady && sound.buffer && !sound.isPlaying) {
+    sound.play();
+  }
 }
 
-// Listen for user interaction on BOTH desktop and mobile
-['click', 'touchstart', 'touchend'].forEach(eventType => {
-    document.addEventListener(eventType, resumeAudioContext, { 
-        once: true, 
-        passive: true 
-    });
+
+// interaction unlock
+["click", "touchstart", "touchend"].forEach(eventType => {
+  document.addEventListener(eventType, resumeAudioContext, {
+    once: true,
+    passive: true
+  });
 });
 
-// Also resume when user taps the canvas specifically
-canvas.addEventListener('touchstart', resumeAudioContext, { once: true, passive: true });
-canvas.addEventListener('click', resumeAudioContext, { once: true });
+canvas.addEventListener("touchstart", resumeAudioContext, {
+  once: true,
+  passive: true
+});
 
-// Resume again if user interacts with buttons
+canvas.addEventListener("click", resumeAudioContext, {
+  once: true
+});
+
+
+// sound effects
 window.playBeep = function() {
-  if (sound3.buffer && contextResumed) {
-    if (sound3.isPlaying) sound3.stop();
-    sound3.setPlaybackRate(0.95 + Math.random() * 0.1);
-    sound3.play();
+  if (!sound3.buffer || !contextResumed) return;
+
+  if (sound3.isPlaying) {
+    sound3.stop();
   }
+
+  sound3.setPlaybackRate(0.95 + Math.random() * 0.1);
+  sound3.play();
 };
 
+
+// audio menu theme
 window.updateAudioMenuTheme = function() {
   const color = "#" + currentColor.getHexString();
 
@@ -138,6 +159,8 @@ window.updateAudioMenuTheme = function() {
   }
 };
 
+
+// audio menu setup
 function initAudioMenu() {
   const fab = document.getElementById("audio-fab");
   const menu = document.getElementById("audio-menu");
@@ -153,7 +176,7 @@ function initAudioMenu() {
   sfxSlider.value = sfxSliderValue;
   musicSlider.value = musicSliderValue;
 
-  fab.addEventListener("click", (e) => {
+  fab.addEventListener("click", e => {
     e.stopPropagation();
     menu.classList.toggle("open");
 
@@ -177,7 +200,7 @@ function initAudioMenu() {
     applyAudioVolumes();
   });
 
-  menu.addEventListener("click", (e) => {
+  menu.addEventListener("click", e => {
     e.stopPropagation();
   });
 
@@ -189,4 +212,6 @@ function initAudioMenu() {
   applyAudioVolumes();
 }
 
+
+// initialize
 initAudioMenu();
