@@ -136,6 +136,16 @@ animate();
 
 // ---------- RESIZE ----------
 window.addEventListener('resize', () => {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  if (isMobile) {
+    defaultCameraPosition.set(3.2, 2.3, 3.2);
+  } else {
+    defaultCameraPosition.set(2.5, 1.8, 2.5);
+  }
+
+  resetCameraHome();
+
   const w = parent.clientWidth;
   const h = parent.clientHeight;
   camera.aspect = w / h;
