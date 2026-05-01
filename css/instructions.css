@@ -1,0 +1,36 @@
+#cube-instructions {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  z-index: 20;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  color: rgb(207, 200, 200);
+  font-family: var(--font-retro);
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+  text-shadow: 0 0 8px white;
+
+  opacity: 1;
+  animation: instructionBlink 3s ease-in-out infinite;
+  transition: opacity 1s ease;
+}
+
+#cube-instructions.fade-out {
+  opacity: 0;
+}
+
+#cube-instructions.hidden {
+  display: none;
+}
+
+.mobile-instructions {
+  display: none;
+}
+
+@keyframes instructionBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}

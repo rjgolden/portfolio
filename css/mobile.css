@@ -1,0 +1,78 @@
+@media (max-width: 768px) {
+  #ui-layer {
+    position: fixed;
+  }
+
+  .ui-screen {
+    left: 50dvw;
+    top: 50dvh;
+    width: min(76vw, 400px);
+    max-height: 80vh;
+    font-size: 11px;
+  }
+
+  .ui-screen-close {
+    top: 6px;
+    right: 6px;
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .slot-upper-left  { margin-left: -90vw; margin-top: -70.71vh; }
+  .slot-lower-left  { margin-left: -90vw; margin-top:  70.71vh; }
+  .slot-upper-right { margin-left:  90vw; margin-top: -70.71vh; }
+  .slot-lower-right { margin-left:  90vw; margin-top:  70.71vh; }
+
+  .color-fab-wrap,
+  .audio-fab-wrap {
+    position: fixed;
+    bottom: 14px;
+    z-index: 100;
+  }
+
+  .color-fab-wrap {
+    right: 14px;
+  }
+
+  .audio-fab-wrap {
+    left: 14px;
+  }
+
+  #color-fab,
+  #audio-fab {
+    width: 42px;
+    height: 42px;
+  }
+
+  .color-menu,
+  .audio-menu {
+    bottom: 52px;
+  }
+
+  .color-menu {
+    min-width: 150px;
+  }
+
+  .audio-menu {
+    min-width: 180px;
+  }
+
+  #cube-instructions {
+    top: 16%;
+    width: calc(100vw - 32px);
+    max-width: 360px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    font-size: clamp(7px, 2.2vw, 10px);
+    white-space: normal;
+  }
+
+  .desktop-instructions {
+    display: none;
+  }
+
+  .mobile-instructions {
+    display: block;
+  }
+}

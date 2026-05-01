@@ -1,0 +1,36 @@
+:root {
+  --ui-color: #FFB000;
+  --page-bg: #000;
+  --panel-bg: rgba(0, 0, 0, 0.92);
+  --menu-bg: rgba(0, 0, 0, 0.94);
+  --fab-bg: rgba(0, 0, 0, 0.9);
+  --font-retro: 'Press Start 2P', 'Retro';
+}
+
+@font-face {
+  font-family: 'Retro';
+  src: url('retro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--page-bg);
+}
+
+button {
+  font-family: var(--font-retro);
+  cursor: pointer;
+}
+
+h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
