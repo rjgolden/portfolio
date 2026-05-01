@@ -19,7 +19,7 @@ const defaultCameraPosition = new THREE.Vector3(2.5, 1.8, 2.5);
 const defaultLookTarget = new THREE.Vector3(0, 0, 0);
 
 if (window.matchMedia("(max-width: 768px)").matches) {
-  defaultCameraPosition.set(3.2, 2.3, 3.2);
+  defaultCameraPosition.set(3.0, 2.1, 3.0);
 }
 
 let particleOrigin = defaultCameraPosition.clone();

@@ -119,7 +119,7 @@ window.playBeep = function() {
   }
 };
 
-window.updateAudioMenuTheme - function() {
+window.updateAudioMenuTheme = function() {
   const fab = document.getElementById("audio-fab");
   const menu = document.getElementById("audio-menu");
 
