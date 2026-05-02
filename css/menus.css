@@ -61,6 +61,7 @@
   border: 1px solid currentColor;
   border-radius: 12px;
   box-shadow: 0 0 14px currentColor;
+  overflow-y: auto;
 }
 
 .color-menu.open,
@@ -107,9 +108,29 @@
   border-color: #33FF3388;
 }
 
+.color-btn.purple {
+  color: #a459ff;
+  border-color: #61329b;
+}
+
+.color-btn.blue {
+  color: #0f8fff;
+  border-color: #034885;
+}
+
+.color-btn.red {
+  color: #ff2929;
+  border-color: #941717;
+}
+
+.color-btn.white {
+  color: #e7e7e7;
+  border-color: #b8b8b8;
+}
+
 .color-btn.custom {
-  color: #ccc;
-  border-color: #ffffff44;
+  color: #49cdd6;
+  border-color: #6b9497;
 }
 
 #color-picker {
