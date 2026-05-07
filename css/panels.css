@@ -32,7 +32,7 @@
 
   font-family: var(--font-retro);
   font-size: 14px;
-  text-align: center;
+  text-align: left;
 }
 
 .ui-screen-content {
@@ -70,6 +70,7 @@
 .ui-panel-title {
   margin: 0 0 12px;
   font-size: 20px;
+  text-align: center;
 }
 
 .ui-panel-body {

@@ -63,9 +63,8 @@ const homeUp = new THREE.Vector3(0, 1, 0)
 // layout values
 const pageDistance = 5.0;
 const diag = 4.5;
+const mobileDiag = pageDistance / Math.sqrt(2);
 
-
-// face offsets
 const faceViewportOffsetsDesktop = {
   0: { x: -diag, y:  diag },
   1: { x: -diag, y: -diag },
@@ -76,12 +75,12 @@ const faceViewportOffsetsDesktop = {
 };
 
 const faceViewportOffsetsMobile = {
-  0: { x: -4.5, y:  diag },
-  1: { x: -4.5, y: -diag },
+  0: { x: -4.5, y:  mobileDiag },
+  1: { x: -4.5, y: -mobileDiag },
   2: { x: 0,    y:  pageDistance },
   3: { x: 0,    y: -pageDistance },
-  4: { x: 4.5,  y:  diag },
-  5: { x: 4.5,  y: -diag }
+  4: { x: 4.5,  y:  mobileDiag },
+  5: { x: 4.5,  y: -mobileDiag }
 };
 
 

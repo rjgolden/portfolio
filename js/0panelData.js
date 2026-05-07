@@ -28,12 +28,6 @@ const panelData = [
       <br> about
       <br> about
       </p>
-    `,
-    links: []
-  },
-  {
-    title: "Skills",
-    body: `
       <p>•Programming Languages: C, C++, Python, Javascript, Typescript, Lua <br><br>
       •Frameworks & Libraries: Raylib, Node.js, Three.js, Flutter<br><br>
       •Database & Technologies: SQLite, MySQL, Oracle APEX, Google Firebase<br><br>
@@ -42,8 +36,13 @@ const panelData = [
     links: []
   },
   {
+    title: "Skills",
+    body: ``,
+    links: []
+  },
+  {
     title: "Projects",
-    body: "",
+    body: ``,
     links: [
       { label: "Project 1", project: project1 },
       { label: "Project 2", project: project2 },
@@ -58,12 +57,12 @@ const panelData = [
       </div>
     `,
     links: [
-      { label: "Open Resume", url: "/resources/resume.pdf" }
+      { label: "Open Resume", url: "/resources/resume.pdf", popout: true }
     ]
   },
   {
     title: "Contact",
-    body: '',
+    body: ``,
     links: [
       { label: "Email", url: "mailto:ryanjgolden00@gmail.com", popout: true },
       { label: "GitHub", url: "https://github.com/rjgolden", popout: true },
@@ -74,7 +73,7 @@ const panelData = [
   },
   {
     title: "Blog",
-    body: "",
+    body: ``,
     links: [
       { label: "Blog Post 1", content: blog1 },
       { label: "Blog Post 2", content: blog2 }
