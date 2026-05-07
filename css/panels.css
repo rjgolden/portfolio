@@ -186,9 +186,9 @@
 }
 
 /* Panel placement */
-.slot-upper-left  { margin-left: -70.71vw; margin-top: -70.71vh; }
-.slot-lower-left  { margin-left: -70.71vw; margin-top:  70.71vh; }
+.slot-upper-left  { margin-left: -90vw; margin-top: -90vh; }
+.slot-lower-left  { margin-left: -90vw; margin-top:  90vh; }
 .slot-above       { margin-left: 0;        margin-top: -100vh; }
 .slot-below       { margin-left: 0;        margin-top:  100vh; }
-.slot-upper-right { margin-left:  70.71vw; margin-top: -70.71vh; }
-.slot-lower-right { margin-left:  70.71vw; margin-top:  70.71vh; }
+.slot-upper-right { margin-left:  90vw; margin-top: -90vh; }
+.slot-lower-right { margin-left:  90vw; margin-top:  90vh; }

@@ -62,7 +62,7 @@ const homeUp = new THREE.Vector3(0, 1, 0)
 
 // layout values
 const pageDistance = 5.0;
-const diag = pageDistance / Math.sqrt(2);
+const diag = 4.5;
 
 
 // face offsets
