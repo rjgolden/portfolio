@@ -1,5 +1,5 @@
 // face labels
-const labels = ["About", "Skills", "Projects", "Resume", "Contact", "Blog"];
+const labels = ["About", "Extra", "Projects", "Resume", "Contact", "Feed"];
 
 
 // raycasting

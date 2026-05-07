@@ -19,11 +19,12 @@
     font-size: 10px;
   }
 
+  
   /* Panel placement */
-  .slot-upper-left  { margin-left: -90vw; margin-top: -70.71vh; }
-  .slot-lower-left  { margin-left: -90vw; margin-top:  70.71vh; }
-  .slot-upper-right { margin-left:  90vw; margin-top: -70.71vh; }
-  .slot-lower-right { margin-left:  90vw; margin-top:  70.71vh; }
+  .slot-upper-left  { margin-left: -90vw; margin-top: -70vh; }
+  .slot-lower-left  { margin-left: -90vw; margin-top:  70vh; }
+  .slot-upper-right { margin-left:  90vw; margin-top: -70vh; }
+  .slot-lower-right { margin-left:  90vw; margin-top:  70vh; }
 
   .color-fab-wrap,
   .audio-fab-wrap {

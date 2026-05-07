@@ -103,15 +103,17 @@ const keys = {
 
 window.addEventListener("keydown", e => {
   if (keys.hasOwnProperty(e.key)) {
+    e.preventDefault(); // stop page scrolling
     keys[e.key] = true;
   }
-});
+}, { passive: false });
 
 window.addEventListener("keyup", e => {
   if (keys.hasOwnProperty(e.key)) {
+    e.preventDefault();
     keys[e.key] = false;
   }
-});
+}, { passive: false });
 
 
 // color controls
