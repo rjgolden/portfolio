@@ -18,13 +18,6 @@
     height: 24px;
     font-size: 10px;
   }
-  
-  @media (hover: none) {
-    .ui-panel-link:active {
-      color: #b8acac56;
-      background: currentColor;
-    }
-  }
 
   /* Panel placement */
   .slot-upper-left  { margin-left: -90vw; margin-top: -70vh; }
@@ -84,3 +77,10 @@
     display: block;
   }
 }
+
+@media (hover: none) {
+    .ui-panel-link:active {
+      color: #b8acac56;
+      background: currentColor;
+    }
+  }
