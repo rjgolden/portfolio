@@ -1,8 +1,12 @@
 
 const project1 = `<p>Projects go here.</p>`;
-const project2 = `<p>Second project content goes here. <br>
-                     <img src="/resources/test.png" alt="Resume preview"> <br>
-                     Spooky.  </p>`;
+const project2 = `<p>Second project content goes here. </p>
+                    <h1> h1 </h1>
+                    <h2> h2 </h2>
+                    <h3> h3 </h3>
+                    <img src="/resources/test.png" alt="Resume preview"> <br>
+                    <a href='http://www.ryan-golden.com'>ryan-golden.com</a>
+                    <p> Spooky. </p>`;
 const project3 = `<p>Third project content goes here.</p>`;
 
 const feed1 = `<p>First blog post content goes here.</p>`;

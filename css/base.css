@@ -28,7 +28,16 @@ button {
   cursor: pointer;
 }
 
-h1 {
+p{
+  color: #fff6f6;
+}
+
+img{
+  border: 2px solid var(--ui-color);
+  box-shadow: 0 0 12px currentColor;
+}
+
+.hiddenh1 {
   position: absolute;
   width: 1px;
   height: 1px;
