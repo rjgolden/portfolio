@@ -30,6 +30,10 @@ button {
 
 p{
   color: #fff6f6;
+  text-indent: 1.5em; 
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  line-height: 1.6em;
 }
 
 img{

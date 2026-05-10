@@ -180,6 +180,8 @@
   width: 12px;
   height: 12px;
   object-fit: contain;
+  border: none;
+  box-shadow: none;
 }
 
 .ui-popout-link:hover .popout-indicator {
