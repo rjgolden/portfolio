@@ -113,4 +113,5 @@ window.moveCameraToFace = function(faceIndex) {
 
 window.resetCameraHome = function() {
   cameraTargetPosition.copy(defaultCameraPosition);
+  particleOrigin.copy(defaultCameraPosition);
 };

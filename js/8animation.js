@@ -16,6 +16,8 @@ const tempKeyQuat = new THREE.Quaternion();
 const tempIdleQuat = new THREE.Quaternion();
 const tempIdleEuler = new THREE.Euler(0.002, 0.005, 0);
 
+const tempParticleOffset = new THREE.Vector3();
+
 
 // color updates
 function updateSceneColor() {
@@ -155,25 +157,35 @@ function updateParticlePosition(particle) {
   const parallaxZ = -tempRelativeCam.z * (1 - particle.userData.parallaxFactor);
 
   particle.position.set(
-    baseX + parallaxX,
-    baseY + parallaxY,
-    baseZ + parallaxZ
+    baseX + parallaxX + tempParticleOffset.x,
+    baseY + parallaxY + tempParticleOffset.y,
+    baseZ + parallaxZ + tempParticleOffset.z
   );
 }
 
 function updateParticleMaterial(particle) {
-  const { r, pulseOffset } = particle.userData;
+  const { r, pulseOffset, baseOpacity, baseSize, shadeFactor } = particle.userData;
 
-  const intensity = 0.7 + Math.sin(t * 2 + pulseOffset) * 0.4;
+  const twinkle = 0.65 + Math.sin(t * 3.5 + pulseOffset) * 0.35;
   const depthFade = 1 - (r - 2.5) / 8;
-  const opacityPulse = 0.3 + 0.4 * Math.abs(Math.sin(t * 0.3 + r));
+  const brightness = 0.35 + twinkle * 0.65;
 
-  particle.material.color.copy(currentColor).multiplyScalar(intensity);
-  particle.material.opacity = depthFade * opacityPulse;
+  particle.material.color
+    .copy(currentColor)
+    .multiplyScalar(shadeFactor * brightness);
+
+  particle.material.opacity = baseOpacity * depthFade * twinkle;
+
+  const scale = baseSize * (0.8 + twinkle * 0.4);
+  particle.scale.set(scale, scale, 1);
 }
 
 function updateParticles() {
   tempRelativeCam.copy(camera.position).sub(particleOrigin);
+
+  tempParticleOffset
+    .copy(particleOrigin)
+    .sub(defaultCameraPosition);
 
   particles.forEach(particle => {
     updateParticlePosition(particle);
