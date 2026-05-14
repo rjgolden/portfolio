@@ -36,18 +36,26 @@
 
   background: linear-gradient(
     90deg,
-    #ff0000,
-    #ff8800,
-    #ffee00,
-    #33ff33,
-    #00ccff,
-    #6633ff,
-    #ff00cc,
-    #ff0000
+    #ff0040,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #0099ff,
+    #6a00ff,
+    #ff00c8,
+    #ff0040,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #0099ff,
+    #6a00ff,
+    #ff00c8
   );
 
   background-size: 300% 100%;
-  animation: rainbowShift 4s linear infinite;
+  animation: rainbowShift 12s linear infinite;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -82,7 +90,7 @@
   );
 
   background-size: 300% 100%;
-  animation: rainbowShift 4s linear infinite;
+  animation: rainbowShift 12s linear infinite;
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
