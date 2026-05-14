@@ -52,7 +52,7 @@ img{
   box-shadow: 0 0 12px currentColor;
 }
 
-.hidden {
+.hidden-content {
   position: absolute;
   width: 1px;
   height: 1px;

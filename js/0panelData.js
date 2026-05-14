@@ -49,12 +49,12 @@ const panelData = [
     title: "Projects",
     body: ``,
     links: [
-      { label: "WalkPoint URI", project: project1 },
+      { label: "WalkPoint URI", project: project2 },
       { label: "Raylib Shooter", project: project2 },
-      { label: "Inklings Project", project: project3 },
-      { label: "Floppy Fish", project: project3 },
-      { label: "Pong", project: project3 },
-      { label: "Wordle Bot", project: project3 }
+      { label: "Inklings Project", project: project2 },
+      { label: "Floppy Fish", project: project2 },
+      { label: "Pong", project: project2 },
+      { label: "Wordle Bot", project: project2 }
     ]
   },
 
