@@ -64,7 +64,7 @@
 
 .ui-screen-close:hover,
 .color-btn:hover {
-  box-shadow: 0 0 8px currentColor;
+  box-shadow: 0 0 4px currentColor;
 }
 
 .ui-panel-title {
@@ -138,6 +138,7 @@
   box-sizing: border-box;
   padding: 10px 12px;
   color: inherit;
+  background: var(--panel-bg);
   border: 1px solid currentColor;
   text-align: center;
   text-decoration: none;
@@ -145,7 +146,7 @@
 
 .ui-panel-link:hover {
   color: #b8acac56;
-  background: currentColor;
+  background: color-mix(in srgb, currentColor 15%, transparent);
 }
 
 .ui-content-link,

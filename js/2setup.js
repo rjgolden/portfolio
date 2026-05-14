@@ -1,5 +1,5 @@
 // face labels
-const labels = ["About", "Extra", "Projects", "Resume", "Contact", "Feed"];
+const labels = ["About", "Settings", "Projects", "Resume", "Contact", "Feed"];
 
 
 // raycasting
@@ -53,7 +53,7 @@ function drawFace(face, color, isActive) {
   }
 
   ctx.fillStyle = isActive ? color : "#222";
-  ctx.font = "bold 60px 'Press Start 2P'";
+  ctx.font = "bold 55px 'Press Start 2P'";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 

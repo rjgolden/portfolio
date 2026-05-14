@@ -42,57 +42,6 @@
             </div>
         </div>
         
-        <div class="audio-fab-wrap">
-            <button id="audio-fab" type="button" aria-label="Open audio controls">
-                <img src="resources/speaker.png" alt="Audio" style="border:none; box-shadow: none;">
-            </button>
-
-            <div id="audio-menu" class="audio-menu">
-                <label class="audio-control">
-                Sounds
-                <input id="sfx-volume" type="range" min="0" max="100" step="1" value="35">
-                </label>
-
-                <label class="audio-control">
-                Music
-                <input id="music-volume" type="range" min="0" max="100" step="1" value="25">
-                </label>
-
-                <label class="audio-mute-row">
-                <input id="mute-all-audio" type="checkbox">
-                Mute All
-                </label>
-            </div>
-        </div>
-
-       <div class="color-fab-wrap">
-            <button id="color-fab" type="button" aria-label="Open color controls">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2C9.2 5.2 5 9.3 5 13.4A7 7 0 0 0 19 13.4C19 9.3 14.8 5.2 12 2Z" />
-                <circle cx="9" cy="15" r="1.2" />
-                </svg>
-            </button>
-
-            <div id="color-menu" class="color-menu">
-                <button type="button" class="color-btn amber" data-color="#FFB000">Terminal Amber</button>
-                <button type="button" class="color-btn green" data-color="#33FF33">Terminal Green</button>
-                <button type="button" class="color-btn purple" data-color="#a459ff">Gamecube Purple</button>
-                <button type="button" class="color-btn blue" data-color="#0f8fff">PS2 Blue</button>
-                <button type="button" class="color-btn white" data-color="#e7e7e7">Wii White</button>
-                <button type="button" class="color-btn red" data-color="#ff2929">Gamesphere Red</button>
-                
-                <label for="color-picker" class="color-btn custom" id="custom-color-btn">
-                Custom
-                </label>
-
-                <input
-                id="color-picker"
-                type="color"
-                value="#ffb000"
-                aria-label="Choose custom color"/>
-            </div>
-        </div>
-
         <div id="ui-layer"></div>
     </div>
 
@@ -108,6 +57,5 @@
     <script src="js/8animation.js"></script>
     <script src="js/9uiCore.js"></script>
     <script src="js/10uiPanels.js"></script>
-    <script src="js/11colorMenu.js"></script>
 </body>
 </html>

@@ -32,6 +32,59 @@ const skills = `  <h2> My Skills </h2>
                    <b> Other: </b> Pixel Art/Animation, UI/UX Design, Level/Map Design, Audio Design <br><br></p>
                    <p class = "indentp"> Please feel free to contact me through one of the various sources on the contact page if you are interested in working together or have any questions!</p>`
     
+const audioMenu = `
+      <label class="audio-control">
+        SFX
+        <input id="settings-sfx-volume" type="range" min="0" max="100" step="1" value="35">
+      </label>
+
+      <label class="audio-control">
+        Music
+        <input id="settings-music-volume" type="range" min="0" max="100" step="1" value="25">
+      </label>
+
+      <label class="audio-mute-row">
+        <input id="settings-mute-all-audio" type="checkbox">
+        Mute All
+      </label>`;
+
+  const colorMenu = `
+  <div class="ui-panel-links">
+    <button type="button" class="ui-panel-link color-btn amber" data-color="#FFB000">
+      Terminal Amber
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn green" data-color="#33FF33">
+      Terminal Green
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn purple" data-color="#a459ff">
+      GameCube Purple
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn blue" data-color="#0f8fff">
+      PS2 Blue
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn white" data-color="#e7e7e7">
+      Wii White
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn red" data-color="#ff2929">
+      Gamesphere Red
+    </button>
+
+    <label for="settings-color-picker" class="ui-panel-link color-btn custom">
+      Custom
+    </label>
+
+    <input
+      id="settings-color-picker"
+      type="color"
+      value="#ffb000"
+    >
+  </div>`;
+
 const panelData = [
   {
     title: "About",
@@ -40,9 +93,12 @@ const panelData = [
   },
 
   {
-    title: "Extra",
+    title: "Settings",
     body: ``,
-    links: []
+    links: [ 
+      { label: "Audio Menu", project: audioMenu },
+      { label: "Color Menu", project: colorMenu },
+    ]
   },
 
   {

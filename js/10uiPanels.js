@@ -70,6 +70,10 @@ function updateUIScreenContent(screen, faceIndex) {
   `;
 
   attachPanelLinkListeners(screen, faceIndex, data.links);
+  
+  if (data.title === "Settings") {
+    initSettingsPanel(screen);
+  }
 }
 
 function attachPanelLinkListeners(screen, faceIndex, links) {
@@ -104,12 +108,67 @@ function showPanelContent(screen, faceIndex, linkData) {
     </div>
   `;
 
+  if (linkData.label === "Audio Menu" || linkData.label === "Color Menu") {
+    initSettingsPanel(screen);
+  }
+
   screen.querySelector(".ui-content-back").addEventListener("click", () => {
     playBeep();
     updateUIScreenContent(screen, faceIndex);
   });
 }
 
+function initSettingsPanel(screen) {
+  const sfxSlider = screen.querySelector("#settings-sfx-volume");
+  const musicSlider = screen.querySelector("#settings-music-volume");
+  const muteCheckbox = screen.querySelector("#settings-mute-all-audio");
+
+  if (sfxSlider) {
+    sfxSlider.value = sfxSliderValue;
+
+    sfxSlider.addEventListener("input", () => {
+      sfxSliderValue = Number(sfxSlider.value);
+      applyAudioVolumes();
+    });
+  }
+
+  if (musicSlider) {
+    musicSlider.value = musicSliderValue;
+
+    musicSlider.addEventListener("input", () => {
+      musicSliderValue = Number(musicSlider.value);
+      applyAudioVolumes();
+    });
+  }
+
+  if (muteCheckbox) {
+    muteCheckbox.checked = masterMuted;
+
+    muteCheckbox.addEventListener("change", () => {
+      masterMuted = muteCheckbox.checked;
+      applyAudioVolumes();
+    });
+  }
+
+  screen.querySelectorAll(".color-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const color = btn.dataset.color;
+      if (!color) return;
+
+      setColor(color);
+      sound5.play();
+    });
+  });
+
+  const picker = screen.querySelector("#settings-color-picker");
+
+  if (picker) {
+    picker.addEventListener("input", () => {
+      setColor(picker.value);
+      sound5.play();
+    });
+  }
+}
 
 // screen creation
 function createUIScreen(faceIndex, slotClass) {

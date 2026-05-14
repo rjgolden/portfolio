@@ -199,16 +199,7 @@ function updateUITheme() {
   if (typeof updateAllUIScreenColors === "function") {
     updateAllUIScreenColors();
   }
-
-  if (typeof updateColorMenuTheme === "function") {
-    updateColorMenuTheme();
-  }
-
-  if (typeof updateAudioMenuTheme === "function") {
-    updateAudioMenuTheme();
-  }
 }
-
 
 // render loop
 function animate() {
