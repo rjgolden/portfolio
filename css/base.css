@@ -29,6 +29,13 @@ button {
 }
 
 p{
+  color: #fff6f6; 
+  margin-right: 1.5em;
+  margin-left: 1.0em;
+  line-height: 1.6em;
+}
+
+.indentp{
   color: #fff6f6;
   text-indent: 1.5em; 
   margin-right: 1.5em;
