@@ -142,6 +142,11 @@
   border: 1px solid currentColor;
   text-align: center;
   text-decoration: none;
+   transition: transform 0.1s ease;
+}
+
+.ui-panel-link:active {
+  transform: translateY(-2px) scale(1.02);
 }
 
 .ui-panel-link:hover {
