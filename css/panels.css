@@ -18,9 +18,9 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(60vw, 680px);
+  width: min(70vw, 800px);
   height: auto;
-  max-height: 80vh;
+  max-height: 90vh;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
   pointer-events: auto;
@@ -31,7 +31,7 @@
   box-shadow: 0 0 12px currentColor;
 
   font-family: var(--font-retro);
-  font-size: 10px;
+  font-size: 14px;
   text-align: left;
 }
 
@@ -69,7 +69,7 @@
 
 .ui-panel-title {
   margin: 0 0 12px;
-  font-size: 20px;
+  font-size: 2.0em;
   text-align: center;
 }
 

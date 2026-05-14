@@ -38,7 +38,7 @@ function getPanelData(faceIndex) {
 
 function renderPanelTitle(title) {
   return title && title.trim()
-    ? `<h2 class="ui-panel-title">${title}</h2>`
+    ? `<h1 class="ui-panel-title">${title}</h1>`
     : "";
 }
 
@@ -95,7 +95,7 @@ function showPanelContent(screen, faceIndex, linkData) {
   const content = linkData.project || linkData.content;
 
   screen.querySelector(".ui-screen-content").innerHTML = `
-    <h2 class="ui-panel-title">${linkData.label}</h2>
+    <h1 class="ui-panel-title">${linkData.label}</h1>
     <div class="ui-panel-body">${content}</div>
     <div class="ui-panel-links">
       <button class="ui-panel-link ui-content-back" type="button">

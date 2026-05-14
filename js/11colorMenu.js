@@ -67,6 +67,4 @@ function initColorMenu() {
   updateColorMenuTheme();
 }
 
-
-// init
 initColorMenu();
