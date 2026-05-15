@@ -28,13 +28,14 @@
   border-color: #b8b8b8;
 }
 
-.ui-panel-link.color-btn.custom {
-  position: relative;
-  overflow: hidden;
+.ui-panel-link.color-btn.picker {
+  color: #ff69c0;
+  border-color: #c059c0;
   cursor: pointer;
-  border: 1px solid transparent;
+}
 
-  background: linear-gradient(
+.ui-panel-link.color-btn.rainbow {
+  --rainbow: linear-gradient(
     90deg,
     #ff0040,
     #ff7300,
@@ -44,16 +45,14 @@
     #0099ff,
     #6a00ff,
     #ff00c8,
-    #ff0040,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #0099ff,
-    #6a00ff,
-    #ff00c8
+    #ff0040
   );
 
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: var(--rainbow);
   background-size: 300% 100%;
   animation: rainbowShift 12s linear infinite;
 
@@ -62,33 +61,14 @@
   background-clip: text;
 }
 
-.ui-panel-link.color-btn.custom::before {
+.ui-panel-link.color-btn.rainbow::before {
   content: "";
   position: absolute;
   inset: 0;
+  box-sizing: border-box;
   padding: 1px;
-  border-radius: inherit;
 
-  background: linear-gradient(
-    90deg,
-    #ff0040,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #0099ff,
-    #6a00ff,
-    #ff00c8,
-    #ff0040,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #0099ff,
-    #6a00ff,
-    #ff00c8
-  );
-
+  background: var(--rainbow);
   background-size: 300% 100%;
   animation: rainbowShift 12s linear infinite;
 

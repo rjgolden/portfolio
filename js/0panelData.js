@@ -74,8 +74,8 @@ const audioMenu = `
       Gamesphere Red
     </button>
 
-    <label for="settings-color-picker" class="ui-panel-link color-btn custom">
-      Custom
+     <label for="settings-color-picker" class="ui-panel-link color-btn picker">
+      Color Picker
     </label>
 
     <input
@@ -83,6 +83,10 @@ const audioMenu = `
       type="color"
       value="#ffb000"
     >
+
+     <button type="button"  class="ui-panel-link color-btn rainbow">
+      Rainbow
+    </button>
   </div>`;
 
 const panelData = [

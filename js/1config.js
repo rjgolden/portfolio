@@ -5,6 +5,7 @@ const MOBILE_BREAKPOINT = "(max-width: 768px)";
 let currentColor = new THREE.Color(INITIAL_COLOR);
 let targetColor = new THREE.Color(INITIAL_COLOR);
 let pendingFaceIndex = null;
+let rainbowThemeEnabled = false;
 
 
 // renderer setup

@@ -18,6 +18,12 @@ const tempIdleEuler = new THREE.Euler(0.002, 0.005, 0);
 
 const tempParticleOffset = new THREE.Vector3();
 
+function updateRainbowTheme() {
+  if (!rainbowThemeEnabled) return;
+
+  const hue = (t * 25) % 360;
+  targetColor.setHSL(hue / 360, 1.0, 0.55);
+}
 
 // color updates
 function updateSceneColor() {
@@ -207,6 +213,7 @@ function animate() {
 
   t += 0.01;
 
+  updateRainbowTheme();
   updateSceneColor();
   updateCamera();
   updateCubeRotation();

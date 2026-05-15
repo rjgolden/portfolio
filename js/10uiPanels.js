@@ -154,7 +154,7 @@ function initSettingsPanel(screen) {
     btn.addEventListener("click", () => {
       const color = btn.dataset.color;
       if (!color) return;
-
+      rainbowThemeEnabled = false;
       setColor(color);
       sound5.play();
     });
@@ -165,6 +165,15 @@ function initSettingsPanel(screen) {
   if (picker) {
     picker.addEventListener("input", () => {
       setColor(picker.value);
+      sound5.play();
+    });
+  }
+
+  const customRainbowBtn = screen.querySelector(".ui-panel-link.color-btn.rainbow");
+
+  if (customRainbowBtn) {
+    customRainbowBtn.addEventListener("click", () => {
+      rainbowThemeEnabled = true;
       sound5.play();
     });
   }
