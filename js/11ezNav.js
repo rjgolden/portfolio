@@ -44,24 +44,20 @@ function goToEzNavIndex(index) {
   updateEzNavLabel();
 }
 
-document.getElementById("ez-nav-prev")?.addEventListener("click", () => {
-    hideCubeInstructions();
-  goToEzNavIndex(ezNavIndex - 1);
+function handleEzNav(direction) {
+  hideCubeInstructions();
+  goToEzNavIndex(ezNavIndex + direction);
+}
+
+const prevBtn = document.getElementById("ez-nav-prev");
+const nextBtn = document.getElementById("ez-nav-next");
+
+prevBtn?.addEventListener("click", () => {
+  handleEzNav(-1);
 });
 
-document.getElementById("ez-nav-next")?.addEventListener("click", () => {
-      hideCubeInstructions();
-  goToEzNavIndex(ezNavIndex + 1);
-});
-
-document.getElementById("ez-nav-prev")?.addEventListener("touchstart", () => {
-    hideCubeInstructions();
-  goToEzNavIndex(ezNavIndex - 1);
-});
-
-document.getElementById("ez-nav-next")?.addEventListener("touchstart", () => {
-      hideCubeInstructions();
-  goToEzNavIndex(ezNavIndex + 1);
+nextBtn?.addEventListener("click", () => {
+  handleEzNav(1);
 });
 
 updateEzNavLabel();
