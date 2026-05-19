@@ -46,21 +46,28 @@
   position: absolute;
   top: 8px;
   right: 8px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 18px;
   height: 18px;
-  padding: 0px;
+  padding: 0;
 
   color: inherit;
   background: transparent;
   border: 1px solid currentColor;
 
   font-family: monospace;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  line-height: 1;
+
+  line-height: 0;
+  text-align: center;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .ui-screen-close:hover,
