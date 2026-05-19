@@ -186,13 +186,23 @@ function createUIScreen(faceIndex, slotClass) {
 
   const closeBtn = document.createElement("button");
   closeBtn.className = "ui-screen-close";
-  closeBtn.textContent = "X";
+  const backIcons = {
+    0: "→",
+    1: "→", 
+    2: "↓",
+    3: "↑", 
+    4: "←", 
+    5: "←"  
+  };
+
+  closeBtn.textContent = backIcons[faceIndex] || "X";
 
   closeBtn.addEventListener("click", e => {
     e.stopPropagation();
     sound4.play();
     resetCameraHome();
     isPanelOpen = false;
+    showIntroduction();
   });
 
   const content = document.createElement("div");

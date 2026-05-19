@@ -34,3 +34,34 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.25; }
 }
+
+.introduction {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+
+  transform: translateX(-50%);
+  z-index: 19;
+  pointer-events: none;
+
+  color: rgb(207, 200, 200);
+  font-family: var(--font-retro);
+  font-size: 16px;
+  text-align: center;
+  text-shadow: 0 0 8px white;
+
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.introduction.show {
+  opacity: 1;
+}
+
+.introduction.hidden {
+  display: none;
+}
+
+.introduction.fade-out {
+  opacity: 0;
+}

@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
     <link href="css/panels.css" rel="stylesheet">
+    <link href="css/eznav.css" rel="stylesheet">
     <link href="css/menus.css" rel="stylesheet">
     <link href="css/instructions.css" rel="stylesheet">
     <link href="css/mobile.css" rel="stylesheet">
@@ -32,17 +33,26 @@
         
         <div id="cube-instructions">
             <div class="desktop-instructions">
-                Click + drag cube to navigate,
-                Click face to explore
+                Click + drag or use <span class="arrow-keys">↑↓→←</span> keys to rotate cube, <br>
+                Click face or press 'enter' to explore section
             </div>
 
             <div class="mobile-instructions">
-                Touch + drag cube to navigate,
-                Tap face to explore
+                Touch + drag to rotate cube,
+                Tap face to explore section
             </div>
         </div>
-        
+
+        <div class="introduction">
+            Ryan Golden's Software Portfolio
+        </div>
         <div id="ui-layer"></div>
+
+        <div id="ez-nav">
+            <button id="ez-nav-prev" class="ez-nav-arrow" type="button">←</button>
+            <div id="ez-nav-label">Home</div>
+            <button id="ez-nav-next" class="ez-nav-arrow" type="button">→</button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -57,5 +67,6 @@
     <script src="js/8animation.js"></script>
     <script src="js/9uiCore.js"></script>
     <script src="js/10uiPanels.js"></script>
+    <script src="js/11ezNav.js"></script>
 </body>
 </html>

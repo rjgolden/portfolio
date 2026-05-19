@@ -10,7 +10,7 @@ let isTouchDragging = false;
 let isHovering = false;
 
 const CLICK_THRESHOLD = 8;
-const ROTATION_SPEED = 2.5;
+const ROTATION_SPEED = 3.2;
 
 
 // cube rotation
@@ -40,7 +40,6 @@ function rotateCubeFromPointer(clientX, clientY) {
 }
 
 
-// instructions
 function hideCubeInstructions() {
   const el = document.getElementById("cube-instructions");
   if (!el || el.classList.contains("fade-out")) return;
@@ -49,9 +48,35 @@ function hideCubeInstructions() {
 
   setTimeout(() => {
     el.classList.add("hidden");
+
+    showIntroduction();
+
   }, 600);
 }
 
+function showIntroduction() {
+  const intro = document.querySelector(".introduction");
+  if (!intro) return;
+
+  intro.classList.remove("hidden");
+
+  requestAnimationFrame(() => {
+    intro.classList.remove("fade-out");
+    intro.classList.add("show");
+  });
+}
+
+function hideIntroduction() {
+  const intro = document.querySelector(".introduction");
+  if (!intro || intro.classList.contains("fade-out")) return;
+
+  intro.classList.add("fade-out");
+  intro.classList.remove("show");
+
+  setTimeout(() => {
+    intro.classList.add("hidden");
+  }, 600);
+}
 
 // raycasting helpers
 function updateMouseFromPointer(pointer) {
@@ -83,6 +108,7 @@ function handleCubeClick(pointer) {
   const materialIndex = Math.floor(intersects[0].faceIndex / 2);
   if (materialIndex < 0 || materialIndex >= labels.length) return;
 
+  hideIntroduction();
   moveCameraToFace(materialIndex);
 
   isPanelOpen = true;

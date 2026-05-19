@@ -1,7 +1,7 @@
 // animation state
 let t = 0;
 let lastActive = -1;
-
+let lastFrameTime = performance.now();
 
 // reusable math objects
 const tempRelativeCam = new THREE.Vector3();
@@ -32,6 +32,10 @@ function updateSceneColor() {
   edges.material.color.copy(currentColor);
   glowLight.color.copy(currentColor);
   glowLight2.color.copy(currentColor);
+
+  document.documentElement.style.setProperty(
+  "--ui-color",
+  "#" + currentColor.getHexString());
 }
 
 
@@ -46,54 +50,49 @@ function updateCamera() {
 }
 
 
-// keyboard rotation
-function applyKeyboardRotation() {
-  const keySpeed = 0.03;
+function applyKeyboardRotation(deltaTime) {
+  const keySpeed = 4.2;
 
   camera.getWorldDirection(tempForward);
   tempRight.crossVectors(tempForward, camera.up).normalize();
   tempUp.copy(camera.up).normalize();
 
   if (keys.ArrowLeft) {
-    tempKeyQuat.setFromAxisAngle(tempUp, -keySpeed);
+    tempKeyQuat.setFromAxisAngle(tempUp, -keySpeed * deltaTime);
     cubeQuat.premultiply(tempKeyQuat);
   }
 
   if (keys.ArrowRight) {
-    tempKeyQuat.setFromAxisAngle(tempUp, keySpeed);
+    tempKeyQuat.setFromAxisAngle(tempUp, keySpeed * deltaTime);
     cubeQuat.premultiply(tempKeyQuat);
   }
 
   if (keys.ArrowUp) {
-    tempKeyQuat.setFromAxisAngle(tempRight, -keySpeed);
+    tempKeyQuat.setFromAxisAngle(tempRight, -keySpeed * deltaTime);
     cubeQuat.premultiply(tempKeyQuat);
   }
 
   if (keys.ArrowDown) {
-    tempKeyQuat.setFromAxisAngle(tempRight, keySpeed);
+    tempKeyQuat.setFromAxisAngle(tempRight, keySpeed * deltaTime);
     cubeQuat.premultiply(tempKeyQuat);
   }
 }
 
-
-// idle rotation
-function applyIdleRotation() {
+function applyIdleRotation(deltaTime) {
   if (isDragging) return;
 
+  tempIdleEuler.set(0.12 * deltaTime, 0.30 * deltaTime, 0);
   tempIdleQuat.setFromEuler(tempIdleEuler);
   cubeQuat.multiply(tempIdleQuat);
 }
 
-
-// cube updates
-function updateCubeRotation() {
-  applyKeyboardRotation();
-  applyIdleRotation();
+function updateCubeRotation(deltaTime) {
+  applyKeyboardRotation(deltaTime);
+  applyIdleRotation(deltaTime);
 
   cube.quaternion.copy(cubeQuat);
   edges.quaternion.copy(cubeQuat);
 }
-
 
 // face detection
 function getActiveFaceIndex() {
@@ -116,6 +115,7 @@ function getActiveFaceIndex() {
 
   return active;
 }
+
 
 function updateFaceCanvases(activeFaceIndex) {
   const activeHex = "#" + currentColor.getHexString();
@@ -207,16 +207,18 @@ function updateUITheme() {
   }
 }
 
-// render loop
-function animate() {
+function animate(now = performance.now()) {
   requestAnimationFrame(animate);
 
-  t += 0.01;
+  const deltaTime = Math.min((now - lastFrameTime) / 1000, 0.05);
+  lastFrameTime = now;
+
+  t += deltaTime;
 
   updateRainbowTheme();
   updateSceneColor();
   updateCamera();
-  updateCubeRotation();
+  updateCubeRotation(deltaTime);
   updateActiveFace();
   updateParticles();
   updateUITheme();

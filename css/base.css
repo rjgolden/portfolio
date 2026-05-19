@@ -64,3 +64,9 @@ img{
   white-space: nowrap;
   border: 0;
 }
+
+.arrow-keys {
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  font-size: x-large;
+}

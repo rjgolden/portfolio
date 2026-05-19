@@ -115,6 +115,38 @@ window.addEventListener("keyup", e => {
   }
 }, { passive: false });
 
+window.addEventListener("keydown", e => {
+  hideCubeInstructions();
+  if (e.key !== "Enter" && e.key !== " ") return;
+
+  // prevent repeated opens while held
+  if (e.repeat) return;
+
+  // don't reopen if already inside a panel
+  if (window.isPanelOpen && window.isPanelOpen()) return;
+
+  const activeFaceIndex = getActiveFaceIndex();
+  hideIntroduction();
+  moveCameraToFace(activeFaceIndex);
+
+  isPanelOpen = true;
+  pendingFaceIndex = activeFaceIndex;
+
+  particleOrigin.copy(cameraTargetPosition);
+  playBeep();
+});
+
+window.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+
+  if (!window.isPanelOpen || !window.isPanelOpen()) return;
+
+  e.preventDefault();
+
+  sound4.play();
+  resetCameraHome();
+  isPanelOpen = false;
+});
 
 // color controls
 window.setColor = hex => targetColor.set(hex);
