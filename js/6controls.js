@@ -40,7 +40,7 @@ function rotateCubeFromPointer(clientX, clientY) {
 }
 
 
-function hideCubeInstructions() {
+window.hideCubeInstructions = function() {
   const el = document.getElementById("cube-instructions");
   if (!el || el.classList.contains("fade-out")) return;
 
@@ -52,7 +52,7 @@ function hideCubeInstructions() {
     showIntroduction();
 
   }, 600);
-}
+};
 
 function showIntroduction() {
   const intro = document.querySelector(".introduction");

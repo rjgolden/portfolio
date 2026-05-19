@@ -45,7 +45,7 @@ function goToEzNavIndex(index) {
 }
 
 function handleEzNav(direction) {
-  hideCubeInstructions();
+  window.hideCubeInstructions?.();
   goToEzNavIndex(ezNavIndex + direction);
 }
 
