@@ -195,7 +195,13 @@ function createUIScreen(faceIndex, slotClass) {
     5: "←"  
   };
 
-  closeBtn.textContent = backIcons[faceIndex] || "X";
+  const dir = backIcons[faceIndex] || "X";
+
+  closeBtn.innerHTML = `<span class="close-arrow">${dir}</span>`;
+
+  if (dir === "←" || dir === "→") {
+    closeBtn.classList.add("horizontal");
+  }
 
   closeBtn.addEventListener("click", e => {
     e.stopPropagation();

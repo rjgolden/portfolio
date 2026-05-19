@@ -48,10 +48,6 @@ const defaultCameraQuaternion = camera.quaternion.clone();
 const cameraTargetPosition = defaultCameraPosition.clone();
 const cameraLerpStrength = 0.08;
 
-const homeForward = defaultLookTarget.clone()
-  .sub(defaultCameraPosition)
-  .normalize();
-
 const homeRight = new THREE.Vector3(1, 0, 0)
   .applyQuaternion(defaultCameraQuaternion)
   .normalize();
@@ -115,4 +111,8 @@ window.moveCameraToFace = function(faceIndex) {
 window.resetCameraHome = function() {
   cameraTargetPosition.copy(defaultCameraPosition);
   particleOrigin.copy(defaultCameraPosition);
+  if (typeof syncEzNavToFace === "function") {
+    ezNavIndex = 0;
+    updateEzNavLabel();
+  }
 };

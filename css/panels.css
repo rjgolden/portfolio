@@ -47,27 +47,31 @@
   top: 8px;
   right: 8px;
 
-  display: flex;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+
+   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 18px;
-  height: 18px;
-  padding: 0;
 
   color: inherit;
   background: transparent;
   border: 1px solid currentColor;
 
   font-family: monospace;
-  font-size: 16px;
-  font-weight: bold;
-
-  line-height: 0;
+  font-size: 20px;
+  line-height: 20px;
   text-align: center;
+}
 
-  appearance: none;
-  -webkit-appearance: none;
+.close-arrow {
+  display: inline-block;
+  line-height: 1;
+}
+
+.ui-screen-close.horizontal .close-arrow {
+  transform: translateY(-1px);
 }
 
 .ui-screen-close:hover,

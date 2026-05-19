@@ -9,6 +9,15 @@ const ezNavOrder = [
 ];
 
 let ezNavIndex = 0;
+function syncEzNavToFace(faceIndex) {
+  const index = ezNavOrder.findIndex(item => item.faceIndex === faceIndex);
+  if (index === -1) return;
+
+  ezNavIndex = index;
+  updateEzNavLabel();
+}
+
+window.syncEzNavToFace = syncEzNavToFace;
 
 function updateEzNavLabel() {
   const label = document.getElementById("ez-nav-label");

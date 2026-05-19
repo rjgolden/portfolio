@@ -131,6 +131,7 @@ window.addEventListener("keydown", e => {
 
   isPanelOpen = true;
   pendingFaceIndex = activeFaceIndex;
+  window.syncEzNavToFace?.(materialIndex);
 
   particleOrigin.copy(cameraTargetPosition);
   playBeep();

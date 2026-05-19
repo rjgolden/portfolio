@@ -113,6 +113,7 @@ function handleCubeClick(pointer) {
 
   isPanelOpen = true;
   pendingFaceIndex = materialIndex;
+  window.syncEzNavToFace?.(materialIndex);
 
   particleOrigin.copy(cameraTargetPosition);
   playBeep();

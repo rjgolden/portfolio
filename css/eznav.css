@@ -16,11 +16,6 @@
   transition: opacity 0.2s ease;
 }
 
-#ez-nav {
-  opacity: 0.28;
-  transition: opacity 0.2s ease;
-}
-
 @media (hover: hover) {
   #ez-nav:hover {
     opacity: 1;
