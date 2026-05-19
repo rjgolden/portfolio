@@ -78,11 +78,23 @@
   .mobile-instructions {
     display: block;
   }
-}
 
-@media (hover: none) {
-    .ui-panel-link:active {
-      color: #b8acac56;
-      background: currentColor;
-    }
+  .introduction {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+
+    transform: translateX(-50%);
+    z-index: 19;
+    pointer-events: none;
+
+    color: rgb(207, 200, 200);
+    font-family: var(--font-retro);
+    font-size: 12px;
+    text-align: center;
+    text-shadow: 0 0 8px white;
+
+    opacity: 0;
+    transition: opacity 1s ease;
   }
+}
