@@ -69,7 +69,7 @@
 
 @media (max-width: 768px) {
   #ez-nav {
-    bottom: calc(env(safe-area-inset-bottom) + 12px);
+    bottom: env(safe-area-inset-bottom);
     gap: 14px;
   }
 
