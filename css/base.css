@@ -52,6 +52,20 @@ img{
   box-shadow: 8px currentColor;
 }
 
+a{
+  font-style:italic;
+}
+
+/* Active state */
+a:active {
+  color: currentColor;
+}
+
+a:hover {
+  color: #25b801;
+}
+
+
 .hidden-content {
   position: absolute;
   width: 1px;
