@@ -69,7 +69,7 @@
 
 @media (max-width: 768px) {
   #ez-nav {
-    bottom: calc(env(safe-area-inset-bottom) + 18px);
+    bottom: calc(env(safe-area-inset-bottom) + 12px);
     gap: 14px;
   }
 
@@ -80,5 +80,12 @@
 
   .ez-nav-arrow {
     font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) and (display-mode: standalone) {
+  /* app: move up */
+  #ez-nav {
+    bottom: calc(env(safe-area-inset-bottom) + 24px);
   }
 }
