@@ -4,10 +4,10 @@
   }
 
   .ui-screen {
-    left: 50dvw;
-    top: 50dvh;
+    left: 50svw;
+    top: 50svh;
     width: min(76vw, 400px);
-    max-height: 80vh;
+    max-height: 80svh;
     font-size: 9.5px;
   }
 
@@ -22,8 +22,8 @@
   /* Panel placement */
   .slot-upper-left  { margin-left: -90vw; margin-top: -70vh; }
   .slot-lower-left  { margin-left: -90vw; margin-top:  70vh; }
-  .slot-above       { margin-left: 0;        margin-top: -100vh; }
-  .slot-below       { margin-left: 0;        margin-top:  100vh; }
+  .slot-above       { margin-left: 0;        margin-top: -100svh; }
+  .slot-below       { margin-left: 0;        margin-top:  100svh; }
   .slot-upper-right { margin-left:  90vw; margin-top: -70vh; }
   .slot-lower-right { margin-left:  90vw; margin-top:  70vh; }
 
