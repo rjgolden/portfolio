@@ -58,6 +58,11 @@ function updateCamera(deltaTime) {
   const alpha = 1 - Math.pow(1 - cameraLerpStrength, deltaTime * 60);
 
   camera.position.lerp(cameraTargetPosition, alpha);
+
+  if (camera.position.distanceToSquared(cameraTargetPosition) < 0.0001) {
+    camera.position.copy(cameraTargetPosition);
+  }
+
   camera.quaternion.copy(defaultCameraQuaternion);
 
   if (typeof updateUIPlanePosition === "function") {

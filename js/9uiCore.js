@@ -41,8 +41,11 @@ window.updateUIPlanePosition = function() {
   const x = offset.dot(homeRight);
   const y = offset.dot(homeUp);
 
-  const pxPerUnitX = parent.clientWidth / pageDistance;
-  const pxPerUnitY = parent.clientHeight / pageDistance;
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  const pxPerUnitX = width / pageDistance;
+  const pxPerUnitY = height / pageDistance;
 
   uiPlane.style.transform = `translate(${-x * pxPerUnitX}px, ${y * pxPerUnitY}px)`;
 };
