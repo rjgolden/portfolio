@@ -45,11 +45,11 @@ function drawFace(face, color, isActive) {
 
   if (isActive) {
     ctx.shadowColor = color;
-    ctx.shadowBlur = 60;
+    ctx.shadowBlur = isMobileViewport() ? 18 : 60;
     ctx.fillStyle = color;
-    ctx.globalAlpha = 0.25;
+    ctx.globalAlpha = isMobileViewport() ? 0.12 : 0.25;
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
-    ctx.globalAlpha = 0.75;
+    ctx.globalAlpha = isMobileViewport() ? 0.85 : 0.75;
   } else {
     ctx.shadowBlur = 0;
   }
