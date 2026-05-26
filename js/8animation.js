@@ -58,11 +58,6 @@ function updateCamera(deltaTime) {
   const alpha = 1 - Math.pow(1 - cameraLerpStrength, deltaTime * 60);
 
   camera.position.lerp(cameraTargetPosition, alpha);
-
-  if (camera.position.distanceToSquared(cameraTargetPosition) < 0.0001) {
-    camera.position.copy(cameraTargetPosition);
-  }
-
   camera.quaternion.copy(defaultCameraQuaternion);
 
   if (typeof updateUIPlanePosition === "function") {
@@ -251,7 +246,7 @@ function animate(now = performance.now()) {
   //60 FPS
   if (elapsed < 1000 / 60) return;
 
-  const deltaTime = Math.min(elapsed / 1000, 0.05);
+  const deltaTime = 1 / 60;
   lastFrameTime = now - (elapsed % (1000 / 60));
 
   t += deltaTime;

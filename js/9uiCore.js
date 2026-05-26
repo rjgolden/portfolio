@@ -34,22 +34,17 @@ window.updateAllUIScreenColors = function() {
 };
 
 
-// ui plane positioning
 window.updateUIPlanePosition = function() {
   const offset = camera.position.clone().sub(defaultCameraPosition);
 
   const x = offset.dot(homeRight);
   const y = offset.dot(homeUp);
 
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-
-  const pxPerUnitX = width / pageDistance;
-  const pxPerUnitY = height / pageDistance;
+  const pxPerUnitX = parent.clientWidth / pageDistance;
+  const pxPerUnitY = parent.clientHeight / pageDistance;
 
   uiPlane.style.transform = `translate(${-x * pxPerUnitX}px, ${y * pxPerUnitY}px)`;
 };
-
 
 // compatibility placeholders
 window.showUIScreen = function() {};
