@@ -45,11 +45,31 @@ function drawFace(face, color, isActive) {
 
   if (isActive) {
     ctx.shadowColor = color;
-    ctx.shadowBlur = isMobileViewport() ? 10 : 60;
+
+    ctx.shadowBlur =
+      lightModeEnabled && isMobileViewport()
+        ? 4
+        : isMobileViewport()
+          ? 18
+          : 60;
+
     ctx.fillStyle = color;
-    ctx.globalAlpha = isMobileViewport() ? 0.12 : 0.25;
+
+    ctx.globalAlpha =
+      lightModeEnabled && isMobileViewport()
+        ? 0.04
+        : isMobileViewport()
+          ? 0.12
+          : 0.25;
+
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
-    ctx.globalAlpha = isMobileViewport() ? 0.85 : 0.75;
+
+    ctx.globalAlpha =
+      lightModeEnabled && isMobileViewport()
+        ? 1.0
+        : isMobileViewport()
+          ? 0.85
+          : 0.75;
   } else {
     ctx.shadowBlur = 0;
   }
