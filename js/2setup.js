@@ -46,10 +46,8 @@ function drawFace(face, color, isActive) {
   if (isActive) {
     ctx.shadowColor = color;
 
-    ctx.shadowBlur =
-      lightModeEnabled && isMobileViewport()
-        ? 45
-        : 60;
+    if(lightModeEnabled && isMobileViewport) ctx.shadowBlur = 45;
+    else ctx.shadowBlur = 60;
 
     ctx.fillStyle = color;
 
