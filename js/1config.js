@@ -9,7 +9,7 @@ let rainbowThemeEnabled = false;
 
 let lightModeEnabled = false;
 const DARK_BG = 0x000000;
-const LIGHT_BG = 0xf2efe7;
+const LIGHT_BG = 0xddd6c8;
 
 
 // renderer setup

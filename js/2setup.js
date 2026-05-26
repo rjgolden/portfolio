@@ -39,7 +39,7 @@ function drawFace(face, color, isActive) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = lightModeEnabled
-  ? "rgba(255,255,255,0.18)"
+  ? "rgba(210,200,184,0.42)"
   : "rgba(0,0,0,0.65)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -54,7 +54,7 @@ function drawFace(face, color, isActive) {
     ctx.shadowBlur = 0;
   }
 
-  ctx.fillStyle = isActive ? color : "#222";
+  ctx.fillStyle = isActive ? color : lightModeEnabled ? "#3d3a3a" : "#222";
   ctx.font = "bold 55px 'Press Start 2P'";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";

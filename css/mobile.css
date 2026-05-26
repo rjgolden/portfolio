@@ -98,3 +98,16 @@
     transition: opacity 1s ease;
   }
 }
+
+
+@media (hover: hover) and (pointer: fine) {
+  .ui-panel-link:hover {
+    color: #b8acac56;
+    background: color-mix(in srgb, currentColor 15%, transparent);
+  }
+
+  body.light-mode .ui-panel-link:not(.color-btn):hover {
+    color: #111;
+    background: rgba(0,0,0,0.08);
+  }
+}

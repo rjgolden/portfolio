@@ -32,7 +32,7 @@ function updateThemeMode() {
   if (lightModeEnabled) {
     renderer.setClearColor(LIGHT_BG, 1);
     document.documentElement.style.setProperty("--page-bg", "#f2efe7");
-    document.documentElement.style.setProperty("--panel-bg", "rgba(242, 239, 231, 0.72)");
+    document.documentElement.style.setProperty("--panel-bg", "rgba(221, 214, 200, 0.78)");
   } else {
     renderer.setClearColor(DARK_BG, 1);
     document.documentElement.style.setProperty("--page-bg", "#000");

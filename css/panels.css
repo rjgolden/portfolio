@@ -165,11 +165,12 @@
 
 .ui-panel-link:active {
   transform: translateY(-2px) scale(1.02);
+  background: color-mix(in srgb, currentColor 15%, transparent);
 }
 
-.ui-panel-link:hover {
-  color: #b8acac56;
-  background: color-mix(in srgb, currentColor 15%, transparent);
+body.light-mode .ui-panel-link:not(.color-btn):active {
+  color: #111;
+  background: rgba(0,0,0,0.08);
 }
 
 .ui-content-link,
