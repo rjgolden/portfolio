@@ -48,7 +48,7 @@ function drawFace(face, color, isActive) {
 
     ctx.shadowBlur =
       lightModeEnabled && isMobileViewport()
-        ? 18
+        ? 30
         : 60;
 
     ctx.fillStyle = color;
@@ -60,7 +60,7 @@ function drawFace(face, color, isActive) {
   } else {
     ctx.shadowBlur = 0;
   }
-  
+
   ctx.fillStyle = isActive ? color : lightModeEnabled ? "#3d3a3a" : "#222";
   ctx.font = "bold 55px 'Press Start 2P'";
   ctx.textAlign = "center";
