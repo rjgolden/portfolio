@@ -45,7 +45,7 @@ function drawFace(face, color, isActive) {
 
   if (isActive) {
     ctx.shadowColor = color;
-    ctx.shadowBlur = isMobileViewport() ? 18 : 60;
+    ctx.shadowBlur = isMobileViewport() ? 10 : 60;
     ctx.fillStyle = color;
     ctx.globalAlpha = isMobileViewport() ? 0.12 : 0.25;
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
