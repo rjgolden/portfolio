@@ -1,6 +1,5 @@
-// panel link rendering
 function renderPanelLink(link) {
-  if (link.project || link.content) {
+  if (link.action || link.project || link.content) {
     return `
       <button class="ui-panel-link ui-content-link" type="button">
         ${link.label}
@@ -25,7 +24,6 @@ function renderPanelLink(link) {
     </a>
   `;
 }
-
 
 // panel rendering helpers
 function getPanelData(faceIndex) {
@@ -77,13 +75,22 @@ function updateUIScreenContent(screen, faceIndex) {
 }
 
 function attachPanelLinkListeners(screen, faceIndex, links) {
-  if (!Array.isArray(links) || links.length === 0) return;
+    if (!Array.isArray(links) || links.length === 0) return;
 
-  screen.querySelectorAll(".ui-panel-link").forEach((el, i) => {
+    screen.querySelectorAll(".ui-panel-link").forEach((el, i) => {
     const linkData = links[i];
 
     el.addEventListener("click", e => {
       playBeep();
+
+      if (linkData && linkData.action === "toggleTheme") {
+        e.preventDefault();
+
+        lightModeEnabled = !lightModeEnabled;
+        sound5.play();
+
+        return;
+      }
 
       if (linkData && (linkData.project || linkData.content)) {
         e.preventDefault();
@@ -177,6 +184,15 @@ function initSettingsPanel(screen) {
       sound5.play();
     });
   }
+
+  const lightModeBtn = screen.querySelector(".ui-panel-link.color-btn.light-mode");
+
+  if (lightModeBtn) {
+    lightModeBtn.addEventListener("click", () => {
+      lightModeEnabled = !lightModeEnabled;
+      sound5.play();
+    });
+}
 }
 
 // screen creation

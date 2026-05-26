@@ -79,8 +79,7 @@ a:hover {
   border: 0;
 }
 
-.arrow-keys {
-  font-family: monospace;
-  letter-spacing: 0.15em;
-  font-size: x-large;
+body.light-mode p,
+body.light-mode .indentp{
+  color: #111;
 }

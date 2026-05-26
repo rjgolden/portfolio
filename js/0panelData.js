@@ -98,10 +98,11 @@ const panelData = [
 
   {
     title: "Settings",
-    body: ``,
+    body: "",
     links: [ 
       { label: "Audio Menu", project: audioMenu },
       { label: "Color Menu", project: colorMenu },
+      { label: "Toggle Light/Dark Mode", action: "toggleTheme" }
     ]
   },
 

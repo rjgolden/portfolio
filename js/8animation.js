@@ -2,6 +2,8 @@
 let t = 0;
 let lastActive = -1;
 let lastFrameTime = performance.now();
+const TARGET_FPS = 60;
+const FRAME_INTERVAL = 1000 / TARGET_FPS;
 
 // reusable math objects
 const tempRelativeCam = new THREE.Vector3();
@@ -25,6 +27,19 @@ function updateRainbowTheme() {
   targetColor.setHSL(hue / 360, 1.0, 0.55);
 }
 
+function updateThemeMode() {
+  document.body.classList.toggle("light-mode", lightModeEnabled);
+  if (lightModeEnabled) {
+    renderer.setClearColor(LIGHT_BG, 1);
+    document.documentElement.style.setProperty("--page-bg", "#f2efe7");
+    document.documentElement.style.setProperty("--panel-bg", "rgba(242, 239, 231, 0.72)");
+  } else {
+    renderer.setClearColor(DARK_BG, 1);
+    document.documentElement.style.setProperty("--page-bg", "#000");
+    document.documentElement.style.setProperty("--panel-bg", "rgba(0, 0, 0, 0)");
+  }
+}
+
 // color updates
 function updateSceneColor() {
   currentColor.lerp(targetColor, 0.05);
@@ -39,9 +54,10 @@ function updateSceneColor() {
 }
 
 
-// camera updates
-function updateCamera() {
-  camera.position.lerp(cameraTargetPosition, cameraLerpStrength);
+function updateCamera(deltaTime) {
+  const alpha = 1 - Math.pow(1 - cameraLerpStrength, deltaTime * 60);
+
+  camera.position.lerp(cameraTargetPosition, alpha);
   camera.quaternion.copy(defaultCameraQuaternion);
 
   if (typeof updateUIPlanePosition === "function") {
@@ -176,11 +192,26 @@ function updateParticleMaterial(particle) {
   const depthFade = 1 - (r - 2.5) / 8;
   const brightness = 0.35 + twinkle * 0.65;
 
-  particle.material.color
-    .copy(currentColor)
-    .multiplyScalar(shadeFactor * brightness);
+  if (lightModeEnabled) {
+    particle.material.blending = THREE.NormalBlending;
 
-  particle.material.opacity = baseOpacity * depthFade * twinkle;
+    particle.material.color
+      .copy(currentColor)
+      .multiplyScalar(0.45 + brightness * 0.35);
+
+    particle.material.opacity = Math.min(
+      0.95,
+      baseOpacity * depthFade * twinkle * 2.2
+    );
+  } else {
+    particle.material.blending = THREE.AdditiveBlending;
+
+    particle.material.color
+      .copy(currentColor)
+      .multiplyScalar(shadeFactor * brightness);
+
+    particle.material.opacity = baseOpacity * depthFade * twinkle;
+  }
 
   const scale = baseSize * (0.8 + twinkle * 0.4);
   particle.scale.set(scale, scale, 1);
@@ -210,14 +241,20 @@ function updateUITheme() {
 function animate(now = performance.now()) {
   requestAnimationFrame(animate);
 
-  const deltaTime = Math.min((now - lastFrameTime) / 1000, 0.05);
-  lastFrameTime = now;
+  const elapsed = now - lastFrameTime;
+
+  //60 FPS
+  if (elapsed < 1000 / 60) return;
+
+  const deltaTime = Math.min(elapsed / 1000, 0.05);
+  lastFrameTime = now - (elapsed % (1000 / 60));
 
   t += deltaTime;
 
   updateRainbowTheme();
+  updateThemeMode();
   updateSceneColor();
-  updateCamera();
+  updateCamera(deltaTime);
   updateCubeRotation(deltaTime);
   updateActiveFace();
   updateParticles();

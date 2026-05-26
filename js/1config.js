@@ -7,6 +7,10 @@ let targetColor = new THREE.Color(INITIAL_COLOR);
 let pendingFaceIndex = null;
 let rainbowThemeEnabled = false;
 
+let lightModeEnabled = false;
+const DARK_BG = 0x000000;
+const LIGHT_BG = 0xf2efe7;
+
 
 // renderer setup
 const canvas = document.getElementById("c");
@@ -46,7 +50,7 @@ const defaultCameraQuaternion = camera.quaternion.clone();
 
 // camera movement
 const cameraTargetPosition = defaultCameraPosition.clone();
-const cameraLerpStrength = 0.08;
+const cameraLerpStrength = 0.048;
 
 const homeRight = new THREE.Vector3(1, 0, 0)
   .applyQuaternion(defaultCameraQuaternion)

@@ -38,7 +38,9 @@ function drawFace(face, color, isActive) {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "rgba(0,0,0,0.65)";
+  ctx.fillStyle = lightModeEnabled
+  ? "rgba(255,255,255,0.18)"
+  : "rgba(0,0,0,0.65)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   if (isActive) {
