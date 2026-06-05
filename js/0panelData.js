@@ -1,7 +1,9 @@
 
 const project1 = `<p>Projects go here.</p>`;
-const project2 = `<p>Second project content goes here. </p>
-                    <h1> h1 </h1>
+const project2 = `<p>Overview of project <br>
+                     -what it does <br>
+                      </p>
+                    <h1> </h1>
                     <h2> h2 </h2>
                     <h3> h3 </h3>
                     <img src="/resources/test.png" alt="Resume preview"> <br>
