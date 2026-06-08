@@ -83,3 +83,17 @@ body.light-mode p,
 body.light-mode .indentp{
   color: #3d3a3a;
 }
+
+#boot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--page-bg);
+  opacity: 1;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+#boot-overlay.hidden {
+  opacity: 0;
+}

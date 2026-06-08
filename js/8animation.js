@@ -4,6 +4,7 @@ let lastActive = -1;
 let lastFrameTime = performance.now();
 const TARGET_FPS = 60;
 const FRAME_INTERVAL = 1000 / TARGET_FPS;
+let bootHidden = false;
 
 // reusable math objects
 const tempRelativeCam = new THREE.Vector3();
@@ -261,6 +262,17 @@ function animate(now = performance.now()) {
   updateUITheme();
 
   renderer.render(scene, camera);
+
+  if (!bootHidden) {
+    bootHidden = true;
+
+    const boot = document.getElementById("boot-overlay");
+
+    if (boot) {
+      boot.classList.add("hidden");
+      boot.addEventListener("transitionend", () => boot.remove(), { once: true });
+    }
+  }
 }
 
 animate();
