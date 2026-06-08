@@ -1,5 +1,5 @@
 // color state
-const INITIAL_COLOR = "#FFB000";
+const INITIAL_COLOR = "#ffb000";
 const MOBILE_BREAKPOINT = "(max-width: 768px)";
 
 let currentColor = new THREE.Color(INITIAL_COLOR);
