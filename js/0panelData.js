@@ -1,9 +1,42 @@
 
-const project1 = `<p>Projects go here.</p>`;
-const project2 = `<p>Overview of project <br>
-                     -what it does <br>
-                      </p>
-                    <h1> </h1>
+const project = `<h1 class = "insideh1"> Overview </h1>
+                  <h3> About project </h3>
+                  <p class = "indentp"> about project </p>
+                  <h3> Languages/Frameworks used </h3>
+                  <p class = "indentp"> Go into stack </p>
+
+                  <h1 class = "insideh1"> How it works </h1>
+                  <h3> Coding method/stack </h3>
+                  <p class = "indentp"> methods/how logic works </p>
+                  <h3> Showcase </h3>
+                  <p class = "indentp"> showcase </p>
+
+                  <h1 class = "insideh1"> Takeaways </h1>
+                  <h3> Obstacles overcame </h3>
+                  <p class = "indentp"> - </p>
+                  <h3> What I learned </h3>
+                  <p class = "indentp"> - </p>`;
+
+const project1 = `<h1 class = "insideh1"> Overview </h1>
+                  <h3> About project </h3>
+                  <p class = "indentp"> about project </p>
+                  <h3> Languages/Frameworks used </h3>
+                  <p class = "indentp"> Go into stack </p>
+
+                  <h1 class = "insideh1"> How it works </h1>
+                  <h3> Coding method/stack </h3>
+                  <p class = "indentp"> methods/how logic works </p>
+                  <h3> Showcase </h3>
+                  <p class = "indentp"> showcase </p>
+
+                  <h1 class = "insideh1"> Takeaways </h1>
+                  <h3> Obstacles overcame </h3>
+                  <p class = "indentp"> - </p>
+                  <h3> What I learned </h3>
+                  <p class = "indentp"> - </p>`;
+
+
+const project2 = `  <h1> h1 </h1>
                     <h2> h2 </h2>
                     <h3> h3 </h3>
                     <img src="/resources/test.png" alt="Resume preview"> <br>
@@ -112,7 +145,7 @@ const panelData = [
     title: "Projects",
     body: ``,
     links: [
-      { label: "WalkPoint URI", project: project2 },
+      { label: "WalkPoint URI", project: project1 },
       { label: "Raylib Shooter", project: project2 },
       { label: "Inklings Project", project: project2 },
       { label: "Floppy Fish", project: project2 },
