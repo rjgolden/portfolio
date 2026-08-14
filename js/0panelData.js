@@ -66,20 +66,7 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/wordle.p
                   <p class = "indentp"> It calculates the previous day's date in Eastern Time, and requests the matching Wordle answer. </p>
                   <img src="resources/getWord.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;"> 
                   <p class = "indentp"> Lastly, after some error handling and admin checks, the bot posts it in the selected channel at midnight. </p>
-                  <img src="resources/sendMessage.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;"> 
-
-              
-                  <h1 class = "insideh1"> Takeaways </h1>
-                  <h3> Obstacles overcame </h3>
-
-                  <p class = "indentp"> The most challenging part was calculating the correct previous date. The bot needed to handle month and year boundaries, leap years, Eastern Time, daylight saving time, and daily scheduling.
-                                        Implenting this correctly took some time and trial and error. </p>
-
-                  <h3> What I learned </h3>
-
-                  <p class = "indentp"> This project taught me how to work with dates and time zones, make HTTP requests, use scheduled tasks, and manage Discord bot permissions and events.
-                                        I also created a small C program that allows the bot to be started with one click. </p>
-                  <p class = "indentp"> Overall, the project gave me experience building a practical tool that my friends and I could use every day.</p>`;
+                  <img src="resources/sendMessage.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;">`;
 
 const feed1 = `<p>First blog post content goes here.</p>`;
 const feed2 = `<p>Second blog post content goes here.</p>`;
