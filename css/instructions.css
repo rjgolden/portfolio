@@ -26,6 +26,10 @@
   display: none;
 }
 
+.desktop-instructions {
+  display: block;
+}
+
 .mobile-instructions {
   display: none;
 }
@@ -70,4 +74,14 @@ body.light-mode #cube-instructions,
 body.light-mode .introduction {
   color: #3d3a3a;
   text-shadow: 0 0 10px rgba(77, 77, 77, 0.15);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .desktop-instructions {
+    display: none;
+  }
+
+  .mobile-instructions {
+    display: block;
+  }
 }

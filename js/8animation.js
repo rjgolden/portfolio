@@ -280,9 +280,7 @@ animate();
 
 // resize
 window.addEventListener("resize", () => {
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-  if (isMobile) {
+  if (isCompactLayout()) {
     defaultCameraPosition.set(3.2, 2.3, 3.2);
   } else {
     defaultCameraPosition.set(2.5, 1.8, 2.5);

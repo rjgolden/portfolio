@@ -1,6 +1,7 @@
 // color state
 const INITIAL_COLOR = "#ffb000";
-const MOBILE_BREAKPOINT = "(max-width: 768px)";
+const COMPACT_LAYOUT_QUERY = "(max-width: 768px)";
+const TOUCH_INPUT_QUERY = "(hover: none) and (pointer: coarse)";
 
 let currentColor = new THREE.Color(INITIAL_COLOR);
 let targetColor = new THREE.Color(INITIAL_COLOR);
@@ -36,7 +37,7 @@ const camera = new THREE.PerspectiveCamera(50, parent.clientWidth / parent.clien
 const defaultCameraPosition = new THREE.Vector3(2.5, 1.8, 2.5);
 const defaultLookTarget = new THREE.Vector3(0, 0, 0);
 
-if (window.matchMedia(MOBILE_BREAKPOINT).matches) {
+if (isCompactLayout()) {
   defaultCameraPosition.set(3.0, 2.1, 3.0);
 }
 
@@ -86,12 +87,16 @@ const faceViewportOffsetsMobile = {
 
 
 // helpers
-function isMobileViewport() {
-  return window.matchMedia(MOBILE_BREAKPOINT).matches;
+function isCompactLayout() {
+  return window.matchMedia(COMPACT_LAYOUT_QUERY).matches;
+}
+
+function usesTouchInput() {
+  return window.matchMedia(TOUCH_INPUT_QUERY).matches;
 }
 
 function getFaceViewportOffsets() {
-  return isMobileViewport()
+  return isCompactLayout()
     ? faceViewportOffsetsMobile
     : faceViewportOffsetsDesktop;
 }

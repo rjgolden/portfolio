@@ -71,14 +71,6 @@
     white-space: normal;
   }
 
-  .desktop-instructions {
-    display: none;
-  }
-
-  .mobile-instructions {
-    display: block;
-  }
-
   .introduction {
     position: absolute;
     left: 50%;
