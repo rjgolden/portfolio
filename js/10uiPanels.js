@@ -137,6 +137,11 @@ function initSettingsPanel(screen) {
       sfxSliderValue = Number(sfxSlider.value);
       applyAudioVolumes();
     });
+
+    sfxSlider.addEventListener("change", () => {
+      saveStoredValue(STORAGE_KEYS.sfxVolume, sfxSliderValue);
+      playBeep();
+    });
   }
 
   if (musicSlider) {
@@ -146,6 +151,11 @@ function initSettingsPanel(screen) {
       musicSliderValue = Number(musicSlider.value);
       applyAudioVolumes();
     });
+
+    musicSlider.addEventListener("change", () => {
+      saveStoredValue(STORAGE_KEYS.musicVolume, musicSliderValue);
+      playBeep();
+    });
   }
 
   if (muteCheckbox) {
@@ -153,7 +163,9 @@ function initSettingsPanel(screen) {
 
     muteCheckbox.addEventListener("change", () => {
       masterMuted = muteCheckbox.checked;
+      saveStoredValue(STORAGE_KEYS.muted, masterMuted);
       applyAudioVolumes();
+      playBeep();
     });
   }
 
@@ -162,6 +174,7 @@ function initSettingsPanel(screen) {
       const color = btn.dataset.color;
       if (!color) return;
       rainbowThemeEnabled = false;
+      saveStoredValue(STORAGE_KEYS.uiColor, color);
       setColor(color);
       sound5.play();
     });
@@ -170,8 +183,12 @@ function initSettingsPanel(screen) {
   const picker = screen.querySelector("#settings-color-picker");
 
   if (picker) {
-    picker.addEventListener("input", () => {
+      picker.addEventListener("input", () => {
+      rainbowThemeEnabled = false;
+
       setColor(picker.value);
+      saveStoredValue(STORAGE_KEYS.uiColor, picker.value);
+
       sound5.play();
     });
   }
@@ -181,6 +198,7 @@ function initSettingsPanel(screen) {
   if (customRainbowBtn) {
     customRainbowBtn.addEventListener("click", () => {
       rainbowThemeEnabled = true;
+      saveStoredValue(STORAGE_KEYS.uiColor, "rainbow");
       sound5.play();
     });
   }

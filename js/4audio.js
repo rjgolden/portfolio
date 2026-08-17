@@ -17,9 +17,15 @@ const audioLoader = new THREE.AudioLoader();
 let contextResumed = false;
 let ambianceReady = false;
 
-let sfxSliderValue = 35;
-let musicSliderValue = 25;
-let masterMuted = false;
+let sfxSliderValue = Number(
+  loadStoredValue(STORAGE_KEYS.sfxVolume, 35)
+);
+
+let musicSliderValue = Number(
+  loadStoredValue(STORAGE_KEYS.musicVolume, 25)
+);
+
+let masterMuted = loadStoredValue(STORAGE_KEYS.muted, "false") === "true";
 
 
 // volume settings

@@ -1,12 +1,38 @@
+const STORAGE_KEYS = {
+  uiColor: "portfolio-ui-color",
+  sfxVolume: "portfolio-sfx-volume",
+  musicVolume: "portfolio-music-volume",
+  muted: "portfolio-muted"
+};
+
+function loadStoredValue(key, fallback) {
+  const value = localStorage.getItem(key);
+  return value !== null ? value : fallback;
+}
+
+function saveStoredValue(key, value) {
+  localStorage.setItem(key, String(value));
+}
+
 // color state
 const INITIAL_COLOR = "#ffb000";
 const COMPACT_LAYOUT_QUERY = "(max-width: 768px)";
 const TOUCH_INPUT_QUERY = "(hover: none) and (pointer: coarse)";
 
-let currentColor = new THREE.Color(INITIAL_COLOR);
-let targetColor = new THREE.Color(INITIAL_COLOR);
+const savedUIColor = loadStoredValue(
+  STORAGE_KEYS.uiColor,
+  INITIAL_COLOR
+);
+
+const startingColor =
+  savedUIColor === "rainbow"
+    ? INITIAL_COLOR
+    : savedUIColor;
+
+let currentColor = new THREE.Color(startingColor);
+let targetColor = new THREE.Color(startingColor);
 let pendingFaceIndex = null;
-let rainbowThemeEnabled = false;
+let rainbowThemeEnabled = savedUIColor === "rainbow";
 
 let lightModeEnabled = false;
 const DARK_BG = 0x000000;
