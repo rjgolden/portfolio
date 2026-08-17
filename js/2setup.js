@@ -54,10 +54,16 @@ function drawFace(face, color, isActive) {
 
     ctx.fillStyle = color;
 
-    ctx.globalAlpha = 0.25;
-    ctx.fillText(label, canvas.width / 2, canvas.height / 2);
+    ctx.globalAlpha = lightModeEnabled && isMobileViewport()
+    ? 0.10
+    : 0.25;
 
+    ctx.fillText(label, canvas.width / 2, canvas.height / 2);
     ctx.globalAlpha = 0.75;
+    if (lightModeEnabled && isMobileViewport()) {
+      ctx.shadowBlur = 0;
+    }
+    
   } else {
     ctx.shadowBlur = 0;
   }
