@@ -87,6 +87,7 @@ function attachPanelLinkListeners(screen, faceIndex, links) {
         e.preventDefault();
 
         lightModeEnabled = !lightModeEnabled;
+        saveStoredValue(STORAGE_KEYS.lightMode, lightModeEnabled);
         sound5.play();
 
         return;

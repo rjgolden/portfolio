@@ -2,8 +2,10 @@ const STORAGE_KEYS = {
   uiColor: "portfolio-ui-color",
   sfxVolume: "portfolio-sfx-volume",
   musicVolume: "portfolio-music-volume",
-  muted: "portfolio-muted"
+  muted: "portfolio-muted",
+  lightMode: "portfolio-light-mode"
 };
+
 
 function loadStoredValue(key, fallback) {
   const value = localStorage.getItem(key);
@@ -34,7 +36,7 @@ let targetColor = new THREE.Color(startingColor);
 let pendingFaceIndex = null;
 let rainbowThemeEnabled = savedUIColor === "rainbow";
 
-let lightModeEnabled = false;
+let lightModeEnabled = loadStoredValue(STORAGE_KEYS.lightMode, "false") === "true";
 const DARK_BG = 0x000000;
 const LIGHT_BG = 0xddd6c8;
 
