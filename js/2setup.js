@@ -47,7 +47,7 @@ function drawFace(face, color, isActive) {
     ctx.shadowColor = color;
 
     if (lightModeEnabled && isCompactLayout()) {
-      ctx.shadowBlur = 7.5;
+      ctx.shadowBlur = 5;
     } else {
       ctx.shadowBlur = 60;
     }
