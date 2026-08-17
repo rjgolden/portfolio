@@ -3,7 +3,7 @@ const project = `<h1 class = "insideh1"> Overview </h1>
                   <h3> About project </h3>
                   <p class = "indentp"> about project </p>
                   <h3> Languages/Frameworks used </h3>
-                  <p class = "indentp"> Go into stack </p>
+                  <p class = "indentp"> Go into stacks </p>
 
                   <h1 class = "insideh1"> How it works </h1>
                   <h3> Coding method/stack </h3>
