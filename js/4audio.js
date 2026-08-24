@@ -4,14 +4,13 @@ camera.add(listener);
 
 
 // audio sources
-const sound = new THREE.Audio(listener);
+const music1 = new THREE.Audio(listener);
 const sound2 = new THREE.Audio(listener);
 const sound3 = new THREE.Audio(listener);
 const sound4 = new THREE.Audio(listener);
 const sound5 = new THREE.Audio(listener);
-
 const audioLoader = new THREE.AudioLoader();
-
+let backgroundMusic = music1;
 
 // audio state
 let contextResumed = false;
@@ -56,7 +55,7 @@ function applyAudioVolumes() {
   const musicVolume = sliderToVolume(musicSliderValue, maxVolumes.music);
   const sfxVolume = sliderToVolume(sfxSliderValue, maxVolumes.sfx);
 
-  sound.setVolume(getVol(musicVolume));
+  backgroundMusic.setVolume(getVol(musicVolume));
   sound2.setVolume(getVol(sfxVolume * sfxMix.switch));
   sound3.setVolume(getVol(sfxVolume * sfxMix.beep));
   sound4.setVolume(getVol(sfxVolume * sfxMix.back));
@@ -66,8 +65,8 @@ function applyAudioVolumes() {
 
 // audio loading
 audioLoader.load("audio/ambiance.ogg", buffer => {
-  sound.setBuffer(buffer);
-  sound.setLoop(true);
+  backgroundMusic.setBuffer(buffer);
+  backgroundMusic.setLoop(true);
   applyAudioVolumes();
 
   ambianceReady = true;
@@ -94,7 +93,6 @@ audioLoader.load("audio/colorSelect.ogg", buffer => {
   applyAudioVolumes();
 });
 
-
 // audio context
 function resumeAudioContext() {
   if (contextResumed) return;
@@ -108,8 +106,8 @@ function resumeAudioContext() {
 }
 
 function tryPlayAmbiance() {
-  if (contextResumed && ambianceReady && sound.buffer && !sound.isPlaying) {
-    sound.play();
+  if (contextResumed && ambianceReady && backgroundMusic.buffer && !backgroundMusic.isPlaying) {
+    backgroundMusic.play();
   }
 }
 
