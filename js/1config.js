@@ -38,8 +38,8 @@ let pendingFaceIndex = null;
 let rainbowThemeEnabled = savedUIColor === "rainbow";
 
 let lightModeEnabled = loadStoredValue(STORAGE_KEYS.lightMode, "false") === "true";
-const DARK_BG = 0x000000;
-const LIGHT_BG = 0xddd6c8;
+const DARK_BG = "#000000";
+const LIGHT_BG = "#c7c2b8";
 
 
 // renderer setup

@@ -39,8 +39,8 @@ function drawFace(face, color, isActive) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = lightModeEnabled
-  ? "rgba(210,200,184,0.42)"
-  : "rgba(0,0,0,0.65)";
+  ? LIGHT_BG
+  : DARK_BG;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // if the panel is facing the screen

@@ -70,10 +70,9 @@ a{
 }
 
 /* Active state */
-a:active {
+a {
   color: currentColor;
 }
-
 a:hover {
   color: #25b801;
 }
