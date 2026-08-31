@@ -3,7 +3,9 @@ const listener = new THREE.AudioListener();
 camera.add(listener);
 
 
-// audio sources
+const audioLoader = new THREE.AudioLoader();
+
+// music
 const music1 = new THREE.Audio(listener);
 const music2 = new THREE.Audio(listener);
 const music3 = new THREE.Audio(listener);
@@ -11,16 +13,41 @@ const music4 = new THREE.Audio(listener);
 const music5 = new THREE.Audio(listener);
 const music6 = new THREE.Audio(listener);
 const music7 = new THREE.Audio(listener);
+
+// sound effects
 const sound2 = new THREE.Audio(listener);
 const sound3 = new THREE.Audio(listener);
 const sound4 = new THREE.Audio(listener);
 const sound5 = new THREE.Audio(listener);
-const audioLoader = new THREE.AudioLoader();
-let backgroundMusic = music1;
+
+// available music
+const musicTracks = [
+  { id: "song1", name: "Gamecube", audio: music1, url: "audio/ambiance.ogg" },
+  { id: "song2", name: "Xbox OG", audio: music2, url: "audio/XboxOG.ogg" },
+  { id: "song3", name: "Wii", audio: music3, url: "audio/Wii.ogg" },
+  { id: "song4", name: "DSI", audio: music4, url: "audio/DSI.ogg" },
+  { id: "song5", name: "3DS", audio: music5, url: "audio/3DS.ogg" },
+  { id: "song6", name: "WiiU", audio: music6, url: "audio/WiiU.ogg" },
+  { id: "song7", name: "Ps4", audio: music7, url: "audio/Ps4.ogg" }
+];
+
+const savedMusicId = loadStoredValue(
+  STORAGE_KEYS.backgroundMusic,
+  musicTracks[0].id
+);
+
+let currentMusicIndex = musicTracks.findIndex(
+  track => track.id === savedMusicId
+);
+
+if (currentMusicIndex === -1) {
+  currentMusicIndex = 0;
+}
+
+let backgroundMusic = musicTracks[currentMusicIndex].audio;
 
 // audio state
 let contextResumed = false;
-let ambianceReady = false;
 
 let sfxSliderValue = Number(
   loadStoredValue(STORAGE_KEYS.sfxVolume, 35)
@@ -61,7 +88,13 @@ function applyAudioVolumes() {
   const musicVolume = sliderToVolume(musicSliderValue, maxVolumes.music);
   const sfxVolume = sliderToVolume(sfxSliderValue, maxVolumes.sfx);
 
-  backgroundMusic.setVolume(getVol(musicVolume));
+  music1.setVolume(getVol(musicVolume));
+  music2.setVolume(getVol(musicVolume));
+  music3.setVolume(getVol(musicVolume));
+  music4.setVolume(getVol(musicVolume));
+  music5.setVolume(getVol(musicVolume));
+  music6.setVolume(getVol(musicVolume));
+  music7.setVolume(getVol(musicVolume));
   sound2.setVolume(getVol(sfxVolume * sfxMix.switch));
   sound3.setVolume(getVol(sfxVolume * sfxMix.beep));
   sound4.setVolume(getVol(sfxVolume * sfxMix.back));
@@ -70,13 +103,28 @@ function applyAudioVolumes() {
 
 
 // audio loading
-audioLoader.load("audio/ambiance.ogg", buffer => {
-  backgroundMusic.setBuffer(buffer);
-  backgroundMusic.setLoop(true);
-  applyAudioVolumes();
+musicTracks.forEach(track => {
+  audioLoader.load(
+    track.url,
 
-  ambianceReady = true;
-  tryPlayAmbiance();
+    buffer => {
+      track.audio.setBuffer(buffer);
+      track.audio.setLoop(true);
+
+      // If this is currently the selected track,
+      // apply its volume and try to start it.
+      if (track.audio === backgroundMusic) {
+        applyAudioVolumes();
+        tryPlayBackgroundMusic();
+      }
+    },
+
+    undefined,
+
+    error => {
+      console.warn(`Failed to load music: ${track.url}`, error);
+    }
+  );
 });
 
 audioLoader.load("audio/switch.ogg", buffer => {
@@ -106,15 +154,55 @@ function resumeAudioContext() {
   listener.context.resume()
     .then(() => {
       contextResumed = true;
-      tryPlayAmbiance();
+      tryPlayBackgroundMusic();
     })
     .catch(err => console.warn("Audio resume failed:", err));
 }
 
-function tryPlayAmbiance() {
-  if (contextResumed && ambianceReady && backgroundMusic.buffer && !backgroundMusic.isPlaying) {
+function tryPlayBackgroundMusic() {
+  if (
+    contextResumed &&
+    backgroundMusic.buffer &&
+    !backgroundMusic.isPlaying
+  ) {
     backgroundMusic.play();
   }
+}
+
+function setBackgroundMusic(index) {
+  if (index < 0 || index >= musicTracks.length) return;
+
+  const newMusic = musicTracks[index].audio;
+
+  if (backgroundMusic === newMusic) return;
+
+  if (backgroundMusic.isPlaying) {
+    backgroundMusic.stop();
+  }
+
+  currentMusicIndex = index;
+
+  saveStoredValue(
+    STORAGE_KEYS.backgroundMusic,
+    musicTracks[currentMusicIndex].id
+  );
+
+  backgroundMusic = newMusic;
+
+  applyAudioVolumes();
+  tryPlayBackgroundMusic();
+}
+
+function changeBackgroundMusic(direction) {
+  const nextIndex =
+    (currentMusicIndex + direction + musicTracks.length) %
+    musicTracks.length;
+
+  setBackgroundMusic(nextIndex);
+}
+
+function getCurrentMusicName() {
+  return musicTracks[currentMusicIndex].name;
 }
 
 

@@ -131,6 +131,34 @@ function initSettingsPanel(screen) {
   const musicSlider = screen.querySelector("#settings-music-volume");
   const muteCheckbox = screen.querySelector("#settings-mute-all-audio");
 
+  const musicPrevBtn = screen.querySelector("#settings-music-prev");
+  const musicNextBtn = screen.querySelector("#settings-music-next");
+  const musicTrackLabel = screen.querySelector("#settings-music-track");
+
+  function updateMusicTrackLabel() {
+    if (!musicTrackLabel) return;
+
+    musicTrackLabel.textContent = getCurrentMusicName();
+  }
+
+  updateMusicTrackLabel();
+
+  if (musicPrevBtn) {
+    musicPrevBtn.addEventListener("click", () => {
+      changeBackgroundMusic(-1);
+      updateMusicTrackLabel();
+      playBeep();
+    });
+  }
+
+  if (musicNextBtn) {
+    musicNextBtn.addEventListener("click", () => {
+      changeBackgroundMusic(1);
+      updateMusicTrackLabel();
+      playBeep();
+    });
+  }
+
   if (sfxSlider) {
     sfxSlider.value = sfxSliderValue;
 

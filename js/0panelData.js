@@ -37,7 +37,39 @@ const audioMenu = `<label class="audio-control">
                   <label class="audio-mute-row">
                     <input id="settings-mute-all-audio" type="checkbox">
                     Mute All
-                  </label>`;
+                  </label>
+                  
+                    <div class="music-selector">
+                    <span class="music-selector-title">Background Music</span>
+
+                    <div class="music-selector-controls">
+                      <button
+                        id="settings-music-prev"
+                        class="music-selector-arrow"
+                        type="button"
+                        aria-label="Previous song"
+                      >
+                        ←
+                      </button>
+
+                      <span
+                        id="settings-music-track"
+                        class="music-selector-track"
+                        aria-live="polite"
+                      >
+                        Background Music
+                      </span>
+
+                      <button
+                        id="settings-music-next"
+                        class="music-selector-arrow"
+                        type="button"
+                        aria-label="Next song"
+                      >
+                        →
+                      </button>
+                    </div>
+                  </div>`;
 
   const colorMenu = ` <div class="ui-panel-links">
                       <button type="button" class="ui-panel-link color-btn amber" data-color="#FFB000">

@@ -4,7 +4,8 @@ const STORAGE_KEYS = {
   sfxVolume: "portfolio-sfx-volume",
   musicVolume: "portfolio-music-volume",
   muted: "portfolio-muted",
-  lightMode: "portfolio-light-mode"
+  lightMode: "portfolio-light-mode",
+  backgroundMusic: "portfolio-background-music",
 };
 
 
