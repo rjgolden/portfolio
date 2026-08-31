@@ -1,5 +1,22 @@
+const walkpointURIProject = `<h1 class = "insideh1"> Overview </h1>
+                  <h3> About project </h3>
+                  <p class = "indentp"> about project </p>
+                  <h3> Languages/Frameworks used </h3>
+                  <p class = "indentp"> Go into stacks </p>
 
-const project = `<h1 class = "insideh1"> Overview </h1>
+                  <h1 class = "insideh1"> How it works </h1>
+                  <h3> Coding method/stack </h3>
+                  <p class = "indentp"> methods/how logic works </p>
+                  <h3> Showcase </h3>
+                  <p class = "indentp"> showcase </p>
+
+                  <h1 class = "insideh1"> Takeaways </h1>
+                  <h3> Obstacles overcame </h3>
+                  <p class = "indentp"> - </p>
+                  <h3> What I learned </h3>
+                  <p class = "indentp"> - </p>`;
+            
+const topDownShooterProject = `<h1 class = "insideh1"> Overview </h1>
                   <h3> About project </h3>
                   <p class = "indentp"> about project </p>
                   <h3> Languages/Frameworks used </h3>
@@ -17,7 +34,25 @@ const project = `<h1 class = "insideh1"> Overview </h1>
                   <h3> What I learned </h3>
                   <p class = "indentp"> - </p>`;
 
-const project1 = `<h1 class = "insideh1"> Overview </h1>
+const threadingProject = `<h1 class = "insideh1"> Overview </h1>
+                  <h3> About project </h3>
+                  <p class = "indentp"> about project </p>
+                  <h3> Languages/Frameworks used </h3>
+                  <p class = "indentp"> Go into stacks </p>
+
+                  <h1 class = "insideh1"> How it works </h1>
+                  <h3> Coding method/stack </h3>
+                  <p class = "indentp"> methods/how logic works </p>
+                  <h3> Showcase </h3>
+                  <p class = "indentp"> showcase </p>
+
+                  <h1 class = "insideh1"> Takeaways </h1>
+                  <h3> Obstacles overcame </h3>
+                  <p class = "indentp"> - </p>
+                  <h3> What I learned </h3>
+                  <p class = "indentp"> - </p>`;
+
+const floppyFishProject = `<h1 class = "insideh1"> Overview </h1>
                   <h3> About project </h3>
                   <p class = "indentp"> about project </p>
                   <h3> Languages/Frameworks used </h3>
@@ -35,12 +70,23 @@ const project1 = `<h1 class = "insideh1"> Overview </h1>
                   <h3> What I learned </h3>
                   <p class = "indentp"> - </p>`;
 
-const project2 = `  <h1> h1 </h1>
-                    <h2> h2 </h2>
-                    <h3> h3 </h3>
-                    <img src="/resources/test.png" alt="Resume preview"> <br>
-                    <a href='http://www.ryan-golden.com'>ryan-golden.com</a>
-                    <p> Spooky. </p>`;
+const pongProject = `<h1 class = "insideh1"> Overview </h1>
+                  <h3> About project </h3>
+                  <p class = "indentp"> about project </p>
+                  <h3> Languages/Frameworks used </h3>
+                  <p class = "indentp"> Go into stack </p>
+
+                  <h1 class = "insideh1"> How it works </h1>
+                  <h3> Coding method/stack </h3>
+                  <p class = "indentp"> methods/how logic works </p>
+                  <h3> Showcase </h3>
+                  <p class = "indentp"> showcase </p>
+
+                  <h1 class = "insideh1"> Takeaways </h1>
+                  <h3> Obstacles overcame </h3>
+                  <p class = "indentp"> - </p>
+                  <h3> What I learned </h3>
+                  <p class = "indentp"> - </p>`;
 
 const wordleProject = `<h1 class="insideh1">Overview<img src="resources/wordle.png" style = "width: 100px !important; height: 50px !important"></h1>
                   <h3> About project </h3>
@@ -169,11 +215,11 @@ const panelData = [
     title: "Projects",
     body: ``,
     links: [
-      { label: "WalkPoint URI", project: project1 },
-      { label: "Raylib Shooter", project: project2 },
-      { label: "Threading Project (WIP)", project: project2 },
-      { label: "Floppy Fish", project: project2 },
-      { label: "Pong", project: project2 },
+      { label: "WalkPoint URI", project: walkpointURIProject },
+      { label: "Raylib Shooter", project: topDownShooterProject },
+      { label: "Threading Project (WIP)", project: threadingProject },
+      { label: "Floppy Fish", project: floppyFishProject },
+      { label: "Pong", project: pongProject },
       { label: "Wordle Bot", project: wordleProject }
     ]
   },
