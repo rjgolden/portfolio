@@ -28,7 +28,7 @@ const musicTracks = [
   { id: "song4", name: "DSI", audio: music4, url: "audio/DSI.ogg" },
   { id: "song5", name: "3DS", audio: music5, url: "audio/3DS.ogg" },
   { id: "song6", name: "WiiU", audio: music6, url: "audio/WiiU.ogg" },
-  { id: "song7", name: "Ps4", audio: music7, url: "audio/Ps4.ogg" }
+  { id: "song7", name: "Ps4", audio: music7, url: "audio/PS4.ogg" }
 ];
 
 const savedMusicId = loadStoredValue(
