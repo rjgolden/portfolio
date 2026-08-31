@@ -1,3 +1,4 @@
+// local storage
 const STORAGE_KEYS = {
   uiColor: "portfolio-ui-color",
   sfxVolume: "portfolio-sfx-volume",
@@ -16,7 +17,7 @@ function saveStoredValue(key, value) {
   localStorage.setItem(key, String(value));
 }
 
-// color state
+// initial color setup
 const INITIAL_COLOR = "#ffb000";
 const COMPACT_LAYOUT_QUERY = "(max-width: 768px)";
 const TOUCH_INPUT_QUERY = "(hover: none) and (pointer: coarse)";
@@ -90,7 +91,7 @@ const homeUp = new THREE.Vector3(0, 1, 0)
   .normalize();
 
 
-// layout values
+// panel layout values
 const pageDistance = 5.0;
 const diag = 4.5;
 const mobileDiag = pageDistance / Math.sqrt(2);

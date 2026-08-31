@@ -5,6 +5,12 @@ camera.add(listener);
 
 // audio sources
 const music1 = new THREE.Audio(listener);
+const music2 = new THREE.Audio(listener);
+const music3 = new THREE.Audio(listener);
+const music4 = new THREE.Audio(listener);
+const music5 = new THREE.Audio(listener);
+const music6 = new THREE.Audio(listener);
+const music7 = new THREE.Audio(listener);
 const sound2 = new THREE.Audio(listener);
 const sound3 = new THREE.Audio(listener);
 const sound4 = new THREE.Audio(listener);

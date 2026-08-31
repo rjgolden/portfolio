@@ -43,6 +43,7 @@ function drawFace(face, color, isActive) {
   : "rgba(0,0,0,0.65)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  // if the panel is facing the screen
   if (isActive) {
     ctx.shadowColor = color;
 

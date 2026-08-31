@@ -3,7 +3,7 @@ const geo = new THREE.BoxGeometry(1.3, 1.3, 1.3);
 const cube = new THREE.Mesh(geo, materials);
 scene.add(cube);
 
-// edges
+// cube edges
 const edges = new THREE.LineSegments(
     new THREE.EdgesGeometry(geo),
     new THREE.LineBasicMaterial({

@@ -1,3 +1,83 @@
+// about
+const about = `<h2>About Me</h2>
+
+      <p class = "indentp">Welcome to my portfolio! My name is Ryan Golden. I am an aspiring software developer seeking a career coding in C++. I graduated from the University of Rhode Island with a Bachelor of 
+      Science in Computer Science. </p>
+
+      <p class = "indentp"> Other than making cool websites, I have a strong interest in game development, which I pursue as a hobby in my free time. I enjoy working with C++ due to its performance and its widespread use 
+      in fields that dominate software around the globe. I am particularly interested in systems programming and performance-critical applications. This portfolio is a glimpse at the kind of clean and performant UI/UX I strive for in my projects. </p>
+
+      <h2> Portfolio </h2>
+      <p class = "indentp"> This portfolio is based on a combination of both the GameCube and Ps2 startup animations. These were two of my favorite consoles growing up and are the host of the now classic
+      games I played in my youth, so I wanted to try to capture the dystopian 2000s futuristic ambiance vibe. The kind of game development that was responsible for these games is also responsible for my interest in game development as a career. </p>`;
+
+const skills = `<h2> My Skills </h2>
+                <p><b>Programming Languages:</b> C, C++, Python, Javascript, Typescript, Lua <br><br>
+                <b>Frameworks & Libraries:</b> Raylib, Node.js, Three.js, Flutter<br><br>
+                <b>Database & Technologies:</b> SQLite, MySQL, Oracle APEX, Google Firebase<br><br>
+                <b>Development & Design Tools:</b> Git, Github, GDB, Aseprite, Tiled, Figma, Pico-8<br><br>
+                <b> Other: </b> Pixel Art/Animation, UI/UX Design, Level/Map Design, Audio Design <br><br></p>
+                <p class = "indentp"> Please feel free to contact me through one of the various sources on the contact page if you are interested in working together or have any questions!</p>`
+    
+// settings 
+const audioMenu = `
+      <label class="audio-control">
+        SFX
+        <input id="settings-sfx-volume" type="range" min="0" max="100" step="1" value="35">
+      </label>
+
+      <label class="audio-control">
+        Music
+        <input id="settings-music-volume" type="range" min="0" max="100" step="1" value="25">
+      </label>
+
+      <label class="audio-mute-row">
+        <input id="settings-mute-all-audio" type="checkbox">
+        Mute All
+      </label>`;
+
+  const colorMenu = `
+  <div class="ui-panel-links">
+    <button type="button" class="ui-panel-link color-btn amber" data-color="#FFB000">
+      Terminal Amber
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn green" data-color="#33FF33">
+      Terminal Green
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn purple" data-color="#a459ff">
+      GameCube Purple
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn blue" data-color="#0f8fff">
+      PS2 Blue
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn white" data-color="#e7e7e7">
+      Wii White
+    </button>
+
+    <button type="button" class="ui-panel-link color-btn red" data-color="#ff2929">
+      Gamesphere Red
+    </button>
+
+     <label for="settings-color-picker" class="ui-panel-link color-btn picker">
+      Color Picker
+    </label>
+
+    <input
+      id="settings-color-picker"
+      type="color"
+      value="#ffb000"
+    >
+
+     <button type="button"  class="ui-panel-link color-btn rainbow">
+      Rainbow
+    </button>
+  </div>`;
+
+// projects
 const walkpointURIProject = `<h1 class = "insideh1"> Overview </h1>
                   <h3> About project </h3>
                   <p class = "indentp"> about project </p>
@@ -114,86 +194,11 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/wordle.p
                   <p class = "indentp"> Lastly, after some error handling and admin checks, the bot posts it in the selected channel at midnight. </p>
                   <img src="resources/sendMessage.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;">`;
 
+// feed 
 const feed1 = `<p>First blog post content goes here.</p>`;
 const feed2 = `<p>Second blog post content goes here.</p>`;
 
-const about = `<h2>About Me</h2>
-
-      <p class = "indentp">Welcome to my portfolio! My name is Ryan Golden. I am an aspiring software developer seeking a career coding in C++. I graduated from the University of Rhode Island with a Bachelor of 
-      Science in Computer Science. </p>
-
-      <p class = "indentp"> Other than making cool websites, I have a strong interest in game development, which I pursue as a hobby in my free time. I enjoy working with C++ due to its performance and its widespread use 
-      in fields that dominate software around the globe. I am particularly interested in systems programming and performance-critical applications. This portfolio is a glimpse at the kind of clean and performant UI/UX I strive for in my projects. </p>
-
-      <h2> Portfolio </h2>
-      <p class = "indentp"> This portfolio is based on a combination of both the GameCube and Ps2 startup animations. These were two of my favorite consoles growing up and are the host of the now classic
-      games I played in my youth, so I wanted to try to capture the dystopian 2000s futuristic ambiance vibe. The kind of game development that was responsible for these games is also responsible for my interest in game development as a career. </p>`;
-
-const skills = `<h2> My Skills </h2>
-                <p><b>Programming Languages:</b> C, C++, Python, Javascript, Typescript, Lua <br><br>
-                <b>Frameworks & Libraries:</b> Raylib, Node.js, Three.js, Flutter<br><br>
-                <b>Database & Technologies:</b> SQLite, MySQL, Oracle APEX, Google Firebase<br><br>
-                <b>Development & Design Tools:</b> Git, Github, GDB, Aseprite, Tiled, Figma, Pico-8<br><br>
-                <b> Other: </b> Pixel Art/Animation, UI/UX Design, Level/Map Design, Audio Design <br><br></p>
-                <p class = "indentp"> Please feel free to contact me through one of the various sources on the contact page if you are interested in working together or have any questions!</p>`
-    
-const audioMenu = `
-      <label class="audio-control">
-        SFX
-        <input id="settings-sfx-volume" type="range" min="0" max="100" step="1" value="35">
-      </label>
-
-      <label class="audio-control">
-        Music
-        <input id="settings-music-volume" type="range" min="0" max="100" step="1" value="25">
-      </label>
-
-      <label class="audio-mute-row">
-        <input id="settings-mute-all-audio" type="checkbox">
-        Mute All
-      </label>`;
-
-  const colorMenu = `
-  <div class="ui-panel-links">
-    <button type="button" class="ui-panel-link color-btn amber" data-color="#FFB000">
-      Terminal Amber
-    </button>
-
-    <button type="button" class="ui-panel-link color-btn green" data-color="#33FF33">
-      Terminal Green
-    </button>
-
-    <button type="button" class="ui-panel-link color-btn purple" data-color="#a459ff">
-      GameCube Purple
-    </button>
-
-    <button type="button" class="ui-panel-link color-btn blue" data-color="#0f8fff">
-      PS2 Blue
-    </button>
-
-    <button type="button" class="ui-panel-link color-btn white" data-color="#e7e7e7">
-      Wii White
-    </button>
-
-    <button type="button" class="ui-panel-link color-btn red" data-color="#ff2929">
-      Gamesphere Red
-    </button>
-
-     <label for="settings-color-picker" class="ui-panel-link color-btn picker">
-      Color Picker
-    </label>
-
-    <input
-      id="settings-color-picker"
-      type="color"
-      value="#ffb000"
-    >
-
-     <button type="button"  class="ui-panel-link color-btn rainbow">
-      Rainbow
-    </button>
-  </div>`;
-
+// panels
 const panelData = [
   {
     title: "About",
