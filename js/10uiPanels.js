@@ -13,7 +13,7 @@ function renderPanelLink(link) {
 
   const popoutIcon = link.popout
     ? `<span class="popout-indicator">
-         <img src="resources/popout.png" alt="">
+         <img src="resources/Misc/popout.png" alt="">
        </span>`
     : "";
 

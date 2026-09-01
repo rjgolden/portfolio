@@ -3,11 +3,9 @@ const about = `<h2>About Me</h2>
 
               <p class = "indentp">Welcome to my portfolio! My name is Ryan Golden. I am an aspiring software developer seeking a career programming in C++. 
               I graduated from the University of Rhode Island with a Bachelor of 
-              Science in Computer Science. </p>
+              Science in Computer Science. I also have a strong interest in game development. </p>
 
-              <p class = "indentp"> I have a strong interest in game development and C++. 
-              I enjoy working with C++ due to its performance, relationship with memory, and its widespread use 
-              in fields that dominate software around the globe. </p>
+              
 
               <h2> Portfolio </h2>
               <p class = "indentp"> This portfolio is based on a combination of both the GameCube and Ps2 startup animations. 
@@ -292,7 +290,7 @@ const pongProject = `<h1 class="insideh1">Overview<img src="resources/pong.png" 
                   <p class="indentp"> The game uses p5.js to create the canvas, render the paddles and ball, and continuously update the game through the draw loop.</p>
                   <img src="resources/pongSetup.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">`;
 
-const wordleProject = `<h1 class="insideh1">Overview<img src="resources/wordle.png" style = "width: 100px !important; height: 50px !important"></h1>
+const wordleProject = `<h1 class="insideh1">Overview<img src="resources/Wordle/wordle.png" style = "width: 100px !important; height: 50px !important"></h1>
                   <h3> About project </h3>
 
                   <p class = "indentp"> This project is a Discord bot that posts the previous day's Wordle answer in a designated text channel. </p>
@@ -308,14 +306,14 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/wordle.p
                       -Axios <br>
                       -C program for executable </p>
 
-                  <h1 class = "insideh1"> How it works <img src="resources/discord.png" style = "width: 50px !important"></h1>
+                  <h1 class = "insideh1"> How it works <img src="resources/Wordle/discord.png" style = "width: 50px !important"></h1>
 
                   <p class = "indentp"> The bot uses discord.js to interact with Discord, node-cron to run on a daily schedule, and Axios to retrieve the Wordle answer from the New York Times.</p>
-                  <img src="resources/botSetup.png" style= "width: 270px !important; height: 140px !important; margin: 0 auto;"> 
+                  <img src="resources/Wordle/botSetup.png" style= "width: 270px !important; height: 140px !important; margin: 0 auto;"> 
                   <p class = "indentp"> It calculates the previous day's date in Eastern Time, and requests the matching Wordle answer. </p>
-                  <img src="resources/getWord.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;"> 
+                  <img src="resources/Wordle/getWord.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;"> 
                   <p class = "indentp"> Lastly, after some error handling and admin checks, the bot posts it in the selected channel at midnight. </p>
-                  <img src="resources/sendMessage.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;">`;
+                  <img src="resources/Wordle/sendMessage.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;">`;
               
 const threadingProject = `<h1 class = "insideh1"> UNDER CONSTRUCTION </h1>`;
 
@@ -358,11 +356,11 @@ const panelData = [
     title: "Resume",
     body: `
       <div class="resume-preview">
-        <img src="/resources/resume.png" alt="Resume preview">
+        <img src="/resources/Resume/resume.png" alt="Resume preview">
       </div>
     `,
     links: [
-      { label: "Open Resume", url: "/resources/resume.pdf", popout: true }
+      { label: "Open Resume", url: "/resources/Resume/resume.pdf", popout: true }
     ]
   },
 
