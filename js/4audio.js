@@ -22,13 +22,13 @@ const sound5 = new THREE.Audio(listener);
 
 // available music
 const musicTracks = [
-  { id: "song1", name: "Gamecube", audio: music1, url: "audio/ambiance.ogg" },
-  { id: "song2", name: "Xbox OG", audio: music2, url: "audio/XboxOG.ogg" },
-  { id: "song3", name: "Wii", audio: music3, url: "audio/Wii.ogg" },
-  { id: "song4", name: "DSI", audio: music4, url: "audio/DSI.ogg" },
-  { id: "song5", name: "3DS", audio: music5, url: "audio/3DS.ogg" },
-  { id: "song6", name: "WiiU", audio: music6, url: "audio/WiiU.ogg" },
-  { id: "song7", name: "Ps4", audio: music7, url: "audio/PS4.ogg" }
+  { id: "song1", name: "Gamecube", audio: music1, url: "audio/Music/ambiance.ogg" },
+  { id: "song2", name: "Xbox OG", audio: music2, url: "audio/Music/XboxOG.ogg" },
+  { id: "song3", name: "Wii", audio: music3, url: "audio/Music/Wii.ogg" },
+  { id: "song4", name: "DSI", audio: music4, url: "audio/Music/DSI.ogg" },
+  { id: "song5", name: "3DS", audio: music5, url: "audio/Music/3DS.ogg" },
+  { id: "song6", name: "WiiU", audio: music6, url: "audio/Music/WiiU.ogg" },
+  { id: "song7", name: "Ps4", audio: music7, url: "audio/Music/PS4.ogg" }
 ];
 
 const savedMusicId = loadStoredValue(
@@ -127,22 +127,22 @@ musicTracks.forEach(track => {
   );
 });
 
-audioLoader.load("audio/switch.ogg", buffer => {
+audioLoader.load("audio/SFX/switch.ogg", buffer => {
   sound2.setBuffer(buffer);
   applyAudioVolumes();
 });
 
-audioLoader.load("audio/beep.ogg", buffer => {
+audioLoader.load("audio/SFX/beep.ogg", buffer => {
   sound3.setBuffer(buffer);
   applyAudioVolumes();
 });
 
-audioLoader.load("audio/back.ogg", buffer => {
+audioLoader.load("audio/SFX/back.ogg", buffer => {
   sound4.setBuffer(buffer);
   applyAudioVolumes();
 });
 
-audioLoader.load("audio/colorSelect.ogg", buffer => {
+audioLoader.load("audio/SFX/colorSelect.ogg", buffer => {
   sound5.setBuffer(buffer);
   applyAudioVolumes();
 });
