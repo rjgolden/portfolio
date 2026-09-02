@@ -244,12 +244,12 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
                   
                   <h1 class="insideh1"><a href="https://github.com/rjgolden/raylibTopDownShooter" target="popout">Click here for repo</a></h1>`;
 
-const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/floppyFish.png" style="width: 100px !important; height: 50px !important"></h1>
+const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/Floppy/khanLogo.png" style="width: 50px !important; height: 50px !important"></h1>
                   <h3> About project </h3>
 
-                  <p class="indentp"> This project is a Flappy Bird-inspired game created in JavaScript using Khan Academy's ProcessingJS environment. </p>
-                  <p class="indentp"> I created this game as my final project for an introductory computer science course. The goal is to control a fish through a series of obstacles, collect coins, progress through levels, and reach the secret winning screen. 
-                      This was the first game I programmed and sparked my love for game development as a whole.</p>
+                  <p class="indentp"> This project was the first game I programmed. It is a Flappy Bird-inspired game created in JavaScript using Khan Academy's ProcessingJS environment. </p>
+                  <p class="indentp"> I created this game as my final project for an introductory computer science course. 
+                  The goal is to control a fish through a series of obstacles, collect coins, progress through levels, and reach the secret winning screen. </p>
 
                   <h3> Languages/Frameworks used </h3>
 
@@ -257,16 +257,21 @@ const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/flop
                       -ProcessingJS <br>
                       -Khan Academy Programming Environment </p>
 
-                  <h1 class="insideh1"> How it works <img src="resources/fish.png" style="width: 50px !important"></h1>
+                  <h1 class="insideh1"> How it works <img src="resources/Floppy/floppyFish.png" style="width: 100px !important"></h1>
 
-                  <p class="indentp"> The game uses a scene-based system to control the different screens, including the main menu, instructions, game mode selection, gameplay, game over screen, and winning screen. Buttons are created using a reusable Button object that handles drawing and mouse input. </p>
-                  <img src="resources/floppyFishScenes.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+                 <p class="indentp"> The game uses a scene-based system to control the different screens, including the main menu, instructions, game mode selection, gameplay, game over screen, 
+                 and winning screen. Buttons are created using a reusable Button object that handles drawing and mouse input. </p>
+
+                  <div class="imageRow">
+                    <img src="resources/Floppy/floppyStart.png" style="width: 40%; min-width: 300px; height: 250px;">
+                    <img src="resources/Floppy/FloppySelect.png" style="width: 40%; min-width: 300px; height: 250px;">
+                  </div>
 
                   <p class="indentp"> The player controls the fish using the spacebar. The fish continuously falls toward the ground, while pressing or holding the spacebar moves it upward. Easy and Hard modes change the movement speed of the fish and obstacles. </p>
-                  <img src="resources/floppyFishMovement.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+                  
 
                   <p class="indentp"> Just like flappy bird, obstacles and collectibles are generated as objects and moved across the screen during the main game loop. Collision detection checks the fish's hitbox against obstacles, while collecting a coin increases the player's score. </p>
-                  <img src="resources/floppyFishCollision.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+                  <img src="resources/Floppy/floppyFish.gif" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
                   
                   <h1 class="insideh1"><a href="https://www.khanacademy.org/computer-programming/ryan-golden-final-project/5399784995635200" target="popout">Click here to play!</a></h1>`;
 
@@ -322,8 +327,26 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/Wordle/w
 const threadingProject = `<h1 class = "insideh1"> UNDER CONSTRUCTION </h1>`;
 
 // feed 
-const feed1 = `<p>First blog post content goes here.</p>`;
+const feed1 = `<h1 class = "insideh1">Cod4-Mw3 Montage</h1>
+               <iframe width="100%" height="315" 
+               src="https://www.youtube.com/embed/-o1ff3gOzzM?si=d5AeNHeJrjjekPSg" 
+               title="YouTube video player" 
+               frameborder="0" allow="accelerometer; autoplay; 
+               clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
+               web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+               
+               <p><br></p>
+
+               <h1 class = "insideh1">Fortnite Montage</h1>
+               <iframe width="100%" height="315" 
+               src="https://www.youtube.com/embed/63cOIeMwWZ0?si=pFMm-FdKVQkiHxqa" 
+               title="YouTube video player" 
+               frameborder="0" allow="accelerometer; autoplay; 
+               clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
+               web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+
 const feed2 = `<p>Second blog post content goes here.</p>`;
+const feed3 = `<p>Second blog post content goes here.</p>`;
 
 // panels
 const panelData = [
@@ -349,9 +372,9 @@ const panelData = [
     links: [
       { label: "WalkPoint URI", project: walkpointURIProject },
       { label: "Raylib Shooter", project: topDownShooterProject },
-      { label: "Wordle Bot", project: wordleProject },
       { label: "Floppy Fish", project: floppyFishProject },
       { label: "Pong", project: pongProject },
+      { label: "Wordle Bot", project: wordleProject },
       { label: "C++ Threads", project: threadingProject }
     ]
   },
@@ -384,8 +407,9 @@ const panelData = [
     title: "Feed",
     body: ``,
     links: [
-      { label: "Post 1", content: feed1 },
-      { label: "Post 2", content: feed2 }
+      { label: "Videos", content: feed1 },
+      { label: "Art", content: feed2 },
+      { label: "Lifts", content: feed3 }
     ]
   }
   
