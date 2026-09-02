@@ -38,16 +38,14 @@ function drawFace(face, color, isActive) {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = lightModeEnabled
-  ? LIGHT_BG
-  : DARK_BG;
+  ctx.fillStyle = lightModeEnabled ? LIGHT_BG : DARK_BG;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // if the panel is facing the screen
   if (isActive) {
     ctx.shadowColor = color;
 
-    if (lightModeEnabled && isCompactLayout()) {
+    if (isCompactLayout()) {
       ctx.shadowBlur = 5;
     } else {
       ctx.shadowBlur = 30;
