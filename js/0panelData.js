@@ -324,10 +324,10 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/Wordle/w
                   <p class = "indentp"> Lastly, after some error handling and admin checks, the bot posts it in the selected channel at midnight. </p>
                   <img src="resources/Wordle/sendMessage.png" style= "width: 400px !important; height: 250px !important; margin: 0 auto;">`;
               
-const threadingProject = `<h1 class = "insideh1"> UNDER CONSTRUCTION </h1>`;
+const threadingProject = `<h1 class = "insideh1"> WORK IN PROGRESS </h1>`;
 
 // feed 
-const feed1 = `<h1 class = "insideh1">Cod4-Mw3 Montage</h1>
+const videos = `<h1 class = "insideh1">Cod4-Mw3 Montage</h1>
                <iframe width="100%" height="315" 
                src="https://www.youtube.com/embed/-o1ff3gOzzM?si=d5AeNHeJrjjekPSg" 
                title="YouTube video player" 
@@ -345,8 +345,8 @@ const feed1 = `<h1 class = "insideh1">Cod4-Mw3 Montage</h1>
                clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
                web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 
-const feed2 = `<p>Second blog post content goes here.</p>`;
-const feed3 = `<p>Second blog post content goes here.</p>`;
+const art = `<p>Second blog post content goes here.</p>`;
+const lifts = `<p>Second blog post content goes here.</p>`;
 
 // panels
 const panelData = [
@@ -404,12 +404,12 @@ const panelData = [
   },
 
   {
-    title: "Feed",
+    title: "Extras",
     body: ``,
     links: [
-      { label: "Videos", content: feed1 },
-      { label: "Art", content: feed2 },
-      { label: "Lifts", content: feed3 }
+      { label: "Videos", content: videos },
+      { label: "Art", content: art },
+      { label: "Lifts", content: lifts }
     ]
   }
   
