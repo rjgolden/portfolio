@@ -2,6 +2,7 @@
 let t = 0;
 let lastActive = -1;
 let lastFrameTime = performance.now();
+let lastUpdateTime = lastFrameTime;
 const TARGET_FPS = 60;
 const FRAME_INTERVAL = 1000 / TARGET_FPS;
 let bootHidden = false;
@@ -166,8 +167,8 @@ function updateActiveFace() {
 }
 
 
-function updateParticlePosition(particle) {
-  particle.userData.theta += particle.userData.speed;
+function updateParticlePosition(particle, deltaTime) {
+  particle.userData.theta += particle.userData.speed * deltaTime * 60;
 
   const { r, theta, phi } = particle.userData;
 
@@ -218,7 +219,7 @@ function updateParticleMaterial(particle) {
   particle.scale.set(scale, scale, 1);
 }
 
-function updateParticles() {
+function updateParticles(deltaTime) {
   tempRelativeCam.copy(camera.position).sub(particleOrigin);
 
   tempParticleOffset
@@ -226,7 +227,7 @@ function updateParticles() {
     .sub(defaultCameraPosition);
 
   particles.forEach(particle => {
-    updateParticlePosition(particle);
+    updateParticlePosition(particle, deltaTime);
     updateParticleMaterial(particle);
   });
 }
@@ -239,16 +240,17 @@ function updateUITheme() {
   }
 }
 
-function animate(now = performance.now()) {
+function animate(now) {
   requestAnimationFrame(animate);
 
   const elapsed = now - lastFrameTime;
 
-  //60 FPS
-  if (elapsed < 1000 / 60) return;
+  // 60 FPS cap
+  if (elapsed < FRAME_INTERVAL) return;
 
-  const deltaTime = 1 / 60;
-  lastFrameTime = now - (elapsed % (1000 / 60));
+  lastFrameTime = now - (elapsed % FRAME_INTERVAL);
+  const deltaTime = Math.min((now - lastUpdateTime) / 1000, 0.1);
+  lastUpdateTime = now;
 
   t += deltaTime;
 
@@ -258,7 +260,7 @@ function animate(now = performance.now()) {
   updateCamera(deltaTime);
   updateCubeRotation(deltaTime);
   updateActiveFace();
-  updateParticles();
+  updateParticles(deltaTime);
   updateUITheme();
 
   renderer.render(scene, camera);
@@ -275,7 +277,7 @@ function animate(now = performance.now()) {
   }
 }
 
-animate();
+requestAnimationFrame(animate);
 
 
 // resize

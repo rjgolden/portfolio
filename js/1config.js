@@ -81,7 +81,7 @@ const defaultCameraQuaternion = camera.quaternion.clone();
 
 // camera movement
 const cameraTargetPosition = defaultCameraPosition.clone();
-const cameraLerpStrength = 0.048;
+const cameraLerpStrength = 0.03;
 
 const homeRight = new THREE.Vector3(1, 0, 0)
   .applyQuaternion(defaultCameraQuaternion)
