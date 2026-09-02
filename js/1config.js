@@ -81,7 +81,7 @@ const defaultCameraQuaternion = camera.quaternion.clone();
 
 // camera movement
 const cameraTargetPosition = defaultCameraPosition.clone();
-const cameraLerpStrength = 0.03;
+const cameraLerpStrength = 0.035;
 
 const homeRight = new THREE.Vector3(1, 0, 0)
   .applyQuaternion(defaultCameraQuaternion)
@@ -107,12 +107,14 @@ const faceViewportOffsetsDesktop = {
 };
 
 const faceViewportOffsetsMobile = {
-  0: { x: -4.5, y:  mobileDiag },
-  1: { x: -4.5, y: -mobileDiag },
-  2: { x: 0,    y:  pageDistance },
-  3: { x: 0,    y: -pageDistance },
-  4: { x: 4.5,  y:  mobileDiag },
-  5: { x: 4.5,  y: -mobileDiag }
+  0: { x: -9.0, y:  mobileDiag * 2 },
+  1: { x: -9.0, y: -mobileDiag * 2 },
+
+  2: { x: 0,    y:  pageDistance * 1.5 },
+  3: { x: 0,    y: -pageDistance * 1.5 },
+
+  4: { x: 9.0,  y:  mobileDiag * 2 },
+  5: { x: 9.0,  y: -mobileDiag * 2 }
 };
 
 
