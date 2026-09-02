@@ -215,6 +215,13 @@ body.light-mode .ui-panel-link:not(.color-btn):active {
   transform: translate(1px, -1px);
 }
 
+.imageRow {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 /* Panel placement */
 .slot-upper-left  { margin-left: -90vw; margin-top: -90vh; }
 .slot-lower-left  { margin-left: -90vw; margin-top:  90vh; }

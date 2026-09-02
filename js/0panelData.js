@@ -270,13 +270,16 @@ const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/flop
                   
                   <h1 class="insideh1"><a href="https://www.khanacademy.org/computer-programming/ryan-golden-final-project/5399784995635200" target="popout">Click here to play!</a></h1>`;
 
-const pongProject = `<h1 class="insideh1">Overview<img src="resources/pong.png" style="width: 100px !important; height: 50px !important"></h1>
+const pongProject = `<h1 class="insideh1">Overview<img src="resources/Pong/pongLogo.png" style="width: 100px !important; height: 50px !important"></h1>
                   <h3> About project </h3>
+                  
+                  <p class="indentp"> Inspired by the game that started it all, this project is a recreation of the classic Pong game built using JavaScript and p5.js. </p>
+                  <p class="indentp"> I created the game to practice working with real-time game loops, player input, collision detection, and basic game physics.  </p>
 
-                  <p class="indentp"> This project is a recreation of the classic Pong arcade game built using JavaScript and p5.js. </p>
-                  <p class="indentp"> I created the game to practice working with real-time game loops, player input, collision detection, and basic game physics.
-                                      The game allows two players to control paddles and compete against each other while keeping track of each player's score.
-                                      I also designed some CPU behavior and implemented a single player version.  </p>
+                  <div class="imageRow">
+                    <img src="resources/Pong/pongStart.png" style="width: 40%; min-width: 300px; height: 250px;">
+                    <img src="resources/Pong/pongClassic.png" style="width: 40%; min-width: 300px; height: 250px;">
+                  </div>
 
                   <h3> Languages/Frameworks used </h3>
 
@@ -285,10 +288,11 @@ const pongProject = `<h1 class="insideh1">Overview<img src="resources/pong.png" 
                       -HTML <br>
                       -CSS </p>
 
-                  <h1 class="insideh1"> How it works <img src="resources/pongBall.png" style="width: 50px !important"></h1>
-
-                  <p class="indentp"> The game uses p5.js to create the canvas, render the paddles and ball, and continuously update the game through the draw loop.</p>
-                  <img src="resources/pongSetup.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">`;
+                  <h1 class="insideh1"> How it works </h1>
+                
+                  <p class="indentp"> The game uses p5.js to create the canvas, render the paddles and ball, and continuously update the game through the draw loop.
+                  It allows for two players to control paddles and compete against each other while keeping track of each player's score. I also designed some CPU behavior and implemented a single player version.</p>
+                  <img src="resources/Pong/pong.gif" style="width: 400px !important; height: 250px !important; margin: 0 auto;">`;
 
 const wordleProject = `<h1 class="insideh1">Overview<img src="resources/Wordle/wordle.png" style = "width: 100px !important; height: 50px !important"></h1>
                   <h3> About project </h3>
