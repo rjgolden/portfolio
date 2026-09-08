@@ -54,7 +54,7 @@ const renderer = new THREE.WebGLRenderer({
   powerPreference: "high-performance"
 });
 
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(parent.clientWidth, parent.clientHeight);
 renderer.setClearColor(0x000000, 1);
 

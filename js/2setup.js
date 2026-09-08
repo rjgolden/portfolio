@@ -44,13 +44,9 @@ function drawFace(face, color, isActive) {
   // if the panel is facing the screen
   if (isActive) {
     ctx.shadowColor = color;
-    if(isCompactLayout() === true) {
-      ctx.shadowBlur = 10;
-    }
-    else {
-      ctx.shadowBlur = 35;
-    }
+    ctx.shadowBlur = 45;
     ctx.fillStyle = color;
+    ctx.globalAlpha = 0.25;
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
     ctx.globalAlpha = 0.75;
   } else {
