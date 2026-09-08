@@ -2,7 +2,7 @@
   .ui-screen {
     left: 50%;
     top: 50%;
-    width: min(76vw, 400px);
+    width: 95%;
     max-height: 80dvh;
     font-size: 9.5px;
   }
