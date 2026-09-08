@@ -51,8 +51,8 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid;
-  color: rgb(150, 150, 150);
+
+  border: 1px solid rgb(150, 150, 150);
 
   background: var(--rainbow);
   background-size: 300% 100%;
@@ -75,10 +75,15 @@
   background-size: 300% 100%;
   animation: rainbowShift 12s linear infinite;
 
-  opacity: 0.18;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
+}
+
+.ui-panel-link.color-btn.rainbow:hover::before {
+  opacity: 0.25;
 }
 
 @keyframes rainbowShift {

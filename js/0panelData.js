@@ -18,7 +18,7 @@ const skills = `<h2> My Skills </h2>
                 <b>Database & Technologies:</b> SQLite, MySQL, Oracle APEX, Google Firebase<br><br>
                 <b>Development & Design Tools:</b> Git, Github, GDB, Aseprite, Tiled, Figma, Pico-8<br><br>
                 <b> Other: </b> Pixel Art/Animation, UI/UX Design, Level/Map Design, Audio Design <br><br></p>
-                <p class = "indentp"> Please feel free to contact me through one of the various sources on the contact page if you are interested in working together or have any questions.</p>
+                <p class = "indentp"> Feel free to contact me through one of the various sources on the contact page if you are interested in working together or have any questions.</p>
                 <p class = "indentp"> <em> Check out the settings menu for different colors and background music! </em></p>`
     
 // settings 
@@ -95,7 +95,7 @@ const colorMenu = ` <div class="ui-panel-links">
                       </button>
 
                       <label for="settings-color-picker" class="ui-panel-link color-btn picker">
-                        Color Picker
+                        Custom
                       </label>
 
                       <input
