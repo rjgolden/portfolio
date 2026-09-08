@@ -57,11 +57,10 @@ function drawFace(face, color, isActive) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1;
     ctx.shadowColor = color;
-    ctx.shadowBlur = isMobile ? 20 : 40;
+    ctx.shadowBlur = isMobile ? 12 : 35;
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
-    ctx.shadowColor = color;
     ctx.lineWidth = 4;
-    ctx.strokeStyle = lightModeEnabled ? "#969595" : "#222"; // outline color
+    ctx.strokeStyle = lightModeEnabled ? "#969595" : "#706d6d"; // outline color
     ctx.strokeText(label, canvas.width / 2, canvas.height / 2);
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
     ctx.globalAlpha = 0.75;
