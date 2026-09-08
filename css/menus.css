@@ -64,6 +64,7 @@
   animation: rainbowShift 12s linear infinite;
 
   z-index: 0;
+  
 }
 
 .ui-panel-link.color-btn.rainbow::before {
