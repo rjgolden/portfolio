@@ -65,18 +65,20 @@ img{
  
 a{
   font-style:italic;
-}
-
-/* Active state */
-a {
   color: currentColor;
   text-decoration: none;
-  
 }
 a:hover {
   color: color-mix(in srgb, currentColor 70%, transparent);
 }
 
+body.light-mode b {
+  color: rgb(179, 33, 33);
+}
+
+b{
+  color: yellow;
+}
 
 .hidden-content {
   position: absolute;
@@ -93,7 +95,9 @@ a:hover {
 
 body.light-mode p,
 body.light-mode .indentp{
-  color: #3d3a3a;
+  color: #585858;
+  -webkit-text-stroke: 0px #000;
+  paint-order: stroke fill;
 }
 
 #boot-overlay {

@@ -69,6 +69,8 @@
 
 .close-arrow {
   display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
 }
 
@@ -258,9 +260,27 @@ body.light-mode .ui-panel-link:not(.color-btn):active {
 .ui-panel-title,
 .ui-panel-link,
 .ui-panel-body,
-.ui-screen-close,
 .ez-nav-arrow {
+  -webkit-text-stroke: 1px #f3eeeebb;
+  paint-order: stroke fill;
+}
+
+body.light-mode .ui-panel-title,
+body.light-mode .ui-panel-link,
+body.light-mode .ui-panel-body,
+body.light-mode .ez-nav-arrow {
   -webkit-text-stroke: 2px #000;
   paint-order: stroke fill;
-  
+}
+
+b,
+.ui-screen-close{
+   -webkit-text-stroke: 1px #f3eeeebb;
+  paint-order: stroke fill;
+}
+
+body.light-mode b,
+body.light-mode .ui-screen-close{
+   -webkit-text-stroke: 1px #000;
+  paint-order: stroke fill;
 }
