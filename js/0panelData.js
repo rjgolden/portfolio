@@ -69,12 +69,12 @@ const audioMenu = `<label class="audio-control">
                     </div>
                   </div>`;
 
-  const colorMenu = ` <div class="ui-panel-links">
+const colorMenu = ` <div class="ui-panel-links">
                       <button type="button" class="ui-panel-link color-btn amber" data-color="#FFB000">
                         Terminal Amber
                       </button>
  
-                      <button type="button" class="ui-panel-link color-btn green" data-color="#33FF33">
+                      <button type="button" class="ui-panel-link color-btn green" data-color="#1dc71d">
                         Terminal Green
                       </button>
 
@@ -110,99 +110,151 @@ const audioMenu = `<label class="audio-control">
                     </div>`;
 
 // projects
-const walkpointURIProject = `<h1 class="insideh1">Overview<img src="resources/walkpoint.png" style="width: 100px !important; height: 50px !important"></h1> <h3> About project </h3>
+const walkpointURIProject =`<h1 class="insideh1">
+                              Overview
+                              <img src="resources/Walkpoint/logo.gif"
+                                  style="width: 100px !important; height: 100px !important">
+                            </h1>
 
-              <p class="indentp"> WalkPointURI is a cross-platform campus navigation application designed to help students at the University of Rhode Island create, save, and 
-              follow personalized walking routes between locations around campus. </p>
+  <h3>About project</h3>
 
-              <p class="indentp"> This project is a complete system with user authentication, persistent cloud data, route creation and editing, scheduled routes, interactive maps, external APIs, 
-              analytics, location services, testing, and multiple interconnected pages. It was also deployed as a working web application while retaining Flutter support for mobile platforms. </p>
+  <p class="indentp">
+    WalkPointURI is a cross-platform campus navigation application designed to help
+    University of Rhode Island students create, save, schedule, and follow personalized
+    walking routes around campus. The application includes user authentication,
+    persistent cloud data, route creation and editing, interactive maps, external APIs,
+    analytics, location services, testing, and support for both web and mobile platforms.
+  </p>
 
-              <p class="indentp"> My primary technical responsibility was designing and developing the custom mapping and routing system that powered the application's 
-              core functionality. FlutterFlow itself could not provide the functionality we needed, so I wrote a custom Dart widget that extended FlutterFlow and provided 
-              the application with the mapping functionality that the rest of the project could build around. </p>
+  <p class="indentp">
+    My primary technical responsibility was designing and developing the custom mapping
+    and routing system at the core of the application. Because FlutterFlow could not
+    provide the functionality we needed, I created a reusable custom Dart widget that
+    extended FlutterFlow and connected the rest of the application to an interactive
+    navigation system.
+  </p>
 
-              <h3> Languages/Frameworks used </h3>
+  <h3>Languages/Frameworks used</h3>
 
-              <p> -Dart <br>
-                  -Flutter <br>
-                  -FlutterFlow <br>
-                  -Firebase Authentication <br>
-                  -Cloud Firestore <br>
-                  -Firebase Analytics/Performance <br>
-                  -Flutter Map <br>
-                  -OpenStreetMap <br>
-                  -Mapbox Directions API <br>
-                  -Weather API <br>
-                  -Geolocator <br>
-                  -REST APIs/JSON <br>
-                  -Git/GitHub </p>
+  <p>
+    • Flutter/FlutterFlow<br>
+    • Firebase Authentication/Cloud Firestore<br>
+    • Firebase Analytics/Performance<br>
+    • Flutter Map/OpenStreetMap<br>
+    • Mapbox Directions API<br>
+    • Weather API<br>
+    • Geolocator<br>
+    • REST APIs/JSON<br>
+    • Git/GitHub
+  </p>
 
-              <h1 class="insideh1"> How it works <img src="resources/walkpointMap.png" style="width: 50px !important"></h1>
-              <h3> Application architecture </h3>
 
-              <p class="indentp"> Built with Flutter and FlutterFlow, this application separates its functionality into account, route, map, backend, reusable component, 
-              and custom-code systems. Firebase Authentication manages user accounts while Cloud Firestore stores application data such as users, URI buildings, and saved routes. 
-              Authenticated routing is used to protect application pages and move data between different parts of the app. </p>
-              <img src="resources/walkpointApp.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <h1 class="insideh1">
+    How it works
+    <img src="resources/Walkpoint/flutterFlow.png"
+         style="width: 50px !important">
+  </h1>
 
-              <p class="indentp"> Users can create an account, build routes between URI buildings, name and save those routes, assign them to days of the week, edit them later, 
-              and view routes associated with their account. Building coordinates are stored separately from user-created route data, allowing saved routes to reference real campus 
-              locations while keeping the underlying data organized and reusable. </p>
-              <img src="resources/walkpointRoutes.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <h3>Application architecture</h3>
 
-              <h3> Custom navigation system </h3>
+  <p class="indentp">
+    Built with Flutter and FlutterFlow, the application separates functionality into
+    account, route, map, backend, reusable-component, and custom-code systems.
+    Firebase Authentication manages user accounts while Cloud Firestore stores users,
+    URI buildings, saved routes, coordinates, schedules, and other persistent data.
+    Authenticated routing connects these systems and protects user-specific pages.
+  </p>
 
-              <p class="indentp"> My largest contribution was the custom map widget that connected the application's route data to an interactive navigation system. 
-              I designed the widget to operate in multiple contexts: it can function as an open campus map where users interact directly with locations, or accept coordinates
-               supplied by another part of the application and automatically display a previously created route. Designing it this way allowed one reusable component to support 
-               both free map exploration and the application's saved-route workflow. </p>
-              <img src="resources/walkpointMapWidget.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <img src="resources/Walkpoint/titleScreen.png"
+       style="width: 400px !important; height: 100% !important; margin: 0 auto;">
 
-              <p class="indentp"> The widget combines several Dart and Flutter systems including asynchronous HTTP requests, JSON parsing, state management, geolocation, 
-              map controllers, markers, and dynamically generated polylines. When a route is requested, the system sends the selected coordinates to the Mapbox Directions 
-              API using its walking profile, processes the returned route geometry, and converts it into points that Flutter Map can render over OpenStreetMap data. </p>
-              <img src="resources/walkpointRouteCode.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <p class="indentp">
+    Users can create accounts, select URI buildings, build and name routes, save them
+    to their account, assign routes to days of the week, and edit them later.
+    Campus building coordinates are stored separately from user-created route data,
+    keeping location information reusable while allowing saved routes to reference
+    real campus locations.
+  </p>
 
-              <p class="indentp"> The navigation system also handles device location permissions and current-location data, automatically positions the map around a 
-              generated route, displays start and destination markers, and calculates useful route information such as estimated walking time and distance. 
-              This required combining multiple third-party packages and services behind a single interface that could be used by the rest of the application without needing to 
-              understand the underlying routing logic. </p>
-              <img src="resources/walkpointNavigation.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <div class="imageRow">
+      <img src="resources/Walkpoint/routesPage.png"
+    style="width: 300px !important; height: 100% !important;">    
+                  
+  <img src="resources/Walkpoint/buildingsList.png"
+      style="width: 300px !important; height: 100% !important;">
+  </div>
 
-              <h3> Backend and application integration </h3>
+  <h3>Custom navigation system</h3>
 
-              <p class="indentp"> Firestore acts as the central data layer connecting the application's features. Campus buildings store names and geographic coordinates, 
-              while routes store their start and destination information, coordinate data, route name, associated user, and selected weekdays. 
-              The application queries this data based on the authenticated user and passes the necessary information between the route-management pages and my custom map system. </p>
-              <img src="resources/walkpointFirebase.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <p class="indentp">
+    My largest contribution was a custom map widget designed to work in multiple
+    contexts. It can operate as an open campus map for direct exploration or accept
+    coordinates from another part of the application and automatically display a
+    saved route. This allowed one reusable component to support both free map
+    navigation and the application's route-management workflow.
+  </p>
 
-              <p class="indentp"> Custom Dart actions were also used alongside FlutterFlow's generated code to work with Firestore documents and references where the 
-              visual development environment alone was not enough. This combination allowed us to use FlutterFlow for rapid interface development while still 
-              writing custom code for the more complex application logic and integrations. </p>
-              <img src="resources/walkpointBackend.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+   
+      <img src="resources/Walkpoint/routeView.png"
+    style="width: 75% !important; height: 75% !important; margin-left: 5em;">    
+                  
+  <img src="resources/Walkpoint/freeView.png"
+      style="width: 75% !important; height: 75% !important; margin-left: 5em;">
 
-              <h3> Additional systems </h3>
 
-              <p class="indentp"> Beyond navigation, the application integrates additional campus-focused services and application infrastructure. 
-              REST APIs are used to retrieve information such as the current date and URI-area weather, while the application also includes RIPTA transportation information. 
-              Firebase services provide authentication, analytics, performance monitoring, storage capabilities, and persistent application data. </p>
-              <img src="resources/walkpointFeatures.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <p class="indentp">
+    The widget combines asynchronous HTTP requests, JSON parsing, state management,
+    geolocation, map controllers, markers, and dynamically generated polylines.
+    Route coordinates are sent to the Mapbox Directions API using its walking profile,
+    and the returned geometry is converted into points that Flutter Map renders over
+    OpenStreetMap data. 
+  </p>
+  <p class="indentp"> 
+    The navigation system handles device-location permissions, current-location
+    data, start and destination markers, automatic map positioning, estimated walking
+    time, and route distance
+  </p>
 
-              <h3> Team development and testing </h3>
+  <h3>Backend and application integration</h3>
 
-              <p class="indentp"> Because WalkPointURI was developed as a group project, development involved coordinating a much larger shared codebase than my previous work. 
-              We used Git and GitHub to manage changes and maintain the project, documented team meetings throughout development, divided larger features between team members, 
-              and designed our components so independently developed systems could integrate with one another. </p>
-              <img src="resources/walkpointTeam.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+  <p class="indentp">
+    Firestore acts as the application's central data layer. Building documents contain
+    names and geographic coordinates, while route documents store start and destination
+    information, coordinate data, route names, associated users, and selected weekdays.
+    User-specific queries pass this information between route-management pages and the
+    custom mapping system.
+  </p>
 
-              <p class="indentp"> The project also incorporated a more formal product-development process. Our team conducted user research to validate the usefulness of 
-              personalized campus routes, developed user stories and test cases for major workflows, explored A/B testing strategies, defined product metrics using the HEART framework, 
-              and created automated Flutter integration tests for workflows such as authentication and account creation. This gave me experience working on software as both an 
-              engineering project and a product intended for real users. </p>
-              <img src="resources/walkpointTesting.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
-              
-              <h1 class="insideh1"><a href="https://walkpointuri.flutterflow.app/" target="popout">Click here to try</a></h1>`;
+  <img src="resources/Walkpoint/firebase.png"
+       style="width: 75% !important; height: 75% !important; margin: 0 auto;">
+
+  <h3>Team development and testing</h3>
+
+  <p class="indentp">
+    WalkPointURI was developed as a group project using Git and GitHub to coordinate a
+    shared codebase. We divided major features between team members, documented meetings,
+    and designed independently developed components so they could integrate cleanly.
+  </p>
+
+  <img src="resources/Walkpoint/github.png"
+       style="width: 75% !important; height: 75% !important; margin: 0 auto;">
+
+  <p class="indentp">
+    We also followed a more formal product-development process involving user research, user stories, workflow test cases, A/B testing strategies, 
+    HEART product metrics, and automated Flutter integration tests for features such as authentication and account creation. 
+    We concluded the project by presenting WalkPointURI as a team at a captsone software showcase where we demonstrated the application and discussed its design, 
+    functionality, and development process.
+  </p>
+
+  <img src="resources/Walkpoint/group.jpg"
+       style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+
+
+  <h1 class="insideh1">
+    <a href="https://walkpointuri.flutterflow.app/" target="popout">
+      Click here to try!
+    </a>
+  </h1>`;
 
 const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/raylibShooter.png" style="width: 100px !important; height: 50px !important"></h1>
                   <h3> About project </h3>
@@ -213,10 +265,10 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> -C++ <br>
-                      -Raylib </p>
+                  <p> •C++ <br>
+                      •Raylib </p>
 
-                  <h1 class="insideh1"> How it works <img src="resources/raylib.png" style="width: 50px !important"></h1>
+                  <h1 class="insideh1"> How it works <img src="resources/Shooter/raylibLogo.png" style="width: 50px !important"></h1>
           
                   <p class="indentp"> This game is built around the traditional 2D game loop. It handles player input, updates gameplay systems, and renders the game world each frame. 
                   I used C++ classes to separate responsibilities between systems such as the player, enemies, camera, animations, particles, and audio. 
@@ -253,9 +305,9 @@ const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/Flop
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> -JavaScript <br>
-                      -ProcessingJS <br>
-                      -Khan Academy Programming Environment </p>
+                  <p> •JavaScript <br>
+                      •ProcessingJS <br>
+                      •Khan Academy Programming Environment </p>
 
                   <h1 class="insideh1"> How it works <img src="resources/Floppy/floppyFish.png" style="width: 100px !important"></h1>
 
@@ -288,10 +340,10 @@ const pongProject = `<h1 class="insideh1">Overview<img src="resources/Pong/pongL
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> -JavaScript <br>
-                      -p5.js <br>
-                      -HTML <br>
-                      -CSS </p>
+                  <p> •JavaScript <br>
+                      •p5.js <br>
+                      •HTML <br>
+                      •CSS </p>
 
                   <h1 class="insideh1"> How it works </h1>
                 
@@ -308,12 +360,12 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/Wordle/w
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> -JavaScript <br>
-                      -Node.js <br>
-                      -discord.js <br>
-                      -node-cron <br>
-                      -Axios <br>
-                      -C program for executable </p>
+                  <p> •JavaScript <br>
+                      •Node.js <br>
+                      •discord.js <br>
+                      •node-cron <br>
+                      •Axios <br>
+                      •C program for executable </p>
 
                   <h1 class = "insideh1"> How it works <img src="resources/Wordle/discord.png" style = "width: 50px !important"></h1>
 

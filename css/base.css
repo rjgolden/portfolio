@@ -60,11 +60,11 @@ h2, h3{
 }
 
 img{
-  border: 2px solid var(--ui-color);
-  border-color: inherit;
-  box-shadow: 8px currentColor;
+  border: 2px solid;
+  border-color: rgba(129, 129, 129, 0.568);
+  box-shadow: 8px;
 }
-
+ 
 a{
   font-style:italic;
 }

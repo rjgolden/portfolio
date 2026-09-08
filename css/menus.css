@@ -4,8 +4,8 @@
 }
 
 .ui-panel-link.color-btn.green {
-  color: #33FF33;
-  border-color: #33FF3388;
+  color: #1dc71d;
+  border-color: #21e2219f;
 }
 
 .ui-panel-link.color-btn.purple {
@@ -25,7 +25,7 @@
 
 .ui-panel-link.color-btn.white {
   color: #e7e7e7;
-  border-color: #b8b8b8;
+  border-color: #979696;
 }
 
 .ui-panel-link.color-btn.picker {
@@ -51,34 +51,33 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid;
+  color: rgb(150, 150, 150);
+
   background: var(--rainbow);
   background-size: 300% 100%;
-  animation: rainbowShift 12s linear infinite;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  animation: rainbowShift 12s linear infinite;
+
+  z-index: 0;
 }
 
 .ui-panel-link.color-btn.rainbow::before {
   content: "";
   position: absolute;
   inset: 0;
-  box-sizing: border-box;
-  padding: 1px;
 
   background: var(--rainbow);
   background-size: 300% 100%;
   animation: rainbowShift 12s linear infinite;
 
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  opacity: 0.18;
 
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
+  z-index: -2;
   pointer-events: none;
 }
 
@@ -153,7 +152,7 @@
 }
 
 .music-selector-arrow:active {
-  transform: translateY(-1px);
+  transform: scale(1.25) translate(0%, 0%);
   background: color-mix(in srgb, currentColor 15%, transparent);
 }
 
@@ -166,11 +165,21 @@
 
 .audio-control input[type="range"],
 .audio-mute-row input {
-  accent-color: currentColor;
+  accent-color: var(--ui-color);
 }
 
 .audio-control input[type="range"] {
   width: 100%;
+  cursor: pointer;
+  color-scheme: light;
+}
+
+.audio-mute-row input {
+  cursor: pointer;
+}
+
+.audio-mute-row input:active {
+  transform: scale(1.5);
 }
 
 .audio-mute-row {

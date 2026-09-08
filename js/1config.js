@@ -109,10 +109,8 @@ const faceViewportOffsetsDesktop = {
 const faceViewportOffsetsMobile = {
   0: { x: -9.0, y:  mobileDiag * 2 },
   1: { x: -9.0, y: -mobileDiag * 2 },
-
   2: { x: 0,    y:  pageDistance * 1.5 },
   3: { x: 0,    y: -pageDistance * 1.5 },
-
   4: { x: 9.0,  y:  mobileDiag * 2 },
   5: { x: 9.0,  y: -mobileDiag * 2 }
 };
