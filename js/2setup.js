@@ -49,7 +49,7 @@ function drawFace(face, color, isActive) {
   // if the panel is facing the screen
   if (isActive) {
     ctx.shadowColor = color;
-    ctx.shadowBlur = 45;
+    ctx.shadowBlur = 35;
     ctx.fillStyle = color;
     ctx.globalAlpha = 0.25;
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
@@ -62,10 +62,6 @@ function drawFace(face, color, isActive) {
   ctx.font = "bold 55px 'Press Start 2P'";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-
-  ctx.shadowBlur = 0;
-  ctx.shadowColor = "transparent";
-
   ctx.fillText(label, canvas.width / 2, canvas.height / 2);
 
   texture.needsUpdate = true;
