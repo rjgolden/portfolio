@@ -68,7 +68,7 @@
 }
 
 .close-arrow {
-  display: inline-block;
+  display: flex;
   line-height: 1;
 }
 
@@ -83,7 +83,7 @@
 
 .ui-screen-close:hover,
 .color-btn:hover {
-  background-color: color-mix(in srgb, currentColor 20%, transparent);
+  background: color-mix(in srgb, currentColor 15%, transparent);
 }
 
 .ui-panel-title {
@@ -254,3 +254,13 @@ body.light-mode .ui-panel-link:not(.color-btn):active {
 .slot-below       { margin-left: 0;        margin-top:  100vh; }
 .slot-upper-right { margin-left:  90vw; margin-top: -90vh; }
 .slot-lower-right { margin-left:  90vw; margin-top:  90vh; }
+
+.ui-panel-title,
+.ui-panel-link,
+.ui-panel-body,
+.ui-screen-close,
+.ez-nav-arrow {
+  -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
+  
+}
