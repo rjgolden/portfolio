@@ -12,12 +12,17 @@ const faceCanvases = labels.map(label => {
   const canvas = document.createElement("canvas");
   canvas.width = 512;
   canvas.height = 512;
+  const texture = new THREE.CanvasTexture(canvas);
+
+  texture.generateMipmaps = false;
+  texture.minFilter = THREE.LinearFilter;
+  texture.magFilter = THREE.LinearFilter;
 
   return {
     label,
     canvas,
     ctx: canvas.getContext("2d"),
-    texture: new THREE.CanvasTexture(canvas)
+    texture
   };
 });
 
@@ -57,6 +62,9 @@ function drawFace(face, color, isActive) {
   ctx.font = "bold 55px 'Press Start 2P'";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
+
+  ctx.shadowBlur = 0;
+  ctx.shadowColor = "transparent";
 
   ctx.fillText(label, canvas.width / 2, canvas.height / 2);
 
