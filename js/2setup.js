@@ -46,29 +46,38 @@ function drawFace(face, color, isActive) {
   ctx.fillStyle = lightModeEnabled ? LIGHT_BG : DARK_BG;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // if the panel is facing the screen
+  ctx.font = "bold 55px 'Press Start 2P'";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.lineJoin = "round";
+
   if (isActive) {
-    ctx.shadowColor = color;
-    ctx.shadowBlur = 35;
+    ctx.globalAlpha = 0.15; // tune to taste
     ctx.fillStyle = color;
-    ctx.globalAlpha = 0.25;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalAlpha = 1;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = isMobile ? 20 : 40;
+    ctx.fillText(label, canvas.width / 2, canvas.height / 2);
+    ctx.shadowColor = color;
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = lightModeEnabled ? "#969595" : "#222"; // outline color
+    ctx.strokeText(label, canvas.width / 2, canvas.height / 2);
     ctx.fillText(label, canvas.width / 2, canvas.height / 2);
     ctx.globalAlpha = 0.75;
   } else {
     ctx.shadowBlur = 0;
+    ctx.shadowColor = "transparent";
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = lightModeEnabled ? "#636060" : "#222";
+    ctx.fillText(label, canvas.width / 2, canvas.height / 2);
   }
-
-  ctx.fillStyle = isActive ? color : lightModeEnabled ? "#3d3a3a" : "#222";
-  ctx.font = "bold 55px 'Press Start 2P'";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(label, canvas.width / 2, canvas.height / 2);
-
+  ctx.globalAlpha = 1;
   texture.needsUpdate = true;
 }
 
 
 // initial render
 faceCanvases.forEach(face => {
-  drawFace(face, INITIAL_COLOR, false);
+  drawFace(face, "#ffaa00", false);
 });
