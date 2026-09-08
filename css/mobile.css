@@ -1,13 +1,9 @@
 @media (max-width: 768px) {
-  #ui-layer {
-    position: fixed;
-  }
-
   .ui-screen {
-    left: 50svw;
-    top: 50svh;
-    width: min(90vw, 500px);
-    max-height: 100svh;
+    left: 50%;
+    top: 50%;
+    width: min(76vw, 400px);
+    max-height: 80dvh;
     font-size: 9.5px;
   }
 
@@ -36,14 +32,14 @@
   }
 
   /* Panel placement */
-  .slot-upper-left  { margin-left: -180vw; margin-top: -145vh; }
-  .slot-lower-left  { margin-left: -180vw; margin-top:  140vh; }
+  .slot-upper-left  { margin-left: -180vw; margin-top: -140dvh; }
+  .slot-lower-left  { margin-left: -180vw; margin-top:  140dvh; }
 
-  .slot-above       { margin-left: 0;      margin-top: -150svh; }
-  .slot-below       { margin-left: 0;      margin-top:  150svh; }
+  .slot-above       { margin-left: 0;      margin-top: -150dvh; }
+  .slot-below       { margin-left: 0;      margin-top:  150dvh; }
 
-  .slot-upper-right { margin-left:  180vw; margin-top: -145vh; }
-  .slot-lower-right { margin-left:  180vw; margin-top:  140vh; }
+  .slot-upper-right { margin-left:  180vw; margin-top: -140dvh; }
+  .slot-lower-right { margin-left:  180vw; margin-top:  140dvh; }
 
   .color-fab-wrap,
   .audio-fab-wrap {
