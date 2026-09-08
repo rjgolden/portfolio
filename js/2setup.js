@@ -42,6 +42,8 @@ function drawGlowStroke(ctx, text, x, y, color, layers = 4) {
   ctx.lineJoin = "round";
   ctx.globalAlpha = 0.15; // tune to taste
   ctx.fillStyle = color;
+  ctx.shadowColor = color;
+  ctx.shadowBlur = isMobile ? 15 : 40;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.globalAlpha = 1;
   for (let i = layers; i >= 1; i--) {

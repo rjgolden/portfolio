@@ -1,11 +1,11 @@
 const ezNavOrder = [
   { label: "Home", faceIndex: null },
   { label: "About", faceIndex: 0 },
+  { label: "Projects", faceIndex: 2 },
   { label: "Contact", faceIndex: 4 },
-  { label: "Settings", faceIndex: 1 },
-  { label: "Feed", faceIndex: 5 },
+  { label: "Extras", faceIndex: 5 },
   { label: "Resume", faceIndex: 3 },
-  { label: "Projects", faceIndex: 2 }
+  { label: "Settings", faceIndex: 1 }
 ];
 
 let ezNavIndex = 0;

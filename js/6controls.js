@@ -109,7 +109,7 @@ function handleCubeClick(pointer) {
   if (materialIndex < 0 || materialIndex >= labels.length) return;
 
   hideIntroduction();
-  moveCameraToFace(materialIndex);
+  moveCameraToPanel(materialIndex);
 
   isPanelOpen = true;
   pendingFaceIndex = materialIndex;

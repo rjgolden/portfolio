@@ -134,7 +134,7 @@ function getFaceViewportOffsets() {
 
 
 // camera controls
-window.moveCameraToFace = function(faceIndex) {
+window.moveCameraToPanel = function(faceIndex) {
   const slot = getFaceViewportOffsets()[faceIndex];
   if (!slot) return;
 

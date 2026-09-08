@@ -18,7 +18,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(70vw, 800px);
+  width: 50%;
   height: auto;
   max-height: 90vh;
   box-sizing: border-box;
