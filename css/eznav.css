@@ -39,6 +39,7 @@
   font-size: 11px;
   text-align: center;
   text-shadow: 0 0 8px white;
+  margin-bottom: 20px;
 }
 
 .ez-nav-arrow {
@@ -49,7 +50,7 @@
   font-family: monospace;
   font-size: 24px;
   line-height: 1;
-
+  margin-bottom: 20px;
   opacity: 0.75;
 
   text-shadow: 0 0 8px currentColor;

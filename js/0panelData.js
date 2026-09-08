@@ -166,7 +166,7 @@ const walkpointURIProject =`<h1 class="insideh1">
   </p>
 
   <img src="resources/Walkpoint/titleScreen.png"
-       style="width: 400px !important; height: 100% !important; margin: 0 auto;">
+       style="width: 70% !important; height: 100% !important; margin: 0 auto;">
 
   <p class="indentp">
     Users can create accounts, select URI buildings, build and name routes, save them
