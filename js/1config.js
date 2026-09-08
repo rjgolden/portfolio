@@ -68,7 +68,7 @@ const defaultCameraPosition = new THREE.Vector3(2.5, 1.8, 2.5);
 const defaultLookTarget = new THREE.Vector3(0, 0, 0);
 
 if (isCompactLayout()) {
-  defaultCameraPosition.set(3.0, 2.1, 3.0);
+  defaultCameraPosition.set(2.5, 1.8, 2.5);
 }
 
 let particleOrigin = defaultCameraPosition.clone();

@@ -299,7 +299,7 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
 const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/Floppy/khanLogo.png" style="width: 50px !important; height: 50px !important"></h1>
                   <h3> About project </h3>
 
-                  <p class="indentp"> This project was the first game I programmed. It is a Flappy Bird-inspired game created in JavaScript using Khan Academy's ProcessingJS environment. </p>
+                  <p class="indentp"> This project was the first game I programmed. It is a Flappy Bird copycat created in JavaScript using Khan Academy's ProcessingJS environment. </p>
                   <p class="indentp"> I created this game as my final project for an introductory computer science course. 
                   The goal is to control a fish through a series of obstacles, collect coins, progress through levels, and reach the secret winning screen. </p>
 

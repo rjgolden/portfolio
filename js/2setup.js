@@ -70,5 +70,5 @@ function drawFace(face, color, isActive) {
 
 // initial render
 faceCanvases.forEach(face => {
-  drawFace(face, "#ffaa00", false);
+  drawFace(face, INITIAL_COLOR, false);
 });
