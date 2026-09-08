@@ -113,7 +113,7 @@ const colorMenu = ` <div class="ui-panel-links">
 const walkpointURIProject =`<h1 class="insideh1">
                               Overview
                               <img src="resources/Walkpoint/logo.gif"
-                                  style="width: 100px !important; height: 100px !important">
+                                  style="width: 100px !important; height: 100px !important" background-color: "white">
                             </h1>
 
   <h3>About project</h3>
