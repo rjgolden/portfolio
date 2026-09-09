@@ -305,7 +305,7 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
                   </div>
       
                   <div class="imageRow3"> 
-                    <img src="resources/Shooter/eyeball-AttackRight.gif" 
+                    <img src="resources/Shooter/eyeball-attackRight.gif" 
                         style="width: 64px !important; height: 128px !important; z-index: 1; position: relative; border: 0px;"> 
                     <img src="resources/Shooter/defaultBeamX.gif" 
                         style="width: 192px !important; height: 64px !important; margin-left: -5px; z-index: 2; position: relative; border: 0px;"> 
