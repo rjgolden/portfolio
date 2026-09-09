@@ -316,7 +316,7 @@ const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/Flop
 
                   <div class="imageRow">
                     <img src="resources/Floppy/floppyStart.png" style="width: 40%; min-width: 300px; height: 250px;">
-                    <img src="resources/Floppy/FloppySelect.png" style="width: 40%; min-width: 300px; height: 250px;">
+                    <img src="resources/Floppy/floppySelect.png" style="width: 40%; min-width: 300px; height: 250px;">
                   </div>
 
                   <p class="indentp"> The player controls the fish using the spacebar. The fish continuously falls toward the ground, while pressing or holding the spacebar moves it upward. Easy and Hard modes change the movement speed of the fish and obstacles. </p>
