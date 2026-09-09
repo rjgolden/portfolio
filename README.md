@@ -1,7 +1,5 @@
 # Ryan Golden — Software Portfolio
 
-An interactive software development portfolio built with **JavaScript, HTML, CSS, and Three.js**.
-
 The site is inspired by startup interfaces of the **Nintendo GameCube and PlayStation 2** as well as old school amber and green terminals, combining a rotating 3D cube, animated particles, retro UI elements, sound effects, and customizable themes.
 
 ## Features
