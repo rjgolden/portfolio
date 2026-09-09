@@ -75,7 +75,7 @@ function drawFace(face, color, isActive) {
   texture.needsUpdate = true;
 }
 
-// initial render
+// initial render - wait for canvas font before drawing
 faceCanvases.forEach(face => {
   drawFace(face, "#ffaa00", false);
 });

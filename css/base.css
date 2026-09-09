@@ -3,14 +3,15 @@
   --page-bg: #000;
   --panel-bg: rgba(0, 0, 0, 0);
   --menu-bg: rgba(0, 0, 0, 0);
-  --font-retro: 'Press Start 2P', 'Retro';
+  --font-retro: 'Press Start 2P', monospace;
 }
 
 @font-face {
-  font-family: 'Retro';
-  src: url('retro.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Press Start 2P';
+  src: url('../resources/Font/PressStart2P-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 html,

@@ -1,6 +1,11 @@
 // animation state
 let t = 0;
 let lastActive = -1;
+let lastRenderedFace = -1;
+let lastRenderedFaceColor = "";
+let lastRenderedLightMode = lightModeEnabled;
+let lastAppliedLightMode = null;
+let lastAppliedUIColor = "";
 let lastFrameTime = performance.now();
 let lastUpdateTime = lastFrameTime;
 const TARGET_FPS = 60;
@@ -30,15 +35,36 @@ function updateRainbowTheme() {
 }
 
 function updateThemeMode() {
+  if (lightModeEnabled === lastAppliedLightMode) return;
+
+  lastAppliedLightMode = lightModeEnabled;
+
   document.body.classList.toggle("light-mode", lightModeEnabled);
+
   if (lightModeEnabled) {
     renderer.setClearColor(LIGHT_BG, 1);
-    document.documentElement.style.setProperty("--page-bg", "#f2efe7");
-    document.documentElement.style.setProperty("--panel-bg", "rgba(221, 214, 200, 0.78)");
+
+    document.documentElement.style.setProperty(
+      "--page-bg",
+      "#f2efe7"
+    );
+
+    document.documentElement.style.setProperty(
+      "--panel-bg",
+      "rgba(221, 214, 200, 0.78)"
+    );
   } else {
     renderer.setClearColor(DARK_BG, 1);
-    document.documentElement.style.setProperty("--page-bg", "#000");
-    document.documentElement.style.setProperty("--panel-bg", "rgba(0, 0, 0, 0)");
+
+    document.documentElement.style.setProperty(
+      "--page-bg",
+      "#000"
+    );
+
+    document.documentElement.style.setProperty(
+      "--panel-bg",
+      "rgba(0, 0, 0, 0)"
+    );
   }
 }
 
@@ -50,11 +76,17 @@ function updateSceneColor() {
   glowLight.color.copy(currentColor);
   glowLight2.color.copy(currentColor);
 
-  document.documentElement.style.setProperty(
-  "--ui-color",
-  "#" + currentColor.getHexString());
-}
+  const uiHex = "#" + currentColor.getHexString();
 
+  if (uiHex !== lastAppliedUIColor) {
+    document.documentElement.style.setProperty(
+      "--ui-color",
+      uiHex
+    );
+
+    lastAppliedUIColor = uiHex;
+  }
+}
 
 function updateCamera(deltaTime) {
   const alpha = 1 - Math.pow(1 - cameraLerpStrength, deltaTime * 60);
@@ -138,9 +170,49 @@ function getActiveFaceIndex() {
 function updateFaceCanvases(activeFaceIndex) {
   const activeHex = "#" + currentColor.getHexString();
 
-  faceCanvases.forEach((face, index) => {
-    drawFace(face, activeHex, index === activeFaceIndex);
-  });
+  const faceChanged = activeFaceIndex !== lastRenderedFace;
+  const colorChanged = activeHex !== lastRenderedFaceColor;
+  const themeChanged = lightModeEnabled !== lastRenderedLightMode;
+
+  // Light/dark mode affects every face's background and inactive text,
+  // so all six faces genuinely need to be redrawn.
+  if (themeChanged) {
+    faceCanvases.forEach((face, index) => {
+      drawFace(face, activeHex, index === activeFaceIndex);
+    });
+  }
+
+  // When the active face changes, only two faces need updating:
+  // the old active face and the new active face.
+  else if (faceChanged) {
+    if (lastRenderedFace >= 0) {
+      drawFace(
+        faceCanvases[lastRenderedFace],
+        activeHex,
+        false
+      );
+    }
+
+    drawFace(
+      faceCanvases[activeFaceIndex],
+      activeHex,
+      true
+    );
+  }
+
+  // Color only affects the active face.
+  // This also preserves your smooth color lerp and rainbow animation.
+  else if (colorChanged) {
+    drawFace(
+      faceCanvases[activeFaceIndex],
+      activeHex,
+      true
+    );
+  }
+
+  lastRenderedFace = activeFaceIndex;
+  lastRenderedFaceColor = activeHex;
+  lastRenderedLightMode = lightModeEnabled;
 }
 
 function playFaceSwitchSound(activeFaceIndex) {
@@ -170,11 +242,14 @@ function updateActiveFace() {
 function updateParticlePosition(particle, deltaTime) {
   particle.userData.theta += particle.userData.speed * deltaTime * 60;
 
-  const { r, theta, phi } = particle.userData;
+  const {
+    theta,
+    orbitRadius,
+    baseZ
+  } = particle.userData;
 
-  const baseX = r * Math.sin(phi) * Math.cos(theta);
-  const baseY = r * Math.sin(phi) * Math.sin(theta);
-  const baseZ = r * Math.cos(phi);
+  const baseX = orbitRadius * Math.cos(theta);
+  const baseY = orbitRadius * Math.sin(theta);
 
   const parallaxX = -tempRelativeCam.x * (1 - particle.userData.parallaxFactor);
   const parallaxY = -tempRelativeCam.y * (1 - particle.userData.parallaxFactor);
@@ -232,14 +307,6 @@ function updateParticles(deltaTime) {
   });
 }
 
-
-// ui theme updates
-function updateUITheme() {
-  if (typeof updateAllUIScreenColors === "function") {
-    updateAllUIScreenColors();
-  }
-}
-
 function animate(now) {
   requestAnimationFrame(animate);
 
@@ -261,7 +328,6 @@ function animate(now) {
   updateCubeRotation(deltaTime);
   updateActiveFace();
   updateParticles(deltaTime);
-  updateUITheme();
 
   renderer.render(scene, camera);
 

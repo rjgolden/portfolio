@@ -15,25 +15,6 @@ window.isPanelOpen = function() {
   return isPanelOpen;
 };
 
-
-// color helpers
-function getUIColor() {
-  return "#" + currentColor.getHexString();
-}
-
-function updateSingleUIScreenColor(screen) {
-  const color = getUIColor();
-  screen.style.borderColor = color;
-  screen.style.color = color;
-}
-
-window.updateAllUIScreenColors = function() {
-  uiScreens.forEach(screen => {
-    updateSingleUIScreenColor(screen);
-  });
-};
-
-
 window.updateUIPlanePosition = function() {
   const offset = camera.position.clone().sub(defaultCameraPosition);
 

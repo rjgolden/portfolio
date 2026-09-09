@@ -42,11 +42,16 @@ for (let i = 0; i < 600; i++) {
   const radius = 1.8 + Math.random() * 4.2;
   const theta = Math.random() * Math.PI * 2;
   const phi = Math.acos(2 * Math.random() - 1);
+  const orbitRadius = radius * Math.sin(phi);
+  const baseZ = radius * Math.cos(phi);
 
   particle.userData = {
     r: radius,
     theta,
     phi,
+    orbitRadius,
+    baseZ,
+
     speed: (Math.random() - 0.5) * 0.003,
     baseSize: size,
     baseOpacity: Math.random() * 0.65 + 0.18,

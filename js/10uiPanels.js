@@ -281,7 +281,6 @@ function createUIScreen(faceIndex, slotClass) {
   screen.appendChild(content);
 
   updateUIScreenContent(screen, faceIndex);
-  updateSingleUIScreenColor(screen);
 
   return screen;
 }
