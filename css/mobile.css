@@ -24,11 +24,25 @@
   }
 
   .imageRow {
-  flex-direction: column;
+  display: column;
   align-items: center;
   gap: 16px;
   margin-left: 0;
   width: 100%;
+  }
+
+  .imageRow2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 12em;
+  }
+
+  .imageRow3 {
+  display: flex;
+  align-items: center;
+  margin-left: 4em;
+  position: relative;
   }
 
   /* Panel placement */

@@ -256,7 +256,7 @@ const walkpointURIProject =`<h1 class="insideh1">
     </a>
   </h1>`;
 
-const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/raylibShooter.png" style="width: 100px !important; height: 50px !important"></h1>
+const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/Shooter/gem.gif" style="width: 64px !important; height: 64px !important"></h1>
                   <h3> About project </h3>
 
                   <p class="indentp"> This project is a top-down shooter built in C++ using the raylib game development library. </p>
@@ -273,26 +273,46 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
                   <p class="indentp"> This game is built around the traditional 2D game loop. It handles player input, updates gameplay systems, and renders the game world each frame. 
                   I used C++ classes to separate responsibilities between systems such as the player, enemies, camera, animations, particles, and audio. 
                   Delta time keeps movement and other time-based behavior consistent across different frame rates. </p>
-                  <img src="resources/shooterGameLoop.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+                  <img src="resources/Shooter/basicGameplay.gif" style="width: 75% !important; height: 75% !important; margin: 0 auto;">
 
                   <p class="indentp"> The player system handles movement, directional attacks, dashing, animations, and both keyboard and controller input. 
                   Object-oriented features such as classes, member functions, and encapsulated state helped keep these behaviors organized while allowing the 
                   different gameplay systems to communicate with one another. </p>
-                  <img src="resources/shooterPlayer.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
-
-                  <p class="indentp"> The project also includes enemy, collision, health, particle, and sound systems that interact during gameplay. 
-                  C++ containers such as vectors are used to manage groups of game objects, while reusable classes and functions allow enemies, effects, 
-                  and other entities to be updated and processed efficiently within the game loop. </p>
-                  <img src="resources/shooterCombat.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+                  <img src="resources/Shooter/enemyChase.gif" style="width: 75% !important; height: 75% !important; margin: 0 auto;">
 
                   <p class="indentp"> The rendering system uses raylib's Camera2D, render textures, and custom lighting to build and display the game world. 
                   Structuring the project across separate classes, namespaces, header files, and source files gave me hands-on experience with C++ project organization 
                   and helped me understand how features such as object-oriented programming and standard containers can be applied to a growing real-time game. </p>
-                  <img src="resources/shooterRendering.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+                  <img src="resources/Shooter/particles.gif" style="width: 75% !important; height: 75% !important; margin: 0 auto;">
 
-                  <p class="indentp"> The art was all created by me using Asprite. I am not a traditional artist, so exploring this medium was completely new and intruiging to me. 
-                  Below you can see some of the art I created for this project. </p>
-                  <img src="resources/pyramidAnimation.png" style="width: 400px !important; height: 250px !important; margin: 0 auto;">
+                  <p class="indentp"> The art below was created by me using Aseprite. I am not a traditional artist, so exploring this medium was completely new to me. 
+                  Below you can see some of the art I created for this project. (Enlarged 2x) </p>
+
+                  
+                  <img src="resources/Shooter/eyeball-Idle.png" style="width: 384px !important; height: 128px !important; margin: 0 auto;">
+                  <img src="resources/Shooter/eyeball-Idle.gif" style="width: 64px !important; height: 128px !important; margin: 0 auto; border: 0px">
+                  <br>
+                  <img src="resources/Shooter/flyEnemy.png" style="width: 288px !important; height: 48px !important; margin: 0 auto;">
+                  <img src="resources/Shooter/fly.gif" style="width: 48px !important; height: 48px !important; margin: 0 auto; border: 0px">
+                  <br>
+                  <img src="resources/Shooter/fireSpriteAnimation-export.png" style="width: 384px !important; height: 64px !important; margin: 0 auto;">
+                  <img src="resources/Shooter/fireSpriteAnimation.gif" style="width: 64px !important; height: 64px !important; margin: 0 auto; border: 0px">
+                  <br> <br> <br>
+
+                  <div class="imageRow2">
+                     <img src="resources/Shooter/coin_gold.gif" style="width: 64px !important; height: 64px !important; margin-left: 20; border: 0px">
+                     <img src="resources/Shooter/coin_silver.gif" style="width: 64px !important; height: 64px !important; margin-right: 20; border: 0px">
+                  </div>
+      
+                  <div class="imageRow3"> 
+                    <img src="resources/Shooter/eyeball-AttackRight.gif" 
+                        style="width: 64px !important; height: 128px !important; z-index: 1; position: relative; border: 0px;"> 
+                    <img src="resources/Shooter/defaultBeamX.gif" 
+                        style="width: 192px !important; height: 64px !important; margin-left: -5px; z-index: 2; position: relative; border: 0px;"> 
+                  </div>
+
+                  <img src="resources/Shooter/hoodyGuyEnemyAnimationBig.gif" style="width: 128px !important; height: 128px !important; margin: 0 auto; border: 0px">
+                  <br>
                   
                   <h1 class="insideh1"><a href="https://github.com/rjgolden/raylibTopDownShooter" target="popout">Click here for repo</a></h1>`;
 

@@ -249,7 +249,22 @@ body.light-mode .ui-panel-link:not(.color-btn):active {
     display: flex;
     gap: 20px;
     margin-left: 5em;
+    align-items: center;
 }
+
+ .imageRow2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 21em;
+  }
+
+  .imageRow3 {
+  display: flex;
+  align-items: center;
+  margin-left: 12em;
+  position: relative;
+  }
 
 /* Panel placement */
 .slot-upper-left  { margin-left: -90vw; margin-top: -90vh; }
