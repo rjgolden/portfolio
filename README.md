@@ -2,36 +2,32 @@
 
 The site is inspired by the eerie ambiance of the startup interfaces of the **Nintendo GameCube and PlayStation 2** as well as old school amber and green terminals, combining a rotating 3D cube, animated particles, retro UI elements, sound effects, and customizable themes.
 
-## Amber Terminal
+## Amber + Green Terminal
 
 <table>
   <tr>
     <td align="center">
       <img src="resources/Readme/amber.png" width="380" alt="PS2 startup animation">
       <br>
-      <sub>Amber Terminal</sub>
     </td>
     <td align="center">
       <img src="resources/Readme/green.png" width="380" alt="GameCube startup animation">
       <br>
-      <sub>Green Terminal</sub>
     </td>
   </tr>
 </table>
 
-## Inspiration
+## Ps2 + Gamecube
 
 <table>
   <tr>
     <td align="center">
       <img src="resources/Readme/ps2-startup.gif" width="380" alt="PS2 startup animation">
       <br>
-      <sub>PlayStation 2</sub>
     </td>
     <td align="center">
       <img src="resources/Readme/gamecube-startup.gif" width="380" alt="GameCube startup animation">
       <br>
-      <sub>Nintendo GameCube</sub>
     </td>
   </tr>
 </table>
