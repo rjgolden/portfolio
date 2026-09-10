@@ -19,16 +19,17 @@ const sound2 = new THREE.Audio(listener);
 const sound3 = new THREE.Audio(listener);
 const sound4 = new THREE.Audio(listener);
 const sound5 = new THREE.Audio(listener);
+const sound6 = new THREE.Audio(listener);
 
 // available music
 const musicTracks = [
-  { id: "song1", name: "Gamecube", audio: music1, url: "audio/Music/ambiance.ogg" },
-  { id: "song2", name: "Xbox OG", audio: music2, url: "audio/Music/XboxOG.ogg" },
-  { id: "song3", name: "Wii", audio: music3, url: "audio/Music/Wii.ogg" },
-  { id: "song4", name: "DSI", audio: music4, url: "audio/Music/DSI.ogg" },
-  { id: "song5", name: "3DS", audio: music5, url: "audio/Music/3DS.ogg" },
-  { id: "song6", name: "WiiU", audio: music6, url: "audio/Music/WiiU.ogg" },
-  { id: "song7", name: "Ps4", audio: music7, url: "audio/Music/PS4.ogg" }
+  { id: "song1", name: "Gamecube", audio: music1, url: "../audio/Music/ambiance.ogg" },
+  { id: "song2", name: "Xbox OG", audio: music2, url: "../audio/Music/XboxOG.ogg" },
+  { id: "song3", name: "Wii", audio: music3, url: "../audio/Music/Wii.ogg" },
+  { id: "song4", name: "DSI", audio: music4, url: "../audio/Music/DSI.ogg" },
+  { id: "song5", name: "3DS", audio: music5, url: "../audio/Music/3DS.ogg" },
+  { id: "song6", name: "WiiU", audio: music6, url: "../audio/Music/WiiU.ogg" },
+  { id: "song7", name: "Ps4", audio: music7, url: "../audio/Music/PS4.ogg" }
 ];
 
 const savedMusicId = loadStoredValue(
@@ -70,7 +71,8 @@ const sfxMix = {
   switch: 0.33,
   beep: 0.66,
   back: 1.0,
-  colorSelect: 1.0
+  colorSelect: 1.0,
+  spherical: 1.5
 };
 
 
@@ -99,6 +101,7 @@ function applyAudioVolumes() {
   sound3.setVolume(getVol(sfxVolume * sfxMix.beep));
   sound4.setVolume(getVol(sfxVolume * sfxMix.back));
   sound5.setVolume(getVol(sfxVolume * sfxMix.colorSelect));
+  sound6.setVolume(getVol(sfxVolume * sfxMix.spherical));
 }
 
 
@@ -127,23 +130,28 @@ musicTracks.forEach(track => {
   );
 });
 
-audioLoader.load("audio/SFX/switch.ogg", buffer => {
+audioLoader.load("../audio/SFX/switch.ogg", buffer => {
   sound2.setBuffer(buffer);
   applyAudioVolumes();
 });
 
-audioLoader.load("audio/SFX/beep.ogg", buffer => {
+audioLoader.load("../audio/SFX/beep.ogg", buffer => {
   sound3.setBuffer(buffer);
   applyAudioVolumes();
 });
 
-audioLoader.load("audio/SFX/back.ogg", buffer => {
+audioLoader.load("../audio/SFX/back.ogg", buffer => {
   sound4.setBuffer(buffer);
   applyAudioVolumes();
 });
 
-audioLoader.load("audio/SFX/colorSelect.ogg", buffer => {
+audioLoader.load("../audio/SFX/colorSelect.ogg", buffer => {
   sound5.setBuffer(buffer);
+  applyAudioVolumes();
+});
+
+audioLoader.load("../audio/SFX/spherical.ogg", buffer => {
+  sound6.setBuffer(buffer);
   applyAudioVolumes();
 });
 
@@ -207,22 +215,12 @@ function getCurrentMusicName() {
 
 
 // interaction unlock
-["click", "touchstart", "touchend"].forEach(eventType => {
+["pointerdown", "keydown"].forEach(eventType => {
   document.addEventListener(eventType, resumeAudioContext, {
     once: true,
     passive: true
   });
 });
-
-canvas.addEventListener("touchstart", resumeAudioContext, {
-  once: true,
-  passive: true
-});
-
-canvas.addEventListener("click", resumeAudioContext, {
-  once: true
-});
-
 
 // sound effects
 window.playBeep = function() {
@@ -235,3 +233,4 @@ window.playBeep = function() {
   sound3.setPlaybackRate(0.95 + Math.random() * 0.1);
   sound3.play();
 };
+

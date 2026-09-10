@@ -205,7 +205,11 @@ function initSettingsPanel(screen) {
       rainbowThemeEnabled = false;
       saveStoredValue(STORAGE_KEYS.uiColor, color);
       setColor(color);
-      sound5.play();
+      setColor(color);
+
+      if (!btn.classList.contains("red")) {
+        sound5.play();
+      }
     });
   });
 
@@ -236,10 +240,24 @@ function initSettingsPanel(screen) {
 
   if (lightModeBtn) {
     lightModeBtn.addEventListener("click", () => {
-      lightModeEnabled = !lightModeEnabled;
-      sound5.play();
+    lightModeEnabled = !lightModeEnabled;
+    sound5.play();
     });
-}
+  }
+
+  const gameSphereButton = screen.querySelector(".ui-panel-link.color-btn.red");
+
+  if (gameSphereButton) {
+    gameSphereButton.addEventListener("click", () => {
+      if (!sound6.buffer || !contextResumed) return;
+
+      if (sound6.isPlaying) {
+        sound6.stop();
+      }
+
+      sound6.play();
+    });
+  }
 }
 
 // screen creation
