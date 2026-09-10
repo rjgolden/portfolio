@@ -218,11 +218,19 @@ function updateFaceCanvases(activeFaceIndex) {
 function playFaceSwitchSound(activeFaceIndex) {
   if (activeFaceIndex === lastActive) return;
 
+  // Establish the initial face without treating it as a switch.
+  if (lastActive === -1) {
+    lastActive = activeFaceIndex;
+    return;
+  }
+
   lastActive = activeFaceIndex;
 
-  const panelOpen = typeof window.isPanelOpen === "function" && window.isPanelOpen();
+  const panelOpen =
+    typeof window.isPanelOpen === "function" &&
+    window.isPanelOpen();
 
-  if (!panelOpen && sound2.buffer) {
+  if (!panelOpen && !masterMuted && sound2.buffer) {
     if (sound2.isPlaying) {
       sound2.stop();
     }
