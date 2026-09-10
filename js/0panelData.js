@@ -285,8 +285,7 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
                   and helped me understand how features such as object-oriented programming and standard containers can be applied to a growing real-time game. </p>
                   <img src="resources/Shooter/particles.gif" style="width: 75% !important; height: 75% !important; margin: 0 auto;">
 
-                  <p class="indentp"> The art below was created by me using Aseprite. I am not a traditional artist, so exploring this medium was completely new to me. 
-                  Below you can see some of the art I created for this project. (Enlarged 2x) </p>
+                  <p class="indentp"> Below you can see some of the art I created for this project using Aseprite. (Enlarged 2x) </p>
 
                   
                   <img src="resources/Shooter/eyeball-Idle.png" style="width: 384px !important; height: 128px !important; margin: 0 auto;">
