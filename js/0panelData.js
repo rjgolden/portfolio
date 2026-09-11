@@ -7,9 +7,8 @@ const about = `<h2>About Me</h2>
               
 
               <h2> Portfolio </h2>
-              <p class = "indentp"> This portfolio is based on a combination of both the GameCube and Ps2 startup animations. 
-              These are two of my favorite consoles and are the host of many games I played growing up, which makes them responsible for my love of gaming and game
-              development. </p>`;
+              <p class = "indentp"> This portfolio is based on a combination of both the GameCube and Ps2 startup animations, as well as retro amber & green terminals.
+              These are two of my favorite consoles and are the host of many of my favorite games. </p>`;
 
 const skills = `<h2> My Skills </h2>
                 <p><b>Programming Languages:</b> C, C++ (17,20), Python, Javascript, Typescript, Lua <br><br>
