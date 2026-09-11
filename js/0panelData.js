@@ -399,21 +399,21 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/Wordle/w
 const threadingProject = `<h1 class = "insideh1"> WORK IN PROGRESS </h1>`;
 
 // feed 
-const videos = `<h1 class = "insideh1">Cod4-Mw3 Montage</h1>
-               <iframe width="100%" height="315" 
+const videos = `<h2 class = "insideh1">Cod4-Mw3 Montage</h2>
+               <iframe
                src="https://www.youtube.com/embed/-o1ff3gOzzM?si=d5AeNHeJrjjekPSg" 
                title="YouTube video player" 
-               frameborder="0" allow="accelerometer; autoplay; 
+               allow="accelerometer; autoplay; 
                clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
                web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                
                <p><br></p>
 
-               <h1 class = "insideh1">Fortnite Montage</h1>
-               <iframe width="100%" height="315" 
+               <h2 class = "insideh1">Fortnite Montage</h2>
+               <iframe
                src="https://www.youtube.com/embed/63cOIeMwWZ0?si=pFMm-FdKVQkiHxqa" 
                title="YouTube video player" 
-               frameborder="0" allow="accelerometer; autoplay; 
+               allow="accelerometer; autoplay; 
                clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
                web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 

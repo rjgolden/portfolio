@@ -59,9 +59,10 @@ h2, h3{
 }
 
 img{
-  border: 2px solid;
-  border-color: rgba(129, 129, 129, 0.568);
-  box-shadow: 8px;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  box-shadow: 0 0 8px currentColor;
+  box-sizing: border-box;
 }
  
 a{
