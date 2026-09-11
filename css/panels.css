@@ -129,19 +129,9 @@
 
 .resume-preview,
 .resume-preview img,
-.ui-panel-body img {
-  width: 100%;
-}
-
+.ui-panel-body img,
 .ui-panel-body iframe {
-  width: 75%;
-  height: 315px;
-  display: block;
-  margin: 0 auto;
-  border: 2px solid currentColor;
-  border-radius: 8px;
-  box-shadow: 0 0 8px currentColor;
-  box-sizing: border-box;
+  width: 100%;
 }
 
 .resume-preview img,
@@ -256,25 +246,35 @@ body.light-mode .ui-panel-link:not(.color-btn):active {
 }
 
 .imageRow {
-    display: flex;
-    gap: 20px;
-    margin-left: 5em;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  gap: 20px;
+  margin: 0;
+
+  box-sizing: border-box;
 }
 
- .imageRow2 {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-left: 21em;
-  }
+.imageRow img {
+  width: calc((100% - 20px) / 2);
+  min-width: 0;
+  height: auto;
+}
 
-  .imageRow3 {
+.imageRow2 {
   display: flex;
   align-items: center;
-  margin-left: 12em;
-  position: relative;
-  }
+  justify-content: center;
+  gap: 16px;
+}
+
+.imageRow3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Panel placement */
 .slot-upper-left  { margin-left: -90vw; margin-top: -90vh; }

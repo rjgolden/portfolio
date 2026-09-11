@@ -177,11 +177,8 @@ const walkpointURIProject =`<h1 class="insideh1">
   </p>
 
   <div class="imageRow">
-      <img src="resources/Walkpoint/routesPage.png"
-    style="width: 300px !important; height: 100% !important;">    
-                  
-  <img src="resources/Walkpoint/buildingsList.png"
-      style="width: 300px !important; height: 100% !important;">
+    <img src="resources/Walkpoint/routesPage.png">                  
+    <img src="resources/Walkpoint/buildingsList.png">
   </div>
 
   <h3>Custom navigation system</h3>
@@ -196,10 +193,10 @@ const walkpointURIProject =`<h1 class="insideh1">
 
    
       <img src="resources/Walkpoint/routeView.png"
-    style="width: 75% !important; height: 75% !important; margin-left: 5em;">    
+    style="width: 75%; height: 75%; margin-left: 5em;">    
                   
   <img src="resources/Walkpoint/freeView.png"
-      style="width: 75% !important; height: 75% !important; margin-left: 5em;">
+      style="width: 75% ; height: 75%; margin-left: 5em; margin-top: 2em">
 
 
   <p class="indentp">
@@ -289,28 +286,35 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
 
                   
                   <img src="resources/Shooter/eyeball-Idle.png" style="width: 384px !important; height: 128px !important; margin: 0 auto;">
-                  <img src="resources/Shooter/eyeball-Idle.gif" style="width: 64px !important; height: 128px !important; margin: 0 auto; border: 0px">
+                  <img src="resources/Shooter/eyeball-Idle.gif" style="width: 64px !important; height: 128px !important; margin: 0 auto; border: none; box-shadow: 0 0 0px currentColor;">
                   <br>
                   <img src="resources/Shooter/flyEnemy.png" style="width: 288px !important; height: 48px !important; margin: 0 auto;">
-                  <img src="resources/Shooter/fly.gif" style="width: 48px !important; height: 48px !important; margin: 0 auto; border: 0px">
+                  <img src="resources/Shooter/fly.gif" style="width: 48px !important; height: 48px !important; margin: 0 auto; border: none; box-shadow: 0 0 0px currentColor;">
                   <br>
                   <img src="resources/Shooter/fireSpriteAnimation-export.png" style="width: 384px !important; height: 64px !important; margin: 0 auto;">
-                  <img src="resources/Shooter/fireSpriteAnimation.gif" style="width: 64px !important; height: 64px !important; margin: 0 auto; border: 0px">
+                  <img src="resources/Shooter/fireSpriteAnimation.gif" style="width: 64px !important; height: 64px !important; margin: 0 auto; border: none; box-shadow: 0 0 0px currentColor;">
                   <br> <br> <br>
 
                   <div class="imageRow2">
-                     <img src="resources/Shooter/coin_gold.gif" style="width: 64px !important; height: 64px !important; margin-left: 20; border: 0px">
-                     <img src="resources/Shooter/coin_silver.gif" style="width: 64px !important; height: 64px !important; margin-right: 20; border: 0px">
+                     <img src="resources/Shooter/coin_gold.gif" style="width: 64px !important; height: 64px !important; margin-left: 20; border: none; box-shadow: 0 0 0px currentColor;">
+                     <img src="resources/Shooter/coin_silver.gif" style="width: 64px !important; height: 64px !important; margin-right: 20; border: none; box-shadow: 0 0 0px currentColor;">
                   </div>
       
                   <div class="imageRow3"> 
                     <img src="resources/Shooter/eyeball-attackRight.gif" 
-                        style="width: 64px !important; height: 128px !important; z-index: 1; position: relative; border: 0px;"> 
+                        style="width: 64px !important; height: 128px !important; 
+                        z-index: 1; 
+                        position: relative; 
+                        border: none; box-shadow: 0 0 0px currentColor;"> 
                     <img src="resources/Shooter/defaultBeamX.gif" 
-                        style="width: 192px !important; height: 64px !important; margin-left: -5px; z-index: 2; position: relative; border: 0px;"> 
+                        style="width: 192px !important; height: 64px !important; 
+                        margin-left: -5px; 
+                        z-index: 2; 
+                        position: relative; 
+                        border: none; box-shadow: 0 0 0px currentColor;"> 
                   </div>
 
-                  <img src="resources/Shooter/hoodyGuyEnemyAnimationBig.gif" style="width: 128px !important; height: 128px !important; margin: 0 auto; border: 0px">
+                  <img src="resources/Shooter/hoodyGuyEnemyAnimationBig.gif" style="width: 128px !important; height: 128px !important; margin: 0 auto; border: none; box-shadow: 0 0 0px currentColor;">
                   <br>
                   
                   <h1 class="insideh1"><a href="https://github.com/rjgolden/raylibTopDownShooter" target="popout">Click here for repo</a></h1>`;

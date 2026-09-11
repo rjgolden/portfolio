@@ -61,7 +61,17 @@ h2, h3{
 img{
   border: 2px solid currentColor;
   border-radius: 8px;
-  box-shadow: 0 0 8px currentColor;
+  box-shadow: 0 0 4px currentColor;
+  box-sizing: border-box;
+}
+.ui-panel-body iframe {
+  width: 80%;
+  height: 315px;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  box-shadow: 0 0 4px currentColor;
   box-sizing: border-box;
 }
  
