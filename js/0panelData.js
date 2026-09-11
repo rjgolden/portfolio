@@ -1,9 +1,8 @@
 // about
 const about = `<h2>About Me</h2>
 
-              <p class = "indentp">Welcome to my portfolio! My name is Ryan Golden. I am an aspiring software developer seeking a career programming in C++. 
-              I graduated from the University of Rhode Island with a Bachelor of 
-              Science in Computer Science. I also have a strong interest in game development. </p>
+              <p class = "indentp">Welcome to my portfolio! I am an aspiring software developer seeking a career programming in C++. 
+              I graduated from the University of Rhode Island with a B.S. in Computer Science. I also have a strong interest in game development. </p>
 
               
 
