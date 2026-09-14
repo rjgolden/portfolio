@@ -260,8 +260,8 @@ const topDownShooterProject = `<h1 class="insideh1">Overview<img src="resources/
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> •C++ <br>
-                      •Raylib </p>
+                  <p> • C++ <br>
+                      • Raylib </p>
 
                   <h1 class="insideh1"> How it works <img src="resources/Shooter/raylibLogo.png" style="width: 50px !important"></h1>
           
@@ -327,9 +327,9 @@ const floppyFishProject = `<h1 class="insideh1">Overview<img src="resources/Flop
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> •JavaScript <br>
-                      •ProcessingJS <br>
-                      •Khan Academy Programming Environment </p>
+                  <p> • JavaScript <br>
+                      • ProcessingJS <br>
+                      • Khan Academy Programming Environment </p>
 
                   <h1 class="insideh1"> How it works <img src="resources/Floppy/floppyFish.png" style="width: 100px !important"></h1>
 
@@ -362,10 +362,10 @@ const pongProject = `<h1 class="insideh1">Overview<img src="resources/Pong/pongL
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> •JavaScript <br>
-                      •p5.js <br>
-                      •HTML <br>
-                      •CSS </p>
+                  <p> • JavaScript <br>
+                      • p5.js <br>
+                      • HTML <br>
+                      • CSS </p>
 
                   <h1 class="insideh1"> How it works </h1>
                 
@@ -382,12 +382,12 @@ const wordleProject = `<h1 class="insideh1">Overview<img src="resources/Wordle/w
 
                   <h3> Languages/Frameworks used </h3>
 
-                  <p> •JavaScript <br>
-                      •Node.js <br>
-                      •discord.js <br>
-                      •node-cron <br>
-                      •Axios <br>
-                      •C program for executable </p>
+                  <p> • JavaScript <br>
+                      • Node.js <br>
+                      • discord.js <br>
+                      • node-cron <br>
+                      • Axios <br>
+                      • C program for executable </p>
 
                   <h1 class = "insideh1"> How it works <img src="resources/Wordle/discord.png" style = "width: 50px !important"></h1>
 
