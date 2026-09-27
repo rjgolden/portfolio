@@ -482,8 +482,6 @@ const panelData = [
     body: ``,
     links: [
       { label: "Videos", content: videos },
-      { label: "Art", content: art },
-      { label: "Lifts", content: lifts }
     ]
   }
   
