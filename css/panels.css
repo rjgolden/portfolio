@@ -108,6 +108,9 @@
   flex-direction: column;
   box-sizing: border-box;
   padding: 12px;
+  --tilt-y: 0deg;
+  transform: perspective(900px) rotateY(var(--tilt-y)) scale(.95);
+  transform-origin: center;
 }
 
 .ui-screen-close {

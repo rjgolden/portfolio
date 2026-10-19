@@ -1,4 +1,4 @@
-# Ryan Golden — Software Portfolio
+# Software Portfolio
 
 This site is inspired by the eerie ambiance of the startup interfaces of the **Nintendo GameCube and PlayStation 2** as well as old school amber and green terminals, combining a rotating 3D cube, animated particles, retro UI elements, sound effects, and customizable themes.
 
