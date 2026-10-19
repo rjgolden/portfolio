@@ -43,21 +43,51 @@
 }
 
 .ez-nav-arrow {
-  color: var(--ui-color);
-  background: transparent;
-  border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  font-family: monospace;
-  font-size: 24px;
-  line-height: 1;
-  margin-bottom: 20px;
-  opacity: 0.75;
+    width: 44px;
+    height: 44px;
+    padding: 0;
 
-  text-shadow: 0 0 8px currentColor;
-  transition:
-    opacity 0.2s ease,
-    transform 0.15s ease;
+    color: var(--ui-color);
+    background: transparent;
+    border: none;
+
+    margin-bottom: 20px;
+    opacity: 0.75;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.15s ease;
 }
+
+.ez-nav-icon {
+    width: 27px;
+    height: 27px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transform: rotate(180deg);
+
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+
+#ez-nav-prev .ez-nav-icon {
+    transform: none;
+}
+
+#ez-nav-next .ez-nav-icon {
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+
 
 .ez-nav-arrow:active {
   transform: scale(1.4);
@@ -80,9 +110,10 @@ body.light-mode #ez-nav-label {
     font-size: 8px;
   }
 
-  .ez-nav-arrow {
-    font-size: 22px;
-  }
+  .ez-nav-icon {
+    width: 25px;
+    height: 25px;
+}
 }
 
 @media (max-width: 768px) and (display-mode: standalone) {

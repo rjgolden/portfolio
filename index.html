@@ -88,10 +88,25 @@
         </div>
         <div id="ui-layer"></div>
 
-        <div id="ez-nav">
-            <button id="ez-nav-prev" class="ez-nav-arrow" type="button">←</button>
+        <div id="ez-nav">  
+            <button id="ez-nav-prev" class="ez-nav-arrow"
+                    type="button" aria-label="Previous section">
+                <svg class="ez-nav-icon" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                </svg>
+            </button>
+
             <div id="ez-nav-label">Home</div>
-            <button id="ez-nav-next" class="ez-nav-arrow" type="button">→</button>
+
+            <button id="ez-nav-next" class="ez-nav-arrow"
+                    type="button" aria-label="Next section">
+                <svg class="ez-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21 12a9 9 0 1 1-9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                    <path d="M21 3v5h-5"/>
+                </svg>
+            </button>
         </div>
     </div>
 
