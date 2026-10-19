@@ -1,10 +1,20 @@
 @media (max-width: 768px) {
   .ui-screen {
-    left: 50%;
+    left: 48%;
     top: 50%;
-    width: 95%;
+    width: 80%;
     max-height: 80dvh;
     font-size: 10px;
+  }
+
+  .ui-screen.slot-upper-right,
+  .ui-screen.slot-lower-right {
+    left: 45%;
+  }
+
+  .ui-screen.slot-upper-left,
+  .ui-screen.slot-lower-left {
+    left: 52.5%;
   }
 
   .ui-screen-close {
