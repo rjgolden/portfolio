@@ -24,7 +24,7 @@
   box-sizing: border-box;
   transform: translate(-50%, -50%);
   pointer-events: auto;
-  border-radius: 25px;
+  border-radius: 2px;
 
   color: var(--ui-color);
   background: var(--panel-bg);
@@ -34,6 +34,73 @@
   font-family: var(--font-retro);
   font-size: 14px;
   text-align: left;
+  
+  isolation: isolate;
+  z-index: 2;
+}
+
+/* Rear rectangle for pseudo-3D panels */
+.ui-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--ui-color);
+  box-shadow: 0 0 12px currentColor;
+  box-sizing: border-box;
+  transform: translate(var(--depth-x, 0px), var(--depth-y, 0px));
+  z-index: -1;
+  pointer-events: none;
+
+  /* outer rect (big enough to keep the glow), then a bridge into an inner
+     rect = the front panel's footprint in this element's local space.
+     evenodd makes the inner rect a hole. */
+  clip-path: polygon(evenodd,
+    -40px -40px,
+    calc(100% + 40px) -40px,
+    calc(100% + 40px) calc(100% + 40px),
+    -40px calc(100% + 40px),
+    -40px -40px,
+
+    calc(-1 * var(--depth-x, 0px)) calc(-1 * var(--depth-y, 0px)),
+    calc(100% - var(--depth-x, 0px)) calc(-1 * var(--depth-y, 0px)),
+    calc(100% - var(--depth-x, 0px)) calc(100% - var(--depth-y, 0px)),
+    calc(-1 * var(--depth-x, 0px)) calc(100% - var(--depth-y, 0px)),
+    calc(-1 * var(--depth-x, 0px)) calc(-1 * var(--depth-y, 0px)),
+    -40px -40px
+  );
+}
+
+.ui-screen::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% + abs(var(--depth-x, 0px)));
+  height: calc(100% + abs(var(--depth-y, 0px)));
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: -1;
+
+  /* mirror about the front panel's center, flipping per offset sign */
+  transform-origin:
+    calc(50% - abs(var(--depth-x, 0px)) / 2)
+    calc(50% - abs(var(--depth-y, 0px)) / 2);
+  transform: scale(sign(var(--depth-x, 1px)), sign(var(--depth-y, 1px)));
+
+  --line: linear-gradient(
+    to top right,
+    transparent calc(50% - 1px),
+    var(--ui-color) calc(50% - 1px),
+    var(--ui-color) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+
+  background-image: var(--line), var(--line), var(--line);
+  background-repeat: no-repeat;
+  background-size: abs(var(--depth-x, 0px)) abs(var(--depth-y, 0px));
+  background-position: right top, right bottom, left bottom;
+
+  filter: drop-shadow(0 0 6px var(--ui-color));
 }
 
 .ui-screen-content {
@@ -155,7 +222,7 @@
   width: 100%;
   margin-top: 12px;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .ui-panel-link {
@@ -175,7 +242,7 @@
   -webkit-appearance: none;
   min-height: 42px;
   line-height: 2.0;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .ui-panel-link:hover {
@@ -277,12 +344,19 @@ body.light-mode .ui-panel-link:not(.color-btn):active {
 }
 
 /* Panel placement */
-.slot-upper-left  { margin-left: -90vw; margin-top: -90vh; }
-.slot-lower-left  { margin-left: -90vw; margin-top:  90vh; }
-.slot-above       { margin-left: 0;        margin-top: -100vh; }
-.slot-below       { margin-left: 0;        margin-top:  100vh; }
-.slot-upper-right { margin-left:  90vw; margin-top: -90vh; }
-.slot-lower-right { margin-left:  90vw; margin-top:  90vh; }
+.slot-upper-left  { margin-left: -90vw; margin-top: -90vh;  }
+.slot-lower-left  { margin-left: -90vw; margin-top:  90vh;  }
+.slot-above       { margin-left: 0;     margin-top: -100vh; }
+.slot-below       { margin-left: 0;     margin-top:  100vh; }
+.slot-upper-right { margin-left: 90vw; margin-top: -90vh;   }
+.slot-lower-right { margin-left: 90vw; margin-top:  90vh;   }
+
+.slot-upper-left  { --depth-x: -25px; --depth-y: -25px; --tl:1; --tr:1; --bl:1; --br:0; }
+.slot-lower-left  { --depth-x: -35px; --depth-y:  35px; --tl:1; --tr:0; --bl:1; --br:1; }
+.slot-above { --depth-x: 15px; --depth-y: -35px; --tl:1; --tr:1; --bl:0; --br:1; }
+.slot-below { --depth-x: 15px; --depth-y:  35px; --tl:0; --tr:1; --bl:1; --br:1; }
+.slot-upper-right { --depth-x:  35px; --depth-y: -35px; --tl:1; --tr:1; --bl:0; --br:1; }
+.slot-lower-right { --depth-x:  35px; --depth-y:  35px; --tl:0; --tr:1; --bl:1; --br:1; }
 
 .ui-panel-title,
 .ui-panel-link,
