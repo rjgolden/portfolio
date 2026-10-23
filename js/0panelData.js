@@ -7,12 +7,12 @@ const about = `<h2>About Me</h2>
               
 
               <h2> Portfolio </h2>
-              <p class = "indentp"> This portfolio is based on a combination of both the GameCube and Ps2 startup animations, as well as retro amber & green terminals.
-              These are two of my favorite consoles and are the host of many of my favorite games. </p>`;
+              <p class = "indentp"> This portfolio is based on a combination of both the GameCube and Ps2 startup animations, as well as retro style amber and green terminals.
+              These are two of my favorite consoles and host of many of my favorite games. </p>`;
 
 const skills = `<h2> My Skills </h2>
                 <p><b>Programming Languages:</b> C++, C, JavaScript, Python, Dart, Lua <br><br>
-                <b>Development & Design Tools:</b> Git, Github, GDB, Aseprite, Tiled, Figma, Pico-8<br><br>
+                <b>Development & Design Tools:</b> Git, Github, GDB, Aseprite, Claude Code, Tiled, Figma, Pico-8<br><br>
                 <b>Database & Technologies:</b> SQLite, MySQL, Oracle APEX, Google Firebase<br><br>
                 <b>Frameworks & Libraries:</b> Raylib, Node.js, Three.js, Flutter<br><br>
                 <b> Other: </b> Pixel Art/Animation, UI/UX Design, Level/Map Design, Audio Design <br><br></p>
