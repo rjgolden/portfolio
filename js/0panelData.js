@@ -11,7 +11,7 @@ const about = `<h2>About Me</h2>
               These are two of my favorite consoles and host of many of my favorite games. </p>`;
 
 const skills = `<h2> My Skills </h2>
-                <p><b>Programming Languages:</b> C++, C, JavaScript, Python, Dart, Lua <br><br>
+                <p><b>Programming Languages:</b> C++, C, JavaScript, TypeScript, Python, Dart, Lua <br><br>
                 <b>Development & Design Tools:</b> Git, Github, GDB, Aseprite, Claude Code, Tiled, Figma, Pico-8<br><br>
                 <b>Database & Technologies:</b> SQLite, MySQL, Oracle APEX, Google Firebase<br><br>
                 <b>Frameworks & Libraries:</b> Raylib, Node.js, Three.js, Flutter<br><br>
